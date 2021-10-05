@@ -101,13 +101,14 @@
 		84A9E83D270BE3C700FD292F /* MELIStore */ = {
 			isa = PBXGroup;
 			children = (
+				84A9E874270BE44D00FD292F /* Modules */,
+				84A9E873270BE44200FD292F /* Resources */,
+				84A9E872270BE43400FD292F /* APIServiceManager */,
 				84A9E871270BE3DC00FD292F /* Views */,
 				84A9E83E270BE3C700FD292F /* AppDelegate.swift */,
 				84A9E840270BE3C700FD292F /* SceneDelegate.swift */,
 				84A9E842270BE3C700FD292F /* ViewController.swift */,
-				84A9E844270BE3C700FD292F /* Main.storyboard */,
 				84A9E84A270BE3C800FD292F /* Assets.xcassets */,
-				84A9E84C270BE3C800FD292F /* LaunchScreen.storyboard */,
 				84A9E84F270BE3C800FD292F /* Info.plist */,
 				84A9E847270BE3C700FD292F /* MELIStore.xcdatamodeld */,
 			);
@@ -135,8 +136,31 @@
 		84A9E871270BE3DC00FD292F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A9E84C270BE3C800FD292F /* LaunchScreen.storyboard */,
+				84A9E844270BE3C700FD292F /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		84A9E872270BE43400FD292F /* APIServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIServiceManager;
+			sourceTree = "<group>";
+		};
+		84A9E873270BE44200FD292F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84A9E874270BE44D00FD292F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
