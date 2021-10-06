@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8434FC5A270D0CA00068E5D3 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434FC59270D0CA00068E5D3 /* CategoryEntity.swift */; };
+		843BD1FE270D519000FA6C13 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BD1FC270D519000FA6C13 /* CategoryTableViewCell.swift */; };
+		843BD1FF270D519000FA6C13 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843BD1FD270D519000FA6C13 /* CategoryTableViewCell.xib */; };
+		843BD204270D671D00FA6C13 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BD203270D671D00FA6C13 /* FavoriteViewController.swift */; };
+		843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BD206270D678C00FA6C13 /* FavoriteTableViewCell.swift */; };
+		843BD209270D678C00FA6C13 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843BD207270D678C00FA6C13 /* FavoriteTableViewCell.xib */; };
+		843BD20B270D699800FA6C13 /* FavoriteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BD20A270D699800FA6C13 /* FavoriteEntity.swift */; };
 		84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9E83E270BE3C700FD292F /* AppDelegate.swift */; };
 		84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9E840270BE3C700FD292F /* SceneDelegate.swift */; };
 		84A9E843270BE3C700FD292F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9E842270BE3C700FD292F /* ViewController.swift */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8434FC59270D0CA00068E5D3 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		843BD1FC270D519000FA6C13 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		843BD1FD270D519000FA6C13 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		843BD203270D671D00FA6C13 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		843BD206270D678C00FA6C13 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		843BD207270D678C00FA6C13 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		843BD20A270D699800FA6C13 /* FavoriteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteEntity.swift; sourceTree = "<group>"; };
 		84A9E83B270BE3C700FD292F /* MELIStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MELIStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A9E83E270BE3C700FD292F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A9E840270BE3C700FD292F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +92,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8434FC4F270CD83A0068E5D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				843BD1FB270D516400FA6C13 /* categoryCell */,
+				84A9E842270BE3C700FD292F /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8434FC51270CD89B0068E5D3 /* ProductCategory */ = {
+			isa = PBXGroup;
+			children = (
+				8434FC58270D0C570068E5D3 /* Entities */,
+				8434FC4F270CD83A0068E5D3 /* View */,
+			);
+			path = ProductCategory;
+			sourceTree = "<group>";
+		};
+		8434FC52270CD8B20068E5D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		8434FC53270CD8C50068E5D3 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				843BD202270D66E500FA6C13 /* Entity */,
+				843BD200270D66D100FA6C13 /* View */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		8434FC58270D0C570068E5D3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8434FC59270D0CA00068E5D3 /* CategoryEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		843BD1FB270D516400FA6C13 /* categoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				843BD1FC270D519000FA6C13 /* CategoryTableViewCell.swift */,
+				843BD1FD270D519000FA6C13 /* CategoryTableViewCell.xib */,
+			);
+			path = categoryCell;
+			sourceTree = "<group>";
+		};
+		843BD200270D66D100FA6C13 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				843BD205270D675E00FA6C13 /* cell */,
+				843BD203270D671D00FA6C13 /* FavoriteViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		843BD202270D66E500FA6C13 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				843BD20A270D699800FA6C13 /* FavoriteEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		843BD205270D675E00FA6C13 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				843BD206270D678C00FA6C13 /* FavoriteTableViewCell.swift */,
+				843BD207270D678C00FA6C13 /* FavoriteTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		84A9E832270BE3C700FD292F = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +198,6 @@
 				84A9E871270BE3DC00FD292F /* Views */,
 				84A9E83E270BE3C700FD292F /* AppDelegate.swift */,
 				84A9E840270BE3C700FD292F /* SceneDelegate.swift */,
-				84A9E842270BE3C700FD292F /* ViewController.swift */,
 				84A9E84A270BE3C800FD292F /* Assets.xcassets */,
 				84A9E84F270BE3C800FD292F /* Info.plist */,
 				84A9E847270BE3C700FD292F /* MELIStore.xcdatamodeld */,
@@ -159,6 +249,9 @@
 		84A9E874270BE44D00FD292F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8434FC53270CD8C50068E5D3 /* Favorites */,
+				8434FC52270CD8B20068E5D3 /* Products */,
+				8434FC51270CD89B0068E5D3 /* ProductCategory */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -268,7 +361,9 @@
 			files = (
 				84A9E84E270BE3C800FD292F /* LaunchScreen.storyboard in Resources */,
 				84A9E84B270BE3C800FD292F /* Assets.xcassets in Resources */,
+				843BD209270D678C00FA6C13 /* FavoriteTableViewCell.xib in Resources */,
 				84A9E846270BE3C700FD292F /* Main.storyboard in Resources */,
+				843BD1FF270D519000FA6C13 /* CategoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,9 +389,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A9E843270BE3C700FD292F /* ViewController.swift in Sources */,
+				843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */,
 				84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */,
 				84A9E849270BE3C700FD292F /* MELIStore.xcdatamodeld in Sources */,
+				843BD20B270D699800FA6C13 /* FavoriteEntity.swift in Sources */,
+				843BD204270D671D00FA6C13 /* FavoriteViewController.swift in Sources */,
+				8434FC5A270D0CA00068E5D3 /* CategoryEntity.swift in Sources */,
 				84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */,
+				843BD1FE270D519000FA6C13 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
