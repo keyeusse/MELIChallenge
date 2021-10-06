@@ -9,17 +9,6 @@ import UIKit
 
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        favorites.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.idCell, for: indexPath) as! FavoriteTableViewCell
-        cell.setUpFavoriteCell(with: favorites[indexPath.row])
-        return cell
-    }
-    
-
     
     @IBOutlet weak var favoriteTableView: UITableView!
     
@@ -27,11 +16,12 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupCollectionView()
+        setupCollectionView()
+        setFavorites()
         // Do any additional setup after loading the view.
     }
     
-
+//setUp table properties
     private func setupCollectionView() {
         
         self.favoriteTableView.register(FavoriteTableViewCell.nib(), forCellReuseIdentifier: FavoriteTableViewCell.idCell)
@@ -41,9 +31,25 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
+    //MARK: - TABLE VIEW SETTINGS
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.idCell, for: indexPath) as! FavoriteTableViewCell
+        cell.setUpFavoriteCell(with: favorites[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        favorites.count
+    }
+    
+    
     func setFavorites() {
         
-        var highhills = Favorite()                         // Set up
+        var highhills = Favorite()
         highhills.name = "Tacones"
         highhills.fees = "36 cuotas"
         highhills.price = "$90.900"

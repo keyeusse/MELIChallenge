@@ -9,23 +9,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var catTableView: UITableView!
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell, for: indexPath) as! CategoryTableViewCell
-        cell.setUpCell(with: categories[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-   
     var categories = [CategoryDetail]()
     
     override func viewDidLoad() {
@@ -46,6 +32,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell, for: indexPath) as! CategoryTableViewCell
+        cell.setUpCell(with: categories[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+   
+   
     func setCategories() {
         
         var highhills = CategoryDetail()                         // Set up
@@ -65,8 +68,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
 }
-
-//extension ViewController: UICollectionViewDelegateFlowLayout{
-//    
-//}
 
