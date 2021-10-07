@@ -6,33 +6,62 @@
 //
 import Foundation
 
-struct Products: Codable {
+struct Product: Codable, Identifiable {
+    var id: String
     var siteId: String
-    var paging: Paging
-    var products: [Product]
-    
+    var title: String
+    var price: Double
+    var currency: String
+    var availability: Int?
+    var soldQuantity: Int?
+    var image: String?
+    var installments: Installment?
+    var shipping: Shipping?
+
     enum CodingKeys: String, CodingKey {
+        case id
         case siteId = "site_id"
-        case paging
-        case products = "results"
+        case title
+        case price
+        case currency = "currency_id"
+        case availability = "available_quantity"
+        case soldQuantity = "sold_quantity"
+        case image = "thumbnail"
+        case installments
+        case shipping
+    }
+    
+    //This is being used only for SwiftUI preview in order to keep the beneffits of this tool
+    init() {
+        id = ""
+        siteId = ""
+        title = ""
+        price = 0
+        currency = ""
     }
 }
 
-enum ProductServiceType {
-    case categoryProducts
-    case searchProducts
-}
-
-struct Paging: Codable {
-    var total: Int
-    var offset: Int
-    var limit: Int
-    var primaryResults: Int
+struct Installment: Codable {
+    var quantity: Int
+    var amount: Double
+    var rate: Double
+    var currency: String
     
     enum CodingKeys: String, CodingKey {
-        case total
-        case offset
-        case limit
-        case primaryResults = "primary_results"
+        case quantity
+        case amount
+        case rate
+        case currency =  "currency_id"
+    }
+}
+
+struct Shipping: Codable {
+    
+    var freeShipping: Bool
+    var storePickUp: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case freeShipping = "free_shipping"
+        case storePickUp = "store_pick_up"
     }
 }

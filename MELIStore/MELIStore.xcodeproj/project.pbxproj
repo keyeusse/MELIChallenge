@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C923385F1582DAB32EA3BFC /* Pods_MELIStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */; };
+		8433C555270E9E22001AF8C8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C554270E9E22001AF8C8 /* APIClient.swift */; };
+		8433C557270E9E3C001AF8C8 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C556270E9E3C001AF8C8 /* APIConstants.swift */; };
 		8434FC5A270D0CA00068E5D3 /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434FC59270D0CA00068E5D3 /* CategoryEntity.swift */; };
 		843BD1FE270D519000FA6C13 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BD1FC270D519000FA6C13 /* CategoryTableViewCell.swift */; };
 		843BD1FF270D519000FA6C13 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843BD1FD270D519000FA6C13 /* CategoryTableViewCell.xib */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39119AD8440A47732BE554E7 /* Pods-MELIStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.debug.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.debug.xcconfig"; sourceTree = "<group>"; };
+		8433C554270E9E22001AF8C8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		8433C556270E9E3C001AF8C8 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		8434FC59270D0CA00068E5D3 /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
 		843BD1FC270D519000FA6C13 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		843BD1FD270D519000FA6C13 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		84A9E85F270BE3C900FD292F /* MELIStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MELIStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A9E863270BE3C900FD292F /* MELIStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MELIStoreUITests.swift; sourceTree = "<group>"; };
 		84A9E865270BE3C900FD292F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
+		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C923385F1582DAB32EA3BFC /* Pods_MELIStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6470F4AC66B1BDCA3AF5C29D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8434FC4F270CD83A0068E5D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +239,8 @@
 				84A9E857270BE3C900FD292F /* MELIStoreTests */,
 				84A9E862270BE3C900FD292F /* MELIStoreUITests */,
 				84A9E83C270BE3C700FD292F /* Products */,
+				9DA0C13CFA44A4B08282853F /* Pods */,
+				6470F4AC66B1BDCA3AF5C29D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +300,8 @@
 		84A9E872270BE43400FD292F /* APIServiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				8433C554270E9E22001AF8C8 /* APIClient.swift */,
+				8433C556270E9E3C001AF8C8 /* APIConstants.swift */,
 			);
 			path = APIServiceManager;
 			sourceTree = "<group>";
@@ -303,6 +324,15 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		9DA0C13CFA44A4B08282853F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39119AD8440A47732BE554E7 /* Pods-MELIStore.debug.xcconfig */,
+				C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,9 +340,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A9E868270BE3C900FD292F /* Build configuration list for PBXNativeTarget "MELIStore" */;
 			buildPhases = (
+				DAA7B685F972E805034E48AA /* [CP] Check Pods Manifest.lock */,
 				84A9E837270BE3C700FD292F /* Sources */,
 				84A9E838270BE3C700FD292F /* Frameworks */,
 				84A9E839270BE3C700FD292F /* Resources */,
+				4B9EC920802F109CC535CE8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,12 +463,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B9EC920802F109CC535CE8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MELIStore/Pods-MELIStore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MELIStore/Pods-MELIStore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MELIStore/Pods-MELIStore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAA7B685F972E805034E48AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MELIStore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84A9E837270BE3C700FD292F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				84A9E843270BE3C700FD292F /* ViewController.swift in Sources */,
+				8433C555270E9E22001AF8C8 /* APIClient.swift in Sources */,
 				843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */,
 				84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */,
 				84A9E849270BE3C700FD292F /* MELIStore.xcdatamodeld in Sources */,
@@ -446,6 +521,7 @@
 				843BD219270E049200FA6C13 /* ProductDetail.swift in Sources */,
 				843BD212270DFFBC00FA6C13 /* ProductTableViewCell.swift in Sources */,
 				84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */,
+				8433C557270E9E3C001AF8C8 /* APIConstants.swift in Sources */,
 				843BD216270E032200FA6C13 /* Products.swift in Sources */,
 				843BD20E270DFE6700FA6C13 /* ProductViewController.swift in Sources */,
 				843BD1FE270D519000FA6C13 /* CategoryTableViewCell.swift in Sources */,
@@ -621,6 +697,7 @@
 		};
 		84A9E869270BE3C900FD292F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39119AD8440A47732BE554E7 /* Pods-MELIStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -640,6 +717,7 @@
 		};
 		84A9E86A270BE3C900FD292F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

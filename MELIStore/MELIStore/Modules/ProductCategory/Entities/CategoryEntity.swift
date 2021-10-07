@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct CategoryEntity: Codable, Identifiable {
+struct CategoryEntity: Decodable, Identifiable {
     var id: String
     var name: String
-    var image: String
 }
 
 struct CategoryDetail: Codable, Identifiable {
@@ -21,7 +20,7 @@ struct CategoryDetail: Codable, Identifiable {
     init(category: CategoryEntity) {
         id = category.id
         name = category.name
-        image = category.image
+        image = "https://static.wikia.nocookie.net/videojuego/images/9/9c/Imagen_no_disponible-0.png/revision/latest?cb=20170910134200"
     }
     
     //inizialize category object
@@ -31,3 +30,5 @@ struct CategoryDetail: Codable, Identifiable {
         image = ""
     }
 }
+
+
