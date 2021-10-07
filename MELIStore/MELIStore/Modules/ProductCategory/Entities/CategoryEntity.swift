@@ -10,6 +10,7 @@ import Foundation
 struct CategoryEntity: Codable, Identifiable {
     var id: String
     var name: String
+    var image: String
 }
 
 struct CategoryDetail: Codable, Identifiable {
@@ -20,7 +21,7 @@ struct CategoryDetail: Codable, Identifiable {
     init(category: CategoryEntity) {
         id = category.id
         name = category.name
-        image = ""
+        image = category.image
     }
     
     //inizialize category object

@@ -299,7 +299,7 @@
         <!--Productos-->
         <scene sceneID="kkR-2I-W39">
             <objects>
-                <viewController id="8dc-uF-Hvq" sceneMemberID="viewController">
+                <viewController id="8dc-uF-Hvq" customClass="ProductViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxH-VU-jSz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,6 +333,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Productos" id="aG1-LA-aMs"/>
                     <connections>
+                        <outlet property="productsTableView" destination="09d-TX-x6h" id="M78-z0-Fyb"/>
                         <segue destination="OLK-hR-bUP" kind="push" id="gDy-6v-1O7"/>
                     </connections>
                 </viewController>
