@@ -18,59 +18,77 @@ protocol APIResponseProtocol {
 }
 
 protocol APIClientProtocol: AnyObject {
-  func getAllCategoiesList(url: APIServiceUrls)
+  func getAllCategoriesList(url: APIServiceUrls, siteId : String)
     func getCategoryList(url: APIServiceUrls, idCategory : String)
-    func getProductsByCategoryList(url: APIServiceUrls, idCategory : String)
+    func getProductsByCategoryList(url: APIServiceUrls, idCategory : String, siteId : String)
     func getProductDetail(url: APIServiceUrls, idProduct : String)
-    func getProductsSearchList(url: APIServiceUrls, categoryName : String)
+    func getProductsSearchList(url: APIServiceUrls, categoryName : String, siteId : String)
 }
 
 
-/*
-// MARK: - Call to api services movies and genres
+
+// MARK: - Call to api services from Mercado libre
 class APIClient: APIClientProtocol {
     
-//    call api service for searching products
-    func getProductsSearchList(url: APIServiceUrls, categoryName: String) {
-        
-    }
+    var delegate: APIResponseProtocol?
     
-//    call api service to list all categories
-    func getAllCategoiesList(url: APIServiceUrls) {
+    init() {}
+    
+//  Api call to all categories
+    func getAllCategoriesList(url: APIServiceUrls, siteId: String) {
         let URL = url.rawValue
-//        let fullPathURL = URL.replacingOccurrences(of: "{siteId}", with: siteId)
+        let fullPathURL = URL.replacingOccurrences(of: "{siteId}", with: siteId)
         
-        let response = Alamofire.request(URL)
-        
-        print(response)
+        AF.request(fullPathURL).validate().responseDecodable(of: CategoryDetail.self) { (response) in
+          guard let categories = response.value else { return }
+        }
     }
     
-//    Call api service to list category with details
+//    Api call to load ifo about categories
     func getCategoryList(url: APIServiceUrls, idCategory: String) {
-        <#code#>
+        let URL = url.rawValue
+        let fullPathURL = URL + idCategory
+        
+        AF.request(fullPathURL).validate().responseDecodable(of: CategoryEntity.self) { (response) in
+          guard let category = response.value else { return }
+        }
     }
     
-//    call api service to list products by category id
-    func getProductsByCategoryList(url: APIServiceUrls, idCategory: String) {
-        <#code#>
+//    Api call to load product list by category
+    func getProductsByCategoryList(url: APIServiceUrls, idCategory: String, siteId: String) {
+        let URL = url.rawValue
+        let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId)
+        let fullPathURL = replaceSite + idCategory
+        
+        AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
+          guard let category = response.value else { return }
+        }
     }
     
-//    call api service to load details for selected product
+//  Api call to load product detail by id
     func getProductDetail(url: APIServiceUrls, idProduct: String) {
-        <#code#>
+        let fullPathURL = url.rawValue + idProduct
+        
+        AF.request(fullPathURL).validate().responseDecodable(of: Product.self) { (response) in
+          guard let product = response.value else { return }
+        }
     }
     
-  
-  var delegate: APIResponseProtocol?
-  
-  init() {}
-
-// check connection to internet
-class ConnectivityToIntenet {
-  class var isConnectedToInternet: Bool {
-    return NetworkReachabilityManager()?.isReachable ?? false
-  }
-}
+//    Api call for searching products
+    func getProductsSearchList(url: APIServiceUrls, categoryName: String, siteId : String) {
+        let URL = url.rawValue
+        let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId)
+        let fullPathURL = replaceSite + categoryName
+        
+        AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
+          guard let products = response.value else { return }
+        }
+    }
     
+    // check connection to internet
+    class ConnectivityToIntenet {
+      class var isConnectedToInternet: Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+      }
+    }
 }
- */

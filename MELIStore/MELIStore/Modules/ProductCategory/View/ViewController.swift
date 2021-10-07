@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
        setCategories()
        setupCollectionView()
-        // Do any additional setup after loading the view.
     }
 
     
@@ -30,7 +29,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.catTableView.dataSource = self
         self.catTableView.rowHeight = UITableView.automaticDimension
         self.catTableView.delegate = self
-
     }
     
     
@@ -52,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
     func setCategories() {
         
-        var highhills = CategoryDetail()                         // Set up
+        var highhills = CategoryDetail()
         highhills.name = "Tacones"
         highhills.image = "highhills"
 
