@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 230
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
