@@ -22,8 +22,16 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
         interactor?.getNumberOfItemsAt(index) ?? 0
     }
     
+    func getItemAtCategory() -> CategoryDetail? {
+        interactor?.getItemCategoryAt()
+    }
+    
     func loadCategoriesData() {
         interactor?.loadCategoriesData()
+    }
+    
+    func loadCategoryData(id: String) {
+        interactor?.loadCategoryData(id: id)
     }
     
     func showCategoriesView(for products: Products, from view: UIViewController) {
@@ -34,6 +42,9 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
 
 // MARK: - RECEIVED FROM INTERACTOR
 extension ProductCategoryPresenter: ProductCategoryInteractorOutputProtocol {
+    func updateCategoryData() {
+        view?.loadCategory()
+    }
     
     func updateData() {
         view?.loadCategories()

@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var catTableView: UITableView!
     
     var categories = [CategoryDetail]()
+    var categoryDetail = CategoryDetail()
     private let apiClient = APIClient()
     
     // MARK: - VIPER
@@ -42,12 +44,20 @@ class ViewController: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell, for: indexPath) as! CategoryTableViewCell
-//        cell.setUpCell(with: categories[indexPath.row])
-        
         guard let category = getItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell) as? CategoryTableViewCell else { return UITableViewCell()}
-        cell.setUpCell(with: category.name, id: category.id )
+//        presenter?.loadCategoryData(id: category.id)
+//        categoryDetail = presenter?.getItemAtCategory() ?? CategoryDetail()
+        
+        let URL2 = "https://api.mercadolibre.com/categories/" + category.id
+
+                let request2 = AF.request(URL2)
+                request2.responseDecodable(of: CategoryDetail.self) { (response) in
+                  guard let category = response.value else { return }
+                    print(category)
+                    cell.setUpCell(category: category)
+                }
+//        cell.setUpCell(category: categoryDetail)
         return cell
     }
     
@@ -121,11 +131,11 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-}
-
 extension ViewController: ProductCategoryViewProtocol {
+    func loadCategory() {
+        self.catTableView.reloadData()
+    }
+    
     func showErrorMessage(_ message: String) {
     }
     

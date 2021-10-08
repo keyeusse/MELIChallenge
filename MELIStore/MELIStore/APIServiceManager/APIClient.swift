@@ -88,6 +88,7 @@ class APIClient: APIClientProtocol {
             switch response.result {
             case .success(let results):
               self.categoryDelegate?.getCategoryResult(data: results)
+                print(results)
             case .failure(let error):
               self.categoryDelegate?.onFailure(error)
             }

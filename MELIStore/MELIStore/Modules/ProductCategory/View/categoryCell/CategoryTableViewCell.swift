@@ -20,6 +20,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     static let idCell = "CategoryTableViewCell"
     
+    
     static func nib() -> UINib{
         return UINib(nibName: "CategoryTableViewCell", bundle: nil)
     }
@@ -32,11 +33,22 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setUpCell(with name : String, id: String) {
-        self.name = name
-        titleLabel.text = name
-//        categoryImageView.image = UIImage(named: category.picture)
+    func setUpCell(category : CategoryDetail) {
+        self.category = category
+        titleLabel.text = category.name
         
+        // Create URL
+        let url = URL(string: category.picture)!
+        
+        print(url)
+
+           // Fetch Image Data
+           if let data = try? Data(contentsOf: url) {
+               // Create Image and Update Image View
+            categoryImageView.image = UIImage(data: data)
+           }
+//        https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png
+//        
         let yourColor : UIColor = UIColor.lightGray
         viewCell.layer.masksToBounds = true
         viewCell.layer.borderColor = yourColor.cgColor

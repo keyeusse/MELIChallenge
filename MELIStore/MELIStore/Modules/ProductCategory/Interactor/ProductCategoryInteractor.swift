@@ -12,6 +12,7 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     weak var presenter: ProductCategoryInteractorOutputProtocol?
     private let apiClient = APIClient()
     private var categoriesResults: [CategoryEntity]?
+    private var categoryResults: CategoryDetail?
     
     
     func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
@@ -23,17 +24,25 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
         apiClient.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
     }
     
+    func loadCategoryData(id: String) {
+        apiClient.categoryDelegate = self
+        apiClient.getCategoryList(url: .categoryInfo, idCategory: id)
+    }
+    
     func getNumberOfItemsAt(_ index: Int) -> Int {
         return categoriesResults?.count ?? 0
+    }
+    
+    func getItemCategoryAt() -> CategoryDetail? {
+        return categoryResults
     }
 
 }
 
-//API Calls for movies and series
+//API Calls for all categories
 extension ProductCategoryInteractor: APICategoriesResponseProtocol {
     func getCategoriesResult(data: [CategoryEntity]) {
         self.categoriesResults = data
-        print(data)
         self.presenter?.updateData()
     }
     
@@ -42,5 +51,13 @@ extension ProductCategoryInteractor: APICategoriesResponseProtocol {
   func onFailure(_ error: Error) {
     presenter?.receivedError(error)
   }
+}
+
+//API Calls for all categories
+extension ProductCategoryInteractor: APICategoryResponseProtocol {
+    func getCategoryResult(data: CategoryDetail) {
+        self.categoryResults = data
+        self.presenter?.updateCategoryData()
+    }
 }
 

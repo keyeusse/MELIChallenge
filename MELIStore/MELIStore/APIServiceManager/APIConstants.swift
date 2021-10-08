@@ -17,8 +17,8 @@ import Foundation
 // Api urls to call api products
 public enum APIServiceUrls: String {
   case categoriesAll = "https://api.mercadolibre.com/sites/{siteId}/categories"
-  case categoryInfo = "https://api.mercadolibre.com/categories/{id}"
-  case categoryProducts = "https://api.mercadolibre.com/sites/{siteId}/search?q={categoryName}"
+  case categoryInfo = "https://api.mercadolibre.com/categories/"
+  case categoryProducts = "https://api.mercadolibre.com/sites/{siteId}/search?q="
   case product = "https://api.mercadolibre.com/items/{idProduct}"
   case productDescription = "https://api.mercadolibre.com/items/{idProduct}/description"
 }

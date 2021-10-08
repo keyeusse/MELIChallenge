@@ -12,6 +12,7 @@ protocol ProductCategoryViewProtocol: AnyObject {
   var presenter: ProductCategoryPresenterProtocol? { get set}
   // PRESENTER -> VIEW
   func loadCategories()
+  func loadCategory()
   func showErrorMessage(_ message: String)
 }
 
@@ -22,8 +23,10 @@ protocol ProductCategoryPresenterProtocol: AnyObject {
     
   // VIEW -> PRESENTER
   func getItemAt(indexPath: IndexPath) -> CategoryEntity?
+  func getItemAtCategory() -> CategoryDetail?
   func getNumberOfItemsAt(_ index: Int) -> Int
   func loadCategoriesData()
+  func loadCategoryData(id: String)
     
   // Show Products List Views
   func showCategoriesView(for products: Products, from view: UIViewController)
@@ -34,13 +37,17 @@ protocol ProductCategoryInteractorInputProtocol: AnyObject {
 
   // PRESENTER -> INTERACTOR
   func loadCategoriesData()
+  func loadCategoryData(id: String)
   func getNumberOfItemsAt(_ index: Int) -> Int
   func getItemAt(_ indexPath: IndexPath) -> CategoryEntity?
+  func getItemCategoryAt() -> CategoryDetail?
+    
 }
 
 protocol ProductCategoryInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
   func updateData()
+  func updateCategoryData()
   func receivedError(_ error: Error)
 }
 
