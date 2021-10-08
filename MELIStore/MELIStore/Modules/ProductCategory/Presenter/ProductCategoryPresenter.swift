@@ -34,8 +34,8 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
         interactor?.loadCategoryData(id: id)
     }
     
-    func showCategoriesView(for products: Products, from view: UIViewController) {
-        router?.presentProductsView(for: products, from: view)
+    func showProductListView(for categoryId: String, from view: UIViewController) {
+        router?.presentProductsView(for: categoryId, from: view)
     }
 
 }

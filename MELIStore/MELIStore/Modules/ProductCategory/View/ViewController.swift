@@ -68,6 +68,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
       return presenter?.getItemAt(indexPath: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      guard let category = getItemAt(indexPath) else { return }
+        presenter?.showProductListView(for: category.id, from: self)
+      self.catTableView.deselectRow(at: indexPath, animated: true)
+    }
    
     func setCategories() {
         

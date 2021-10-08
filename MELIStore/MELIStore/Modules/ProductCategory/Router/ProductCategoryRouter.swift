@@ -9,10 +9,11 @@ import UIKit
 
 //Class to navegatio between VC
 class ProductCategoryRouter: ProductCategoryRouterProtocol {
-    func presentProductsView(for item: Products, from view: UIViewController) {
-//        guard let productListView = view.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? ProductViewController else { return }
-//        MovieDetailRouter.createMovieTrailerModule(for: productListView, and: movie)
-//        view.navigationController?.pushViewController(detailView, animated: true)
+    
+    func presentProductsView(for categoryId: String, from view: UIViewController) {
+        guard let productListView = view.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else { return }
+        ProductsRouter.createProductsModule(for: productListView, and: categoryId)
+           view.navigationController?.pushViewController(productListView, animated: true)
     }
     
   

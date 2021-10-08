@@ -299,7 +299,7 @@
         <!--Productos-->
         <scene sceneID="kkR-2I-W39">
             <objects>
-                <viewController id="8dc-uF-Hvq" customClass="ProductViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductViewController" id="8dc-uF-Hvq" customClass="ProductViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxH-VU-jSz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

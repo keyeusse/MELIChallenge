@@ -29,7 +29,7 @@ protocol ProductCategoryPresenterProtocol: AnyObject {
   func loadCategoryData(id: String)
     
   // Show Products List Views
-  func showCategoriesView(for products: Products, from view: UIViewController)
+    func showProductListView(for categoryId: String, from view: UIViewController)
 }
 
 protocol ProductCategoryInteractorInputProtocol: AnyObject {
@@ -53,7 +53,7 @@ protocol ProductCategoryInteractorOutputProtocol: AnyObject {
 
 protocol ProductCategoryRouterProtocol: AnyObject {
   // PRESENTER -> ROUTER
-  func presentProductsView(for item: Products, from view: UIViewController)
+  func presentProductsView(for categoryId: String, from view: UIViewController)
 }
 
 /*
