@@ -15,6 +15,8 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var viewCell: UIView!
     
     var category = CategoryDetail()
+    var name = ""
+    var id = ""
     
     static let idCell = "CategoryTableViewCell"
     
@@ -30,10 +32,10 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setUpCell(with category : CategoryDetail) {
-        self.category = category
-        titleLabel.text = category.name
-        categoryImageView.image = UIImage(named: category.image)
+    func setUpCell(with name : String, id: String) {
+        self.name = name
+        titleLabel.text = name
+//        categoryImageView.image = UIImage(named: category.picture)
         
         let yourColor : UIColor = UIColor.lightGray
         viewCell.layer.masksToBounds = true

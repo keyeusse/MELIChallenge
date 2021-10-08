@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct CategoryEntity: Decodable, Identifiable {
+struct CategoryEntity: Codable {
     var id: String
     var name: String
 }
 
-struct CategoryDetail: Codable, Identifiable {
+struct CategoryDetail: Codable {
     var id: String
     var name: String
-    var image: String
+    var picture: String
     
     init(category: CategoryEntity) {
         id = category.id
         name = category.name
-        image = "https://static.wikia.nocookie.net/videojuego/images/9/9c/Imagen_no_disponible-0.png/revision/latest?cb=20170910134200"
+        picture = ""
     }
     
-    //inizialize category object
+    //This is being used only for SwiftUI preview in order to keep the beneffits of this tool
     init() {
         id = ""
         name = ""
-        image = ""
+        picture = ""
     }
 }
 

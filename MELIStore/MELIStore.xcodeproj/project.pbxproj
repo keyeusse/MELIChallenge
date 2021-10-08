@@ -31,6 +31,10 @@
 		84A9E84E270BE3C800FD292F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A9E84C270BE3C800FD292F /* LaunchScreen.storyboard */; };
 		84A9E859270BE3C900FD292F /* MELIStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9E858270BE3C900FD292F /* MELIStoreTests.swift */; };
 		84A9E864270BE3C900FD292F /* MELIStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9E863270BE3C900FD292F /* MELIStoreUITests.swift */; };
+		84ABDEFB270F846E00DB71FD /* ProductCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDEFA270F846E00DB71FD /* ProductCategoryProtocol.swift */; };
+		84ABDEFE270F855A00DB71FD /* ProductCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDEFD270F855A00DB71FD /* ProductCategoryPresenter.swift */; };
+		84ABDF01270F9ABE00DB71FD /* ProductCategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF00270F9ABE00DB71FD /* ProductCategoryInteractor.swift */; };
+		84ABDF04270FF6C100DB71FD /* ProductCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF03270FF6C100DB71FD /* ProductCategoryRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		84A9E85F270BE3C900FD292F /* MELIStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MELIStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A9E863270BE3C900FD292F /* MELIStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MELIStoreUITests.swift; sourceTree = "<group>"; };
 		84A9E865270BE3C900FD292F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84ABDEFA270F846E00DB71FD /* ProductCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryProtocol.swift; sourceTree = "<group>"; };
+		84ABDEFD270F855A00DB71FD /* ProductCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryPresenter.swift; sourceTree = "<group>"; };
+		84ABDF00270F9ABE00DB71FD /* ProductCategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryInteractor.swift; sourceTree = "<group>"; };
+		84ABDF03270FF6C100DB71FD /* ProductCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryRouter.swift; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +139,10 @@
 		8434FC51270CD89B0068E5D3 /* ProductCategory */ = {
 			isa = PBXGroup;
 			children = (
+				84ABDF02270FF68200DB71FD /* Router */,
+				84ABDEFF270F9AA200DB71FD /* Interactor */,
+				84ABDEFC270F853B00DB71FD /* Presenter */,
+				84ABDEF9270F843400DB71FD /* Protocols */,
 				8434FC58270D0C570068E5D3 /* Entities */,
 				8434FC4F270CD83A0068E5D3 /* View */,
 			);
@@ -324,6 +336,38 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		84ABDEF9270F843400DB71FD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDEFA270F846E00DB71FD /* ProductCategoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		84ABDEFC270F853B00DB71FD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDEFD270F855A00DB71FD /* ProductCategoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84ABDEFF270F9AA200DB71FD /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF00270F9ABE00DB71FD /* ProductCategoryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		84ABDF02270FF68200DB71FD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF03270FF6C100DB71FD /* ProductCategoryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		9DA0C13CFA44A4B08282853F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,11 +558,15 @@
 				8433C555270E9E22001AF8C8 /* APIClient.swift in Sources */,
 				843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */,
 				84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */,
+				84ABDF01270F9ABE00DB71FD /* ProductCategoryInteractor.swift in Sources */,
+				84ABDF04270FF6C100DB71FD /* ProductCategoryRouter.swift in Sources */,
+				84ABDEFE270F855A00DB71FD /* ProductCategoryPresenter.swift in Sources */,
 				84A9E849270BE3C700FD292F /* MELIStore.xcdatamodeld in Sources */,
 				843BD20B270D699800FA6C13 /* FavoriteEntity.swift in Sources */,
 				843BD204270D671D00FA6C13 /* FavoriteViewController.swift in Sources */,
 				8434FC5A270D0CA00068E5D3 /* CategoryEntity.swift in Sources */,
 				843BD219270E049200FA6C13 /* ProductDetail.swift in Sources */,
+				84ABDEFB270F846E00DB71FD /* ProductCategoryProtocol.swift in Sources */,
 				843BD212270DFFBC00FA6C13 /* ProductTableViewCell.swift in Sources */,
 				84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */,
 				8433C557270E9E3C001AF8C8 /* APIConstants.swift in Sources */,

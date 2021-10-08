@@ -11,13 +11,13 @@ struct Products: Codable {
     var siteId: String
     var paging: Paging
     var query: String
-    var products: [Product]
+    var result: [Product]
     
     enum CodingKeys: String, CodingKey {
         case siteId = "site_id"
         case paging
         case query
-        case products = "results"
+        case result = "results"
     }
 }
 

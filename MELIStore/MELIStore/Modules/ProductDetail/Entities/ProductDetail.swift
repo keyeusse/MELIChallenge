@@ -65,3 +65,13 @@ struct Shipping: Codable {
         case storePickUp = "store_pick_up"
     }
 }
+
+struct ProductDetailDescription: Codable {
+    var text: String
+    var plainText: String
+    
+    enum CodingKeys: String, CodingKey {
+        case text
+        case plainText = "plain_text"
+    }
+}
