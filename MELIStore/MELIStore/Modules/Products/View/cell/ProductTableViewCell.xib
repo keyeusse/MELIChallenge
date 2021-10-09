@@ -96,7 +96,7 @@
                 <outlet property="favoriteButton" destination="Vhb-cm-fsQ" id="Xrs-K4-qbA"/>
                 <outlet property="feesLabel" destination="z3D-iK-BhI" id="9Da-6F-0lA"/>
                 <outlet property="priceLabel" destination="M5N-o6-wyE" id="xED-tb-Oh7"/>
-                <outlet property="productImage" destination="bdz-qa-fgG" id="6Pl-fq-Kti"/>
+                <outlet property="productImage" destination="uR4-9W-tMy" id="a7t-7R-1lq"/>
                 <outlet property="productNameLabel" destination="w1w-SF-Xzv" id="0JU-Yc-d3R"/>
                 <outlet property="sendLabel" destination="Wvy-ko-yyJ" id="d6c-vU-O1Q"/>
                 <outlet property="totalView" destination="bdz-qa-fgG" id="h8Q-33-hNx"/>

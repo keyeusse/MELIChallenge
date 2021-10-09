@@ -88,7 +88,6 @@ class APIClient: APIClientProtocol {
             switch response.result {
             case .success(let results):
               self.categoryDelegate?.getCategoryResult(data: results)
-                print(results)
             case .failure(let error):
               self.categoryDelegate?.onFailure(error)
             }
@@ -99,13 +98,13 @@ class APIClient: APIClientProtocol {
     func getProductsByCategoryList(url: APIServiceUrls, idCategory: String, siteId: APIProductSiteId) {
         let URL = url.rawValue
         let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId.rawValue)
-        let replaceBlankSpace = replaceSite.replacingOccurrences(of: " ", with: "%")
-        let fullPathURL = replaceBlankSpace + idCategory
+        let fullPathURL = replaceSite + idCategory
         
         AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
             switch response.result {
             case .success(let results):
                 self.productsByCategoryDelegate?.getProductsByCategoryResult(data: results)
+                print(results)
             case .failure(let error):
               self.productsByCategoryDelegate?.onFailure(error)
             }

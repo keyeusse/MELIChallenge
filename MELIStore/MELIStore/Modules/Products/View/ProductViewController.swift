@@ -11,23 +11,43 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 //    VIPER
     var presenter: ProductsPresenterProtocol?
-    
+
+    var categoryId: String?
 
     @IBOutlet weak var productsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter?.loadProdutsData(categoryId: "")
+        presenter?.loadProdutsData(categoryId: categoryId ?? "")
+        
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+
+        self.productsTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
+        self.productsTableView.dataSource = self
+        self.productsTableView.rowHeight = UITableView.automaticDimension
+        self.productsTableView.delegate = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        presenter?.getNumberOfItemsAt(section)  ?? 0
+    }
+    
+    private func getItemAt(_ indexPath: IndexPath) -> Products? {
+        return presenter?.getItemAtProducts()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell, for: indexPath) as! CategoryTableViewCell
-//        cell.setUpCell(with: categories[indexPath.row])
+        guard let product = getItemAt(indexPath),
+              let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
+        cell.setUpCell(product: product.result[indexPath.row])
         return cell
     }
 

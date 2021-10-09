@@ -60,7 +60,7 @@ class ProductsPresenter: ProductsPresenterProtocol {
 extension ProductsPresenter: ProductsInteractorOutputProtocol {
     
     func updateProductData() {
-        
+        view?.loadProductList()
     }
     
     

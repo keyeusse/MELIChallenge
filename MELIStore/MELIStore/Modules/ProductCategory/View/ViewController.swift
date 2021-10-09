@@ -27,10 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         presenter?.loadCategoriesData()
         
        setCategories()
-       setupCollectionView()
+        setupTableView()
     }
 
-    private func setupCollectionView() {
+    private func setupTableView() {
 
         self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
         self.catTableView.dataSource = self
@@ -54,7 +54,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let request2 = AF.request(URL2)
                 request2.responseDecodable(of: CategoryDetail.self) { (response) in
                   guard let category = response.value else { return }
-                    print(category)
                     cell.setUpCell(category: category)
                 }
 //        cell.setUpCell(category: categoryDetail)
@@ -62,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+        return 300
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
@@ -71,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       guard let category = getItemAt(indexPath) else { return }
-        presenter?.showProductListView(for: category.id, from: self)
+        presenter?.showProductListView(for: category.name, from: self)
       self.catTableView.deselectRow(at: indexPath, animated: true)
     }
    
