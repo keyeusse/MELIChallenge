@@ -19,7 +19,7 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     }
     
     func getNumberOfItemsAt(_ index: Int) -> Int {
-        interactor?.getNumberOfItemsAt(index) ?? 0
+        interactor?.getNumberOfItemsAt(index) ?? 5
     }
     
     func getItemAtCategory() -> CategoryDetail? {

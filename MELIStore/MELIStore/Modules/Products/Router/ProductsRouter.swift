@@ -11,7 +11,9 @@ import UIKit
 class ProductsRouter: ProductsRouterProtocol {
     
     func presentProductDetailView(for product: Product, from view: UIViewController) {
-        
+        guard let detailProductListView = view.storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController else { return }
+        detailProductListView.product = product
+        view.navigationController?.pushViewController(detailProductListView, animated: true)
     }
     
     

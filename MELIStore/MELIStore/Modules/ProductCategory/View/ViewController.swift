@@ -26,7 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ProductCategoryRouter.createModule(view: self)
         presenter?.loadCategoriesData()
         
-       setCategories()
         setupTableView()
     }
 
@@ -72,66 +71,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       guard let category = getItemAt(indexPath) else { return }
         presenter?.showProductListView(for: category.id, from: self)
       self.catTableView.deselectRow(at: indexPath, animated: true)
-    }
-   
-    func setCategories() {
-        
-//        let URL = "https://api.mercadolibre.com/sites/MCO/categories"
-//
-//        let request = AF.request(URL)
-//            // 2
-//        request.responseDecodable(of: [CategoryEntity].self) { (response) in
-//          guard let categories = response.value else { return }
-//            print(categories[0])
-//        }
-        
-//        let URL2 = "https://api.mercadolibre.com/categories/"+"MCO1747"
-//
-//        let request2 = AF.request(URL2)
-//        request2.responseDecodable(of: CategoryDetail.self) { (response) in
-//          guard let category = response.value else { return }
-//            print(category)
-//        }
-        
-//        let URL2 = "https://api.mercadolibre.com/sites/MCO/search?q=Acc.%20para%20Motos%20y%20Cuatrimotos"
-//
-//        let request2 = AF.request(URL2)
-//        request2.responseDecodable(of: Products.self) { (response) in
-//          guard let category = response.value else { return }
-//            print(category.result)
-//        }
-
-//        let URL2 = "https://api.mercadolibre.com/items/MCO578271575"
-//
-//        let request2 = AF.request(URL2)
-//        request2.responseDecodable(of: Product.self) { (response) in
-//          guard let category = response.value else { return }
-//            print(category)
-//        }
-        
-//        let URL2 = "https://api.mercadolibre.com/items/MCO578271575/description"
-//        
-//        let request2 = AF.request(URL2)
-//        request2.responseDecodable(of: ProductDetailDescription.self) { (response) in
-//          guard let category = response.value else { return }
-//            print(category)
-//        }
-        
-        
-        var highhills = CategoryDetail()
-        highhills.name = "Tacones"
-        highhills.picture = "highhills"
-
-        var  nails = CategoryDetail()
-        nails.name = "Unas"
-        nails.picture = "nails"
-        
-        var  bagage = CategoryDetail()
-        bagage.name = "Maletas"
-        bagage.picture = "bagage"
-        categories.append(highhills)
-        categories.append(nails)
-        categories.append(bagage)
     }
 
 }

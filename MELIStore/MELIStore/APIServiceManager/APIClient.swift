@@ -45,7 +45,7 @@ protocol APIClientProtocol: AnyObject {
     func getProductsByCategoryList(url: APIServiceUrls, idCategory : String, siteId : APIProductSiteId)
     func getProductDetail(url: APIServiceUrls, idProduct : String)
     func getProductsSearchList(url: APIServiceUrls, categoryName : String, siteId : APIProductSiteId)
-    func getProductDetailDescription(url: APIServiceUrls, siteId : APIProductSiteId)
+    func getProductDetailDescription(url: APIServiceUrls, productId : String)
 }
 
 
@@ -142,9 +142,9 @@ class APIClient: APIClientProtocol {
     }
     
 //    Api call for product description
-    func getProductDetailDescription(url: APIServiceUrls, siteId: APIProductSiteId) {
+    func getProductDetailDescription(url: APIServiceUrls, productId: String) {
         let URL = url.rawValue
-        let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId.rawValue)
+        let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: productId)
         
         AF.request(replaceSite).validate().responseDecodable(of: ProductDetailDescription.self) { (response) in
             switch response.result {

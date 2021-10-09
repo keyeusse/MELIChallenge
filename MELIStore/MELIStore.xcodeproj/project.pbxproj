@@ -39,6 +39,11 @@
 		84ABDF0D2710D97E00DB71FD /* ProductsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF0C2710D97E00DB71FD /* ProductsPresenter.swift */; };
 		84ABDF0F2710DB3D00DB71FD /* ProductsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF0E2710DB3D00DB71FD /* ProductsInteractor.swift */; };
 		84ABDF112710DFF600DB71FD /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF102710DFF600DB71FD /* ProductsRouter.swift */; };
+		84ABDF142711296700DB71FD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF132711296700DB71FD /* ProductDetailViewController.swift */; };
+		84ABDF1727112D9B00DB71FD /* ProductDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1627112D9B00DB71FD /* ProductDetailProtocols.swift */; };
+		84ABDF1A27112F9B00DB71FD /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1927112F9B00DB71FD /* ProductDetailPresenter.swift */; };
+		84ABDF1D271130D600DB71FD /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1C271130D600DB71FD /* ProductDetailInteractor.swift */; };
+		84ABDF2027113C3100DB71FD /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,11 @@
 		84ABDF0C2710D97E00DB71FD /* ProductsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenter.swift; sourceTree = "<group>"; };
 		84ABDF0E2710DB3D00DB71FD /* ProductsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInteractor.swift; sourceTree = "<group>"; };
 		84ABDF102710DFF600DB71FD /* ProductsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
+		84ABDF132711296700DB71FD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		84ABDF1627112D9B00DB71FD /* ProductDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailProtocols.swift; sourceTree = "<group>"; };
+		84ABDF1927112F9B00DB71FD /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
+		84ABDF1C271130D600DB71FD /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
+		84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -225,6 +235,11 @@
 		843BD20C270DFE2800FA6C13 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
+				84ABDF1E27113C1800DB71FD /* Router */,
+				84ABDF1B271130BE00DB71FD /* Interactor */,
+				84ABDF1827112F7E00DB71FD /* Presenter */,
+				84ABDF1527112D8600DB71FD /* Protocols */,
+				84ABDF122711294300DB71FD /* View */,
 				843BD217270E047E00FA6C13 /* Entities */,
 			);
 			path = ProductDetail;
@@ -420,6 +435,46 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		84ABDF122711294300DB71FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF132711296700DB71FD /* ProductDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84ABDF1527112D8600DB71FD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF1627112D9B00DB71FD /* ProductDetailProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		84ABDF1827112F7E00DB71FD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF1927112F9B00DB71FD /* ProductDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84ABDF1B271130BE00DB71FD /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF1C271130D600DB71FD /* ProductDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		84ABDF1E27113C1800DB71FD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		9DA0C13CFA44A4B08282853F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,8 +666,12 @@
 				843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */,
 				84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */,
 				84ABDF01270F9ABE00DB71FD /* ProductCategoryInteractor.swift in Sources */,
+				84ABDF1727112D9B00DB71FD /* ProductDetailProtocols.swift in Sources */,
+				84ABDF142711296700DB71FD /* ProductDetailViewController.swift in Sources */,
 				84ABDF04270FF6C100DB71FD /* ProductCategoryRouter.swift in Sources */,
 				84ABDEFE270F855A00DB71FD /* ProductCategoryPresenter.swift in Sources */,
+				84ABDF2027113C3100DB71FD /* ProductDetailRouter.swift in Sources */,
+				84ABDF1D271130D600DB71FD /* ProductDetailInteractor.swift in Sources */,
 				84A9E849270BE3C700FD292F /* MELIStore.xcdatamodeld in Sources */,
 				84ABDF0F2710DB3D00DB71FD /* ProductsInteractor.swift in Sources */,
 				84ABDF112710DFF600DB71FD /* ProductsRouter.swift in Sources */,
@@ -629,6 +688,7 @@
 				843BD20E270DFE6700FA6C13 /* ProductViewController.swift in Sources */,
 				843BD1FE270D519000FA6C13 /* CategoryTableViewCell.swift in Sources */,
 				84ABDF0B2710D7C000DB71FD /* ProductsProtocol.swift in Sources */,
+				84ABDF1A27112F9B00DB71FD /* ProductDetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,11 +28,4 @@ class ProductCategoryRouter: ProductCategoryRouterProtocol {
     view.presenter?.interactor = ProductCategoryInteractor()
     view.presenter?.interactor?.presenter = presenter
   }
-  
-//  func presentMovieDetailView(for movie: Movie, from view: UIViewController) {
-//    guard let detailView = view.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else { return }
-//    MovieDetailRouter.createMovieTrailerModule(for: detailView, and: movie)
-//    view.navigationController?.pushViewController(detailView, animated: true)
-//  }
-    
 }

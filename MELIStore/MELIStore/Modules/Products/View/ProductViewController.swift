@@ -50,6 +50,12 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.setUpCell(product: product.result[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let product = getItemAt(indexPath)?.result[indexPath.row] else { return }
+        presenter?.showProducDetailView(for: product, from: self)
+      self.productsTableView.deselectRow(at: indexPath, animated: true)
+    }
 
 }
 

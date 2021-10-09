@@ -13,11 +13,12 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var feesLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    @IBOutlet weak var currencyLabel: UILabel!
     var product = Product()
     
+    @IBOutlet weak var shippingLabel: UILabel!
     static let idCell = "ProductTableViewCell"
     
     
@@ -29,7 +30,6 @@ class ProductTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBOutlet weak var sendLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -41,7 +41,12 @@ class ProductTableViewCell: UITableViewCell {
         self.product = product
         productNameLabel.text = product.title
         priceLabel.text = setDoubleToString(number: product.price)
-//        feesLabel.text = product.
+        currencyLabel.text = product.currency
+        if((product.shipping?.freeShipping) != nil){
+            shippingLabel.text = "Envío gratis"
+        } else {
+            shippingLabel.text = "Llega mañana por $10.000"
+        }
         
         
         let noImage =  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png"
@@ -49,8 +54,6 @@ class ProductTableViewCell: UITableViewCell {
         // Create URL
         let url = URL(string: product.image ?? noImage)!
         
-        print(url)
-
            // Fetch Image Data
            if let data = try? Data(contentsOf: url) {
                // Create Image and Update Image View
