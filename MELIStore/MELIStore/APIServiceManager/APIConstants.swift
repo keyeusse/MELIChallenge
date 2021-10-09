@@ -18,7 +18,7 @@ import Foundation
 public enum APIServiceUrls: String {
   case categoriesAll = "https://api.mercadolibre.com/sites/{siteId}/categories"
   case categoryInfo = "https://api.mercadolibre.com/categories/"
-  case categoryProducts = "https://api.mercadolibre.com/sites/{siteId}/search?q="
+  case categoryProducts = "https://api.mercadolibre.com/sites/{siteId}/search?category="
   case product = "https://api.mercadolibre.com/items/{idProduct}"
   case productDescription = "https://api.mercadolibre.com/items/{idProduct}/description"
 }

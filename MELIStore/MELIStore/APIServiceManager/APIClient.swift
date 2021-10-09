@@ -104,7 +104,6 @@ class APIClient: APIClientProtocol {
             switch response.result {
             case .success(let results):
                 self.productsByCategoryDelegate?.getProductsByCategoryResult(data: results)
-                print(results)
             case .failure(let error):
               self.productsByCategoryDelegate?.onFailure(error)
             }

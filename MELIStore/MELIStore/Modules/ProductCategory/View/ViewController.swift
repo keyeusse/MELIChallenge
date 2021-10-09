@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       guard let category = getItemAt(indexPath) else { return }
-        presenter?.showProductListView(for: category.name, from: self)
+        presenter?.showProductListView(for: category.id, from: self)
       self.catTableView.deselectRow(at: indexPath, animated: true)
     }
    
