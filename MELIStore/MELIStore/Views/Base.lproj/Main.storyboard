@@ -184,10 +184,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="y8n-2K-L3K"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="22"/>
-                                                <state key="normal" title="Button">
+                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
+                                                <state key="normal" title="Comprar ahora">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buyProductAction:" destination="OLK-hR-bUP" eventType="touchUpInside" id="ztw-mB-re0"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LtR-Dn-8fX">
                                                 <rect key="frame" x="41.5" y="121" width="331" height="210"/>
@@ -286,6 +289,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="icn-o1-m9j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7p2-BV-75a" secondAttribute="trailing" id="dvP-b1-Flx"/>
@@ -297,9 +301,15 @@
                     <navigationItem key="navigationItem" id="3Js-EU-gXU">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="eGn-7P-KgX">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="goBack:" destination="OLK-hR-bUP" id="hGk-cT-voT"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="H7s-Vl-Y63">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cartAction:" destination="OLK-hR-bUP" id="M6a-N2-EfL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

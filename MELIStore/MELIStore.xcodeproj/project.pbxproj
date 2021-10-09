@@ -347,6 +347,7 @@
 		84A9E873270BE44200FD292F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84ABDF212711DCB000DB71FD /* CustomViews */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -473,6 +474,13 @@
 				84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		84ABDF212711DCB000DB71FD /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		9DA0C13CFA44A4B08282853F /* Pods */ = {

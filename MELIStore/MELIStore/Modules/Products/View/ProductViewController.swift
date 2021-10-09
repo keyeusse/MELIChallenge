@@ -6,21 +6,21 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var productsTableView: UITableView!
+
 //    VIPER
     var presenter: ProductsPresenterProtocol?
-
     var categoryId: String?
 
-    @IBOutlet weak var productsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         presenter?.loadProdutsData(categoryId: categoryId ?? "")
-        
         setupTableView()
     }
     
@@ -61,7 +61,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 extension ProductViewController: ProductsViewProtocol {
     func showErrorMessage(_ message: String) {
-    
+        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
     }
     
     func loadProductList() {

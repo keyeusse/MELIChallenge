@@ -11,7 +11,7 @@ import UIKit
 protocol ProductDetailViewProtocol: AnyObject {
   var presenter: ProductDetailPresenterProtocol? { get set}
   // PRESENTER -> VIEW
-    func loadProductDescription(productDescription : String)
+    func loadProductDescription()
     func showErrorMessage(_ message: String)
 }
 
@@ -21,19 +21,21 @@ protocol ProductDetailPresenterProtocol: AnyObject {
   var router: ProductDetailRouterProtocol? { get set }
     
   // VIEW -> PRESENTER
-    func loadProdutDetailData(productId : String)
+    func loadProductDetailData(productId : String)
+    func produtDetail(productId : String) ->  ProductDetailDescription
 }
 
 protocol ProductDetailInteractorInputProtocol: AnyObject {
   var presenter: ProductDetailInteractorOutputProtocol? { get set}
 
   // PRESENTER -> INTERACTOR
-    func loadProductsData(productId : String)
+    func loadProductDetailData(productId : String)
+    func getProductDetail() -> ProductDetailDescription?
 }
 
 protocol ProductDetailInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
-  func updateProductData()
+  func updateProductDetailData()
   func receivedError(_ error: Error)
 }
 

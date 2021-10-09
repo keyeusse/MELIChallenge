@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.0.5)
+  - SCLAlertView (0.8)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
+  - SCLAlertView
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - SCLAlertView
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: a2bc8e557eb8e7e64b40a25e0c10b13f7684ca45
+PODFILE CHECKSUM: 21d0a53500cd1592f413a1d636954dd8b37d968a
 
 COCOAPODS: 1.11.2

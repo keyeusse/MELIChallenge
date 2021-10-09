@@ -8,22 +8,27 @@
 import UIKit
 
 class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
-
+    
     var presenter: ProductDetailInteractorOutputProtocol?
     private let apiClient = APIClient()
     private var productDescriptionResult: ProductDetailDescription?
     
-    func loadProductsData(productId: String) {
+    func loadProductDetailData(productId: String) {
         apiClient.productDescriptionDelegate = self
         apiClient.getProductDetailDescription(url: .productDescription, productId: productId)
     }
+    
+    func getProductDetail() -> ProductDetailDescription? {
+        productDescriptionResult
+    }
+    
 }
 
 //API Calls for all products
 extension ProductDetailInteractor: APIProductDescriptionResponseProtocol {
     func getproductDescription(data: ProductDetailDescription) {
         self.productDescriptionResult = data
-        self.presenter?.updateProductData()
+        self.presenter?.updateProductDetailData()
     }
     
     func onFailure(_ error: Error) {

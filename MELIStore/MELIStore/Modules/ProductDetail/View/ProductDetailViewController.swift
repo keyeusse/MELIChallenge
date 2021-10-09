@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class ProductDetailViewController: UIViewController {
 
@@ -20,23 +21,34 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var backButton: UIBarButtonItem!
-    var product = Product()
     
-//  VIPER
+    @IBAction func cartAction(_ sender: Any) {
+        
+        SCLAlertView().showSuccess("Producto agregado", subTitle: "Tu producto fue agregado al carrito de compras", closeButtonTitle: "Está bien")
+    }
+    //  VIPER
     var presenter: ProductDetailPresenterProtocol?
     
-//    Stars for ratting
+    var product = Product()
+    
+    //    Stars for ratting
     let blackStar = "\u{2605}"
     let whiteStar = "\u{2606}"
+    
+    @IBAction func goBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+   
+    @IBAction func buyProductAction(_ sender: Any) {
+        SCLAlertView().showSuccess("Compra exitosa", subTitle: "Tu compra se ejecutó con éxito", closeButtonTitle: "¡Perfecto!")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.loadProdutDetailData(productId: product.id)
+        presenter?.loadProductDetailData(productId: product.id)
         setUpView()
-        // Do any additional setup after loading the view.
     }
     
     func setUpView(){
@@ -53,16 +65,21 @@ class ProductDetailViewController: UIViewController {
         } else {
             shippingLabel.text = "Llega mañana por $10.000"
         }
+        
+        buyButton.backgroundColor = .blue
+        buyButton.layer.cornerRadius = 10
+        buyButton.layer.borderWidth = 1
+        buyButton.layer.borderColor = UIColor.black.cgColor
     }
 }
 
 extension ProductDetailViewController: ProductDetailViewProtocol{
-    func loadProductDescription(productDescription: String) {
+    func loadProductDescription() {
         
     }
     
     func showErrorMessage(_ message: String) {
-        
+        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
     }
 
 }

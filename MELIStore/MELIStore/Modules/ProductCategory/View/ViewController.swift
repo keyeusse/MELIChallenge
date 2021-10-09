@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SCLAlertView
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
@@ -81,6 +82,7 @@ extension ViewController: ProductCategoryViewProtocol {
     }
     
     func showErrorMessage(_ message: String) {
+        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
     }
     
     func loadCategories() {
