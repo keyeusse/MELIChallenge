@@ -10,11 +10,13 @@ import Foundation
 struct Products: Codable {
     var siteId: String
     var paging: Paging
+    let query: String?
     var result: [Product]
     
     enum CodingKeys: String, CodingKey {
         case siteId = "site_id"
         case paging
+        case query = "query"
         case result = "results"
     }
 }

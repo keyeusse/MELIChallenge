@@ -15,8 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var catTableView: UITableView!
     
-    var categories = [CategoryDetail]()
-    var categoryDetail = CategoryDetail()
+    var categories = [String]()
     private let apiClient = APIClient()
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -41,7 +40,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         presenter?.loadCategoriesData()
         
         setupTableView()
+        setSearchBar()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+    }
+    
+    func setSearchBar(){
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = TextResources.searchProducts.rawValue
@@ -52,7 +59,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     private func setupTableView() {
+        if isSearchBarEmpty {
         self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
+        } else {
+            self.catTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
+        }
         self.catTableView.dataSource = self
         self.catTableView.rowHeight = UITableView.automaticDimension
         self.catTableView.delegate = self
@@ -64,31 +75,56 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let category = getItemAt(indexPath),
+        
+        if isSearchBarEmpty {
+        guard let category = getCategoriesItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell) as? CategoryTableViewCell else { return UITableViewCell()}
         cell.setUpCell(id: category.id)
-        return cell
+            return cell
+        } else {
+            guard let product = getProductsItemAt(indexPath),
+                  let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
+            cell.setUpCell(product: product.result[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(NumberResources.categorySize.rawValue)
+        if isSearchBarEmpty {
+            return CGFloat(NumberResources.categorySize.rawValue)
+        } else {
+            return CGFloat(NumberResources.productSize.rawValue)
+        }
     }
     
-    private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
+    private func getCategoriesItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
         setUpSkeleton(show : false)
       return presenter?.getItemAt(indexPath: indexPath)
     }
     
+    private func getProductsItemAt(_ indexPath: IndexPath) -> Products? {
+        setUpSkeleton(show : false)
+      return presenter?.getProductData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      guard let category = getItemAt(indexPath) else { return }
-        presenter?.showProductListView(for: category.id, from: self)
+        if isSearchBarEmpty{
+            guard let category = getCategoriesItemAt(indexPath) else { return }
+              presenter?.showProductListView(for: category.id, from: self)
+        } else {
+            guard let product = getProductsItemAt(indexPath)?.result[indexPath.row] else { return }
+            presenter?.showProductDetailView(for: product, from: self)
+        }
+     
       self.catTableView.deselectRow(at: indexPath, animated: true)
     }
-
 }
 
 extension ViewController: ProductCategoryViewProtocol {
     func loadCategory() {
+        setupTableView()
+        catTableView.reloadData()
+        setUpSkeleton(show: true)
     }
     
     func showErrorMessage(_ message: String) {
@@ -100,10 +136,13 @@ extension ViewController: ProductCategoryViewProtocol {
         setUpSkeleton(show: true)
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+           searchBar.resignFirstResponder()
+        presenter?.loadCategoryData(name: searchBar.text ?? "carros")
+    }
     
 //    Skeleton call
     private func setUpSkeleton(show : Bool){
-        
         catTableView.isSkeletonable = true
         if(show){
             catTableView.showAnimatedGradientSkeleton()
@@ -113,22 +152,13 @@ extension ViewController: ProductCategoryViewProtocol {
     }
 }
 
-
-
 extension ViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-//    let searchBar = searchController.searchBar
-//    let category = Candy.Category(rawValue:
-//      searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
-//    filterContentForSearchText(searchBar.text!, category: category)
   }
 }
 
 extension ViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//    let category = Candy.Category(rawValue:
-//      searchBar.scopeButtonTitles![selectedScope])
-//    filterContentForSearchText(searchBar.text!, category: category)
   }
 }
 

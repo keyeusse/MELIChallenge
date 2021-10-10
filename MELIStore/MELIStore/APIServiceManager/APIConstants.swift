@@ -20,6 +20,7 @@ public enum APIServiceUrls: String {
   case categoryInfo = "https://api.mercadolibre.com/categories/"
   case categoryProducts = "https://api.mercadolibre.com/sites/{siteId}/search?category="
   case product = "https://api.mercadolibre.com/items/{idProduct}"
+  case productNameSearch = "https://api.mercadolibre.com/sites/{siteId}/search?q="
   case productDescription = "https://api.mercadolibre.com/items/{idProduct}/description"
 }
 

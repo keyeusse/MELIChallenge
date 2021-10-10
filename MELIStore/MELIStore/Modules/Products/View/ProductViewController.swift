@@ -31,7 +31,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func setupTableView() {
-        self.productsTableView.reloadData()
         self.productsTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
         self.productsTableView.dataSource = self
         self.productsTableView.rowHeight = UITableView.automaticDimension

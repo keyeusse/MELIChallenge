@@ -9,6 +9,7 @@ import UIKit
 
 class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     
+
     // MARK: - VIPER
     weak var view: ProductCategoryViewProtocol?
     var interactor: ProductCategoryInteractorInputProtocol?
@@ -30,14 +31,23 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
         interactor?.loadCategoriesData()
     }
     
-    func loadCategoryData(id: String) {
-        interactor?.loadCategoryData(id: id)
+    func loadCategoryData(name : String) {
+        interactor?.loadCategoryData(name: name)
+    }
+    
+    func getProductData() -> Products? {
+        interactor?.getItemProductsAt()
     }
     
     func showProductListView(for categoryId: String, from view: UIViewController) {
         router?.presentProductsView(for: categoryId, from: view)
     }
 
+    func showProductDetailView(for product: Product, from view: UIViewController) {
+        router?.showProductDetailView(for: product, from: view)
+    }
+    
+    
 }
 
 // MARK: - RECEIVED FROM INTERACTOR

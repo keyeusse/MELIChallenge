@@ -10,6 +10,11 @@ import Foundation
 struct CategoryEntity: Codable {
     var id: String
     var name: String
+    
+    init() {
+        id = ""
+        name = ""
+    }
 }
 
 struct CategoryDetail: Codable {

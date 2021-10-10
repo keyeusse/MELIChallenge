@@ -13,6 +13,7 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     private let apiClient = APIClient()
     private var categoriesResults: [CategoryEntity]?
     private var categoryResults: CategoryDetail?
+    private var productsResult: Products?
     
     
     func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
@@ -24,9 +25,9 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
         apiClient.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
     }
     
-    func loadCategoryData(id: String) {
-        apiClient.categoryDelegate = self
-        apiClient.getCategoryList(url: .categoryInfo, idCategory: id)
+    func loadCategoryData(name: String) {
+        apiClient.productSearchDelegate = self
+        apiClient.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
     }
     
     func getNumberOfItemsAt(_ index: Int) -> Int {
@@ -37,6 +38,9 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
         return categoryResults
     }
 
+    func getItemProductsAt() -> Products? {
+        return productsResult
+    }
 }
 
 //API Calls for all categories
@@ -54,7 +58,12 @@ extension ProductCategoryInteractor: APICategoriesResponseProtocol {
 }
 
 //API Calls for all categories
-extension ProductCategoryInteractor: APICategoryResponseProtocol {
+extension ProductCategoryInteractor: APISearchProductsResponseProtocol {
+    func getproductSearchResult(data: Products) {
+        self.productsResult = data
+        self.presenter?.updateCategoryData()
+    }
+    
     func getCategoryResult(data: CategoryDetail) {
         self.categoryResults = data
         self.presenter?.updateCategoryData()

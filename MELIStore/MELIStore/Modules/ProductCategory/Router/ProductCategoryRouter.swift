@@ -10,11 +10,19 @@ import UIKit
 //Class to navegatio between VC
 class ProductCategoryRouter: ProductCategoryRouterProtocol {
     
+//    Go to product list (no filter products)
     func presentProductsView(for categoryId: String, from view: UIViewController) {
         guard let productListView = view.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else { return }
         productListView.categoryId = categoryId
         ProductsRouter.createProductsModule(for: productListView, and: categoryId)
            view.navigationController?.pushViewController(productListView, animated: true)
+    }
+    
+//    Go to product detail (filtered products)
+    func showProductDetailView(for product: Product, from view: UIViewController) {
+        guard let detailProductListView = view.storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController else { return }
+        detailProductListView.product = product
+        view.navigationController?.pushViewController(detailProductListView, animated: true)
     }
     
   
