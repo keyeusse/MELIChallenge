@@ -8,33 +8,39 @@
 import UIKit
 
 class ProductDetailPresenter: ProductDetailPresenterProtocol {
+    func getNumberOfItemsAt(_ index: Int) -> Int {
+        return 0
+    }
+    
     
     var view: ProductDetailViewProtocol?
     var interactor: ProductDetailInteractorInputProtocol?
     var router: ProductDetailRouterProtocol?
     
-
-    func loadProductDetailData(productId: String) {
-        interactor?.loadProductDetailData(productId: productId)
+    func getProductDescription() -> ProductDetailDescription? {
+        interactor?.getProductDescription()
     }
     
-    func produtDetail(productId: String) -> ProductDetailDescription {
-        (interactor?.getProductDetail())!
+    func loadDescriptionData(categoryId: String) {
+        interactor?.loadDescriptionData(categoryId: categoryId)
     }
+    
+    func showProductDescriptionView(for product: Product, from view: UIViewController) {
+        
+    }
+    
+    
+//    func showProducDetailView(for product: Product, from view: UIViewController) {
+//       router?.presentProductDetailView(for: product, from: view)
+//    }
 }
 
 // MARK: - RECEIVED FROM INTERACTOR
-extension ProductsPresenter: ProductDetailInteractorOutputProtocol {
-    func updateProductDetailData() {
-        view?.loadProductList()
+extension ProductDetailPresenter: ProductDetailInteractorOutputProtocol {
+    func updateDescriptionData() {
+        view?.loadProductDescription()
     }
     
-    
-    
-//    func updateProductData() {
-//        view?.loadProductList()
-//    }
-//
-//    func receivedError(_ error: Error) {
-//    }
+    func receivedError(_ error: Error) {
+    }
 }

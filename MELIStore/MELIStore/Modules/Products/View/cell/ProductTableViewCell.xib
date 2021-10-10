@@ -38,12 +38,14 @@
                                     <constraint firstAttribute="height" constant="150" id="mTc-0f-Pcb"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhb-cm-fsQ">
-                                <rect key="frame" x="200" y="0.0" width="48" height="48"/>
+                            <button alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhb-cm-fsQ">
+                                <rect key="frame" x="216.5" y="8" width="32" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Q1D-ZN-Ueo"/>
-                                    <constraint firstAttribute="width" constant="48" id="dkE-L7-BPx"/>
+                                    <constraint firstAttribute="height" constant="32" id="Q1D-ZN-Ueo"/>
+                                    <constraint firstAttribute="width" constant="32" id="dkE-L7-BPx"/>
                                 </constraints>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <state key="normal" image="heart" catalog="system"/>
                                 <connections>
                                     <action selector="favoriteBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FG7-sr-s5D"/>
@@ -67,13 +69,13 @@
                             <constraint firstItem="uR4-9W-tMy" firstAttribute="centerX" secondItem="bdz-qa-fgG" secondAttribute="centerX" id="15J-8K-YKZ"/>
                             <constraint firstItem="Wvy-ko-yyJ" firstAttribute="top" secondItem="M5N-o6-wyE" secondAttribute="bottom" constant="16" id="Ifl-Ek-42c"/>
                             <constraint firstItem="GnA-7c-e1q" firstAttribute="leading" secondItem="M5N-o6-wyE" secondAttribute="trailing" constant="4" id="K8L-hf-VeK"/>
-                            <constraint firstItem="Vhb-cm-fsQ" firstAttribute="top" secondItem="bdz-qa-fgG" secondAttribute="top" id="TB3-aO-FhT"/>
+                            <constraint firstItem="Vhb-cm-fsQ" firstAttribute="top" secondItem="bdz-qa-fgG" secondAttribute="top" constant="8" id="TB3-aO-FhT"/>
                             <constraint firstAttribute="trailing" secondItem="w1w-SF-Xzv" secondAttribute="trailing" constant="16" id="bDx-la-FzG"/>
                             <constraint firstItem="uR4-9W-tMy" firstAttribute="top" secondItem="bdz-qa-fgG" secondAttribute="top" id="ef2-ZW-n7o"/>
                             <constraint firstItem="M5N-o6-wyE" firstAttribute="top" secondItem="w1w-SF-Xzv" secondAttribute="bottom" constant="20" id="emu-tT-9mV"/>
                             <constraint firstItem="GnA-7c-e1q" firstAttribute="top" secondItem="M5N-o6-wyE" secondAttribute="top" id="fgZ-Mw-Uh3"/>
                             <constraint firstItem="w1w-SF-Xzv" firstAttribute="leading" secondItem="bdz-qa-fgG" secondAttribute="leading" constant="16" id="iCw-7i-8qu"/>
-                            <constraint firstAttribute="trailing" secondItem="Vhb-cm-fsQ" secondAttribute="trailing" constant="8.5" id="iGG-CC-Uin"/>
+                            <constraint firstAttribute="trailing" secondItem="Vhb-cm-fsQ" secondAttribute="trailing" constant="8" id="iGG-CC-Uin"/>
                             <constraint firstItem="Wvy-ko-yyJ" firstAttribute="leading" secondItem="bdz-qa-fgG" secondAttribute="leading" constant="16" id="kGO-8Z-FIr"/>
                             <constraint firstItem="w1w-SF-Xzv" firstAttribute="top" secondItem="uR4-9W-tMy" secondAttribute="bottom" constant="8" id="lj3-Wx-bdc"/>
                             <constraint firstItem="uR4-9W-tMy" firstAttribute="width" secondItem="bdz-qa-fgG" secondAttribute="width" multiplier="0.822612" id="nXP-Tt-DOG"/>
@@ -104,6 +106,9 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,6 +18,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var categoryDetail = CategoryDetail()
     private let apiClient = APIClient()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredCategories: [CategoryDetail] = []
+    
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+      let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+      return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
+    
     // MARK: - VIPER
     var presenter: ProductCategoryPresenterProtocol?
     
@@ -28,6 +40,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         presenter?.loadCategoriesData()
         
         setupTableView()
+        
+        // 1
+        searchController.searchResultsUpdater = self
+        // 2
+        searchController.obscuresBackgroundDuringPresentation = false
+        // 3
+        searchController.searchBar.placeholder = TextResources.searchProducts.rawValue
+        // 4
+        navigationItem.searchController = searchController
+        // 5
+        definesPresentationContext = true
+        searchController.searchBar.delegate = self
+        searchController.searchBar.backgroundColor = Colors().White
     }
 
     private func setupTableView() {
@@ -61,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return CGFloat(NumberResources.categorySize.rawValue)
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
@@ -82,11 +107,29 @@ extension ViewController: ProductCategoryViewProtocol {
     }
     
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
     
     func loadCategories() {
         self.catTableView.reloadData()
     }
 }
+
+extension ViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+//    let searchBar = searchController.searchBar
+//    let category = Candy.Category(rawValue:
+//      searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+//    filterContentForSearchText(searchBar.text!, category: category)
+  }
+}
+
+extension ViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//    let category = Candy.Category(rawValue:
+//      searchBar.scopeButtonTitles![selectedScope])
+//    filterContentForSearchText(searchBar.text!, category: category)
+  }
+}
+
 

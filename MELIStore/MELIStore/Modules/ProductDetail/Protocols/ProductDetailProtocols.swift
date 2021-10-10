@@ -11,8 +11,8 @@ import UIKit
 protocol ProductDetailViewProtocol: AnyObject {
   var presenter: ProductDetailPresenterProtocol? { get set}
   // PRESENTER -> VIEW
-    func loadProductDescription()
-    func showErrorMessage(_ message: String)
+  func loadProductDescription()
+  func showErrorMessage(_ message: String)
 }
 
 protocol ProductDetailPresenterProtocol: AnyObject {
@@ -21,25 +21,31 @@ protocol ProductDetailPresenterProtocol: AnyObject {
   var router: ProductDetailRouterProtocol? { get set }
     
   // VIEW -> PRESENTER
-    func loadProductDetailData(productId : String)
-    func produtDetail(productId : String) ->  ProductDetailDescription
+  func getProductDescription() -> ProductDetailDescription?
+  func getNumberOfItemsAt(_ index: Int) -> Int
+    func loadDescriptionData(categoryId : String)
+    
+  // Show Product Detail Views
+    func showProductDescriptionView(for product: Product, from view: UIViewController)
 }
 
 protocol ProductDetailInteractorInputProtocol: AnyObject {
   var presenter: ProductDetailInteractorOutputProtocol? { get set}
 
   // PRESENTER -> INTERACTOR
-    func loadProductDetailData(productId : String)
-    func getProductDetail() -> ProductDetailDescription?
+    func loadDescriptionData(categoryId : String)
+  func getNumberOfItemsAt(_ index: Int) -> Int
+  func getProductDescription() -> ProductDetailDescription?
+    
 }
 
 protocol ProductDetailInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
-  func updateProductDetailData()
+  func updateDescriptionData()
   func receivedError(_ error: Error)
 }
 
 protocol ProductDetailRouterProtocol: AnyObject {
   // PRESENTER -> ROUTER
-//  func presentProductDetailView(for product: Product, from view: UIViewController)
+  func presentProductDescriptionView(for product: ProductDetailDescription, from view: UIViewController)
 }

@@ -28,13 +28,10 @@ class ProductTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setUpCell(product : Product) {
@@ -43,16 +40,14 @@ class ProductTableViewCell: UITableViewCell {
         priceLabel.text = setDoubleToString(number: product.price)
         currencyLabel.text = product.currency
         if((product.shipping?.freeShipping) != nil){
-            shippingLabel.text = "Envío gratis"
+            shippingLabel.text = TextResources.freeShipping.rawValue
         } else {
-            shippingLabel.text = "Llega mañana por $10.000"
+            shippingLabel.text = TextResources.whenShipping.rawValue
         }
         
         
-        let noImage =  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1024px-Imagen_no_disponible.svg.png"
-        
         // Create URL
-        let url = URL(string: product.image ?? noImage)!
+        let url = URL(string: product.image ?? TextResources.noImage.rawValue)!
         
            // Fetch Image Data
            if let data = try? Data(contentsOf: url) {
@@ -61,22 +56,33 @@ class ProductTableViewCell: UITableViewCell {
            }
       
 
-        let yourColor : UIColor = UIColor.lightGray
         totalView.layer.masksToBounds = true
-        totalView.layer.borderColor = yourColor.cgColor
+        totalView.layer.borderColor = Colors().MainGray.cgColor
         totalView.layer.borderWidth = 1.0
         self.totalView.layer.cornerRadius = 13
-        totalView.layer.shadowColor = UIColor.black.cgColor
+        totalView.layer.shadowColor = Colors().LightGray.cgColor
         totalView.layer.shadowOpacity = 0.2
-        totalView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        totalView.layer.shadowOffset = CGSize(width: 2, height: 4)
         totalView.layer.shadowRadius = 13.0
         totalView.layer.masksToBounds = false
+        favoriteButton.layer.cornerRadius = 0.5 * favoriteButton.bounds.size.width
     }
     
     func setDoubleToString(number : Double) -> String {
-        return String(format: "%f", number)
+        return String(format: "$ %.1f", number)
+    }
+    
+    func setPriceFormatter(price : Double){
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale.current
+        
+//        let priceString = currencyFormatter.string(from: NSNumber(price))!
     }
     
     @IBAction func favoriteBtnAction(_ sender: Any) {
+        favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
 }

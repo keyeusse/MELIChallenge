@@ -25,7 +25,7 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func cartAction(_ sender: Any) {
         
-        SCLAlertView().showSuccess("Producto agregado", subTitle: "Tu producto fue agregado al carrito de compras", closeButtonTitle: "Está bien")
+        SCLAlertView().showSuccess(TextResources.cartTitle.rawValue, subTitle: TextResources.cartDescription.rawValue, closeButtonTitle: TextResources.ok.rawValue)
     }
     //  VIPER
     var presenter: ProductDetailPresenterProtocol?
@@ -33,21 +33,22 @@ class ProductDetailViewController: UIViewController {
     var product = Product()
     
     //    Stars for ratting
-    let blackStar = "\u{2605}"
-    let whiteStar = "\u{2606}"
+    let blackStar = TextResources.blackStar.rawValue
+    let whiteStar = TextResources.whiteStar.rawValue
     
     @IBAction func goBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
    
     @IBAction func buyProductAction(_ sender: Any) {
-        SCLAlertView().showSuccess("Compra exitosa", subTitle: "Tu compra se ejecutó con éxito", closeButtonTitle: "¡Perfecto!")
+        SCLAlertView().showSuccess(TextResources.buyTitle.rawValue, subTitle: TextResources.buyDescription.rawValue, closeButtonTitle: TextResources.perfect.rawValue)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.loadProductDetailData(productId: product.id)
+        ProductDetailRouter.createProductDetailModule(for: self)
+        presenter?.loadDescriptionData(categoryId: product.id)
         setUpView()
     }
     
@@ -57,13 +58,20 @@ class ProductDetailViewController: UIViewController {
         priceLabel.text = "$" + String(product.price)
 //        feesLabel.text = "en" + String(product.installments?.quantity) + "X" + String(product.installments?.amount ?? 0 )
 //        availableLabel.text = String(product.availability)
-        
-       
+//        
+//        if let billTotal = String(product.installments?.quantity!) {
+//            // do something with billTotal
+//        } else {
+//            // handle the error
+//        }
+//        
+//        let billTotal = String(product.installments?.quantity!) ?? "0.0"
+               
         
         if((product.shipping?.freeShipping) != nil){
-            shippingLabel.text = "Envío gratis"
+            shippingLabel.text = TextResources.freeShipping.rawValue
         } else {
-            shippingLabel.text = "Llega mañana por $10.000"
+            shippingLabel.text = TextResources.whenShipping.rawValue
         }
         
         buyButton.backgroundColor = .blue
@@ -71,15 +79,19 @@ class ProductDetailViewController: UIViewController {
         buyButton.layer.borderWidth = 1
         buyButton.layer.borderColor = UIColor.black.cgColor
     }
+    
+    private func getDescription() -> ProductDetailDescription? {
+        return presenter?.getProductDescription()
+    }
 }
 
 extension ProductDetailViewController: ProductDetailViewProtocol{
     func loadProductDescription() {
-        
+        descriptionLabel.text = presenter?.getProductDescription()?.plainText
     }
     
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
 
 }

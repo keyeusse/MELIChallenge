@@ -44,6 +44,8 @@
 		84ABDF1A27112F9B00DB71FD /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1927112F9B00DB71FD /* ProductDetailPresenter.swift */; };
 		84ABDF1D271130D600DB71FD /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1C271130D600DB71FD /* ProductDetailInteractor.swift */; };
 		84ABDF2027113C3100DB71FD /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */; };
+		84ABDF29271256B700DB71FD /* TextResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF28271256B700DB71FD /* TextResources.swift */; };
+		84ABDF2B27125EC100DB71FD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF2A27125EC100DB71FD /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		84ABDF1927112F9B00DB71FD /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
 		84ABDF1C271130D600DB71FD /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
 		84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
+		84ABDF28271256B700DB71FD /* TextResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResources.swift; sourceTree = "<group>"; };
+		84ABDF2A27125EC100DB71FD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -348,6 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				84ABDF212711DCB000DB71FD /* CustomViews */,
+				84ABDF28271256B700DB71FD /* TextResources.swift */,
+				84ABDF2A27125EC100DB71FD /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -670,6 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A9E843270BE3C700FD292F /* ViewController.swift in Sources */,
+				84ABDF2B27125EC100DB71FD /* Colors.swift in Sources */,
 				8433C555270E9E22001AF8C8 /* APIClient.swift in Sources */,
 				843BD208270D678C00FA6C13 /* FavoriteTableViewCell.swift in Sources */,
 				84A9E83F270BE3C700FD292F /* AppDelegate.swift in Sources */,
@@ -690,6 +697,7 @@
 				843BD219270E049200FA6C13 /* ProductDetail.swift in Sources */,
 				84ABDEFB270F846E00DB71FD /* ProductCategoryProtocol.swift in Sources */,
 				843BD212270DFFBC00FA6C13 /* ProductTableViewCell.swift in Sources */,
+				84ABDF29271256B700DB71FD /* TextResources.swift in Sources */,
 				84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */,
 				8433C557270E9E3C001AF8C8 /* APIConstants.swift in Sources */,
 				843BD216270E032200FA6C13 /* Products.swift in Sources */,

@@ -41,7 +41,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 350
+        return CGFloat(NumberResources.productSize.rawValue)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +61,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 extension ProductViewController: ProductsViewProtocol {
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError("Error", subTitle: "Se ha presentado un error, intente más tarde", closeButtonTitle: "Cerrar") // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
     
     func loadProductList() {

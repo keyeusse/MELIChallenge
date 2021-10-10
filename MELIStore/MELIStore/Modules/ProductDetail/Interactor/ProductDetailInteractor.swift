@@ -13,12 +13,16 @@ class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
     private let apiClient = APIClient()
     private var productDescriptionResult: ProductDetailDescription?
     
-    func loadProductDetailData(productId: String) {
+    func loadDescriptionData(categoryId: String) {
         apiClient.productDescriptionDelegate = self
-        apiClient.getProductDetailDescription(url: .productDescription, productId: productId)
+        apiClient.getProductDetailDescription(url: .productDescription, productId: categoryId)
     }
     
-    func getProductDetail() -> ProductDetailDescription? {
+    func getNumberOfItemsAt(_ index: Int) -> Int {
+        return 0
+    }
+    
+    func getProductDescription() -> ProductDetailDescription? {
         productDescriptionResult
     }
     
@@ -28,10 +32,9 @@ class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
 extension ProductDetailInteractor: APIProductDescriptionResponseProtocol {
     func getproductDescription(data: ProductDetailDescription) {
         self.productDescriptionResult = data
-        self.presenter?.updateProductDetailData()
+        self.presenter?.updateDescriptionData()
     }
     
     func onFailure(_ error: Error) {
-    
     }
 }
