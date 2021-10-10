@@ -20,6 +20,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpSkeleton(show : true)
         presenter?.loadProdutsData(categoryId: categoryId ?? "")
         setupTableView()
     }
@@ -33,10 +34,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.getNumberOfItemsAt(section)  ?? 0
+        presenter?.getNumberOfItemsAt(section)  ?? 3
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> Products? {
+        setUpSkeleton(show : false)
         return presenter?.getItemAtProducts()
     }
     
@@ -56,6 +58,16 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         presenter?.showProducDetailView(for: product, from: self)
       self.productsTableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    //    Skeleton call
+        private func setUpSkeleton(show : Bool){
+            productsTableView.isSkeletonable = true
+            if(show){
+                productsTableView.showAnimatedGradientSkeleton()
+            } else{
+                productsTableView.hideSkeleton()
+            }
+        }
 
 }
 
@@ -66,6 +78,7 @@ extension ProductViewController: ProductsViewProtocol {
     
     func loadProductList() {
         self.productsTableView.reloadData()
+        setUpSkeleton(show : true)
     }
 }
 

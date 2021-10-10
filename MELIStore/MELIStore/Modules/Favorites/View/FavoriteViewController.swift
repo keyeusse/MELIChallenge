@@ -33,7 +33,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: - TABLE VIEW SETTINGS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return CGFloat(NumberResources.favoriteProductSize.rawValue)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,19 +50,19 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     func setFavorites() {
         
         var highhills = Favorite()
-        highhills.name = "Tacones"
+        highhills.name = "Tacones rojo súper altos"
         highhills.fees = "36 cuotas"
         highhills.price = "$90.900"
         highhills.image = "highhills"
 
         var  nails = Favorite()
-        nails.name = "Unas"
+        nails.name = "Set para uñas"
         nails.fees = "36 cuotas"
         nails.price = "$30.000"
         nails.image = "nails"
         
         var  bagage = Favorite()
-        bagage.name = "Maletas"
+        bagage.name = "Pack X 2 maletas"
         bagage.fees = "36 cuotas"
         bagage.price = "$190.900"
         bagage.image = "bagage"

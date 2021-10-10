@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SCLAlertView
+import SkeletonView
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
@@ -41,22 +42,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         setupTableView()
         
-        // 1
         searchController.searchResultsUpdater = self
-        // 2
         searchController.obscuresBackgroundDuringPresentation = false
-        // 3
         searchController.searchBar.placeholder = TextResources.searchProducts.rawValue
-        // 4
         navigationItem.searchController = searchController
-        // 5
         definesPresentationContext = true
         searchController.searchBar.delegate = self
         searchController.searchBar.backgroundColor = Colors().White
     }
 
     private func setupTableView() {
-
         self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
         self.catTableView.dataSource = self
         self.catTableView.rowHeight = UITableView.automaticDimension
@@ -90,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> CategoryEntity? {
+        setUpSkeleton(show : false)
       return presenter?.getItemAt(indexPath: indexPath)
     }
     
@@ -103,7 +99,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 extension ViewController: ProductCategoryViewProtocol {
     func loadCategory() {
-        self.catTableView.reloadData()
     }
     
     func showErrorMessage(_ message: String) {
@@ -112,8 +107,23 @@ extension ViewController: ProductCategoryViewProtocol {
     
     func loadCategories() {
         self.catTableView.reloadData()
+        setUpSkeleton(show: true)
+    }
+    
+    
+//    Skeleton call
+    private func setUpSkeleton(show : Bool){
+        
+        catTableView.isSkeletonable = true
+        if(show){
+            catTableView.showAnimatedGradientSkeleton()
+        } else{
+            catTableView.hideSkeleton()
+        }
     }
 }
+
+
 
 extension ViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {

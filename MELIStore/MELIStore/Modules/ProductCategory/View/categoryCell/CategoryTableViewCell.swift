@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import SkeletonView
 
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet  var titleLabel: UILabel!
     @IBOutlet  var categoryImageView: UIImageView!
-    
     @IBOutlet weak var viewCell: UIView!
     
     var category = CategoryDetail()
@@ -27,6 +27,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpSkeleton(show: true)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +35,13 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     func setUpCell(category : CategoryDetail) {
+        
         self.category = category
+        
+        if(self.category.name != ""){
+            setUpSkeleton(show: false)
+        }
+        
         titleLabel.text = category.name
         
         // Create URL
@@ -56,6 +63,25 @@ class CategoryTableViewCell: UITableViewCell {
         viewCell.layer.shadowOffset = CGSize(width: 4, height: 4)
         viewCell.layer.shadowRadius = 13.0
         viewCell.layer.masksToBounds = false
+        
     }
+    
+//    Skeleton call to show and hide
+       private func setUpSkeleton(show : Bool){
+        
+        titleLabel.isSkeletonable = true
+        titleLabel.linesCornerRadius = 8
+        categoryImageView.isSkeletonable = true
+        categoryImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
+        categoryImageView.layer.cornerRadius = 10
+        
+            if(show){
+                titleLabel.showAnimatedGradientSkeleton()
+                categoryImageView.showAnimatedGradientSkeleton()
+            } else {
+                titleLabel.hideSkeleton()
+                categoryImageView.hideSkeleton()
+            }
+       }
     
 }

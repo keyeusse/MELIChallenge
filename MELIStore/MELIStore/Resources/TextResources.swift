@@ -30,4 +30,5 @@ public enum TextResources: String {
 public enum NumberResources: Float {
     case categorySize = 300
     case productSize = 350
+    case favoriteProductSize = 200
 }

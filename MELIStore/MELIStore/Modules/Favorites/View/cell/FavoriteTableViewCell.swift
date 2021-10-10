@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class FavoriteTableViewCell: UITableViewCell {
     
@@ -14,6 +15,11 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var proceLabel: UILabel!
     @IBOutlet weak var feesLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var buyButton: UIButton!
+    
+    @IBAction func buyAction(_ sender: Any) {
+        SCLAlertView().showSuccess(TextResources.buyTitle.rawValue, subTitle: TextResources.buyDescription.rawValue, closeButtonTitle: TextResources.perfect.rawValue)
+    }
     
     var favorite = Favorite()
     
@@ -37,6 +43,11 @@ class FavoriteTableViewCell: UITableViewCell {
         proceLabel.text = favorite.price
         feesLabel.text = favorite.fees
         productImageView.image = UIImage(named: favorite.image)
+        
+        buyButton.backgroundColor = Colors().Blue
+        buyButton.layer.cornerRadius = 10
+        buyButton.layer.borderWidth = 1
+        buyButton.layer.borderColor = Colors().LightGray.cgColor
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class ProductTableViewCell: UITableViewCell {
 
@@ -28,6 +29,7 @@ class ProductTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpSkeleton(show : true)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,6 +38,7 @@ class ProductTableViewCell: UITableViewCell {
     
     func setUpCell(product : Product) {
         self.product = product
+        setUpSkeleton(show : false)
         productNameLabel.text = product.title
         priceLabel.text = setDoubleToString(number: product.price)
         currencyLabel.text = product.currency
@@ -44,7 +47,6 @@ class ProductTableViewCell: UITableViewCell {
         } else {
             shippingLabel.text = TextResources.whenShipping.rawValue
         }
-        
         
         // Create URL
         let url = URL(string: product.image ?? TextResources.noImage.rawValue)!
@@ -81,6 +83,32 @@ class ProductTableViewCell: UITableViewCell {
         
 //        let priceString = currencyFormatter.string(from: NSNumber(price))!
     }
+    
+//    Skeleton call to show and hide
+           private func setUpSkeleton(show : Bool){
+            
+            productNameLabel.isSkeletonable = true
+            productNameLabel.linesCornerRadius = 8
+            priceLabel.isSkeletonable = true
+            priceLabel.linesCornerRadius = 8
+            currencyLabel.isSkeletonable = true
+            currencyLabel.linesCornerRadius = 8
+            productImage.isSkeletonable = true
+            productImage.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
+            productImage.layer.cornerRadius = 10
+            
+                if(show){
+                    productNameLabel.showAnimatedGradientSkeleton()
+                    priceLabel.showAnimatedGradientSkeleton()
+                    currencyLabel.showAnimatedGradientSkeleton()
+                    productImage.showAnimatedGradientSkeleton()
+                } else {
+                    productNameLabel.hideSkeleton()
+                    priceLabel.hideSkeleton()
+                    currencyLabel.hideSkeleton()
+                    productImage.hideSkeleton()
+                }
+           }
     
     @IBAction func favoriteBtnAction(_ sender: Any) {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

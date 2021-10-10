@@ -188,6 +188,9 @@
                                                 <state key="normal" title="Comprar ahora">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="buyProductAction:" destination="OLK-hR-bUP" eventType="touchUpInside" id="DdY-nm-fy0"/>
+                                                </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LtR-Dn-8fX">
                                                 <rect key="frame" x="41.5" y="121" width="331" height="210"/>
@@ -226,9 +229,9 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF6-UF-e7l">
-                                                <rect key="frame" x="41.5" y="661" width="331" height="78"/>
+                                                <rect key="frame" x="41.5" y="661" width="331" height="500"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="0Ni-1D-dqP"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="500" id="0Ni-1D-dqP"/>
                                                 </constraints>
                                                 <string key="text">Descripci[on para saber de que es el producto que queremos ver o comprar. Cada detalle debe ir aca para que el cliente se vea identificado</string>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
@@ -285,7 +288,7 @@
                                     <constraint firstItem="4zn-zr-i5i" firstAttribute="centerX" secondItem="7p2-BV-75a" secondAttribute="centerX" id="54O-5y-VsJ"/>
                                     <constraint firstItem="4zn-zr-i5i" firstAttribute="centerY" secondItem="7p2-BV-75a" secondAttribute="centerY" id="OpE-0y-wwh"/>
                                     <constraint firstAttribute="trailing" secondItem="4zn-zr-i5i" secondAttribute="trailing" id="g95-Ub-MxC"/>
-                                    <constraint firstAttribute="bottom" secondItem="4zn-zr-i5i" secondAttribute="bottom" id="gm2-Vb-axM"/>
+                                    <constraint firstAttribute="bottom" secondItem="4zn-zr-i5i" secondAttribute="bottom" constant="500" id="gm2-Vb-axM"/>
                                     <constraint firstItem="4zn-zr-i5i" firstAttribute="top" secondItem="7p2-BV-75a" secondAttribute="top" id="jjv-2j-vss"/>
                                     <constraint firstItem="4zn-zr-i5i" firstAttribute="leading" secondItem="7p2-BV-75a" secondAttribute="leading" id="oSL-dn-urW"/>
                                 </constraints>

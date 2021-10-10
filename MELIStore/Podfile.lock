@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.0.5)
   - SCLAlertView (0.8)
+  - SkeletonView (1.25.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
   - SCLAlertView
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SCLAlertView
+    - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SkeletonView: 77079530e1348a72f48b79ae30dcb966c1b18b6a
 
-PODFILE CHECKSUM: 21d0a53500cd1592f413a1d636954dd8b37d968a
+PODFILE CHECKSUM: 97a4519f0cdaa364dd3b8b6e5bc9003e13b3fa7a
 
 COCOAPODS: 1.11.2

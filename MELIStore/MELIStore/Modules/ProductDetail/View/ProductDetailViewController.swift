@@ -74,10 +74,10 @@ class ProductDetailViewController: UIViewController {
             shippingLabel.text = TextResources.whenShipping.rawValue
         }
         
-        buyButton.backgroundColor = .blue
+        buyButton.backgroundColor = Colors().Blue
         buyButton.layer.cornerRadius = 10
         buyButton.layer.borderWidth = 1
-        buyButton.layer.borderColor = UIColor.black.cgColor
+        buyButton.layer.borderColor = Colors().LightGray.cgColor
     }
     
     private func getDescription() -> ProductDetailDescription? {
