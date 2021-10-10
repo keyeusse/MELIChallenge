@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import Alamofire
 
 class CategoryTableViewCell: UITableViewCell {
 
@@ -34,26 +35,13 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setUpCell(category : CategoryDetail) {
+    func setUpCell(id : String) {
         
-        self.category = category
+        self.id = id
         
-        if(self.category.name != ""){
-            setUpSkeleton(show: false)
-        }
-        
-        titleLabel.text = category.name
-        
-        // Create URL
-        let url = URL(string: category.picture)!
-        
-           // Fetch Image Data
-           if let data = try? Data(contentsOf: url) {
-               // Create Image and Update Image View
-            categoryImageView.image = UIImage(data: data)
-           }
-       
-        
+//        load images
+        loadImage(categoryId: id)
+
         viewCell.layer.masksToBounds = true
         viewCell.layer.borderColor = Colors().MainGray.cgColor
         viewCell.layer.borderWidth = 1.0
@@ -83,5 +71,25 @@ class CategoryTableViewCell: UITableViewCell {
                 categoryImageView.hideSkeleton()
             }
        }
+    
+    func loadImage(categoryId: String){
+        let URL2 = APIServiceUrls.categoryInfo.rawValue + id
+       
+           let request2 = AF.request(URL2)
+           request2.responseDecodable(of: CategoryDetail.self) { (response) in
+             guard let category = response.value else { return }
+            
+            if(category.name != ""){
+                self.setUpSkeleton(show: false)
+            }
+            
+            self.titleLabel.text = category.name
+            let url = URL(string: category.picture)!
+
+               if let data = try? Data(contentsOf: url) {
+                self.categoryImageView.image = UIImage(data: data)
+               }
+           }
+    }
     
 }

@@ -66,17 +66,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let category = getItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell) as? CategoryTableViewCell else { return UITableViewCell()}
-//        presenter?.loadCategoryData(id: category.id)
-//        categoryDetail = presenter?.getItemAtCategory() ?? CategoryDetail()
-        
-        let URL2 = "https://api.mercadolibre.com/categories/" + category.id
-
-                let request2 = AF.request(URL2)
-                request2.responseDecodable(of: CategoryDetail.self) { (response) in
-                  guard let category = response.value else { return }
-                    cell.setUpCell(category: category)
-                }
-//        cell.setUpCell(category: categoryDetail)
+        cell.setUpCell(id: category.id)
         return cell
     }
     

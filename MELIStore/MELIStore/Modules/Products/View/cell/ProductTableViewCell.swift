@@ -15,11 +15,12 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    
     @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var shippingLabel: UILabel!
+    
+    
     var product = Product()
     
-    @IBOutlet weak var shippingLabel: UILabel!
     static let idCell = "ProductTableViewCell"
     
     
@@ -74,18 +75,9 @@ class ProductTableViewCell: UITableViewCell {
         return String(format: "$ %.1f", number)
     }
     
-    func setPriceFormatter(price : Double){
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = .currency
-        // localize to your grouping and decimal separator
-        currencyFormatter.locale = Locale.current
-        
-//        let priceString = currencyFormatter.string(from: NSNumber(price))!
-    }
-    
+
 //    Skeleton call to show and hide
-           private func setUpSkeleton(show : Bool){
+       private func setUpSkeleton(show : Bool){
             
             productNameLabel.isSkeletonable = true
             productNameLabel.linesCornerRadius = 8
@@ -108,7 +100,7 @@ class ProductTableViewCell: UITableViewCell {
                     currencyLabel.hideSkeleton()
                     productImage.hideSkeleton()
                 }
-           }
+       }
     
     @IBAction func favoriteBtnAction(_ sender: Any) {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

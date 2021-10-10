@@ -10,35 +10,40 @@ import SCLAlertView
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var productsTableView: UITableView!
 
 //    VIPER
     var presenter: ProductsPresenterProtocol?
     var categoryId: String?
+    var shouldAnimateCell : Bool = true
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpSkeleton(show : true)
+        ProductsRouter.createProductsModule(for: self, and: "")
         presenter?.loadProdutsData(categoryId: categoryId ?? "")
+        
         setupTableView()
+        spinner.startAnimating()
+
     }
     
     private func setupTableView() {
-
+        self.productsTableView.reloadData()
         self.productsTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
         self.productsTableView.dataSource = self
         self.productsTableView.rowHeight = UITableView.automaticDimension
         self.productsTableView.delegate = self
+        self.productsTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.getNumberOfItemsAt(section)  ?? 3
+        presenter?.getNumberOfItemsAt(section)  ?? 0
     }
     
     private func getItemAt(_ indexPath: IndexPath) -> Products? {
-        setUpSkeleton(show : false)
         return presenter?.getItemAtProducts()
     }
     
@@ -49,6 +54,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let product = getItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
+        spinner.stopAnimating()
         cell.setUpCell(product: product.result[indexPath.row])
         return cell
     }
@@ -58,17 +64,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         presenter?.showProducDetailView(for: product, from: self)
       self.productsTableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    //    Skeleton call
-        private func setUpSkeleton(show : Bool){
-            productsTableView.isSkeletonable = true
-            if(show){
-                productsTableView.showAnimatedGradientSkeleton()
-            } else{
-                productsTableView.hideSkeleton()
-            }
-        }
-
 }
 
 extension ProductViewController: ProductsViewProtocol {
@@ -78,7 +73,6 @@ extension ProductViewController: ProductsViewProtocol {
     
     func loadProductList() {
         self.productsTableView.reloadData()
-        setUpSkeleton(show : true)
     }
 }
 

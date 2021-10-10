@@ -49,10 +49,19 @@ class ProductDetailViewController: UIViewController {
         
         ProductDetailRouter.createProductDetailModule(for: self)
         presenter?.loadDescriptionData(categoryId: product.id)
+        
+        setUpCollectionView()
+        
         setUpView()
     }
     
-    func setUpView(){
+    func setUpCollectionView() {
+        pictureCollectionView.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.idCell)
+        pictureCollectionView.dataSource = self
+        pictureCollectionView.delegate = self
+    }
+    
+    func setUpView() {
         nameLabel.text = product.title
         rattingLabel.text = blackStar + blackStar + blackStar + blackStar + whiteStar
         priceLabel.text = "$" + String(product.price)
@@ -95,3 +104,16 @@ extension ProductDetailViewController: ProductDetailViewProtocol{
     }
 
 }
+
+extension ProductDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.idCell, for: indexPath) as! ImageCollectionViewCell
+        cell.setUpCell(image: product.image ?? TextResources.noImage.rawValue)
+        return cell
+    }
+}
+

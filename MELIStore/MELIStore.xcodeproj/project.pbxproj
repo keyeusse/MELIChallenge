@@ -46,6 +46,9 @@
 		84ABDF2027113C3100DB71FD /* ProductDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */; };
 		84ABDF29271256B700DB71FD /* TextResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF28271256B700DB71FD /* TextResources.swift */; };
 		84ABDF2B27125EC100DB71FD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF2A27125EC100DB71FD /* Colors.swift */; };
+		84ABDF2E2712ACB800DB71FD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF2C2712ACB800DB71FD /* ImageCollectionViewCell.swift */; };
+		84ABDF2F2712ACB800DB71FD /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ABDF2D2712ACB800DB71FD /* ImageCollectionViewCell.xib */; };
+		84ABDF322712C18C00DB71FD /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF312712C18C00DB71FD /* APIClientMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		84ABDF1F27113C3100DB71FD /* ProductDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRouter.swift; sourceTree = "<group>"; };
 		84ABDF28271256B700DB71FD /* TextResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResources.swift; sourceTree = "<group>"; };
 		84ABDF2A27125EC100DB71FD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		84ABDF2C2712ACB800DB71FD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		84ABDF2D2712ACB800DB71FD /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		84ABDF312712C18C00DB71FD /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -317,6 +323,7 @@
 			children = (
 				84A9E858270BE3C900FD292F /* MELIStoreTests.swift */,
 				84A9E85A270BE3C900FD292F /* Info.plist */,
+				84ABDF312712C18C00DB71FD /* APIClientMock.swift */,
 			);
 			path = MELIStoreTests;
 			sourceTree = "<group>";
@@ -445,6 +452,7 @@
 		84ABDF122711294300DB71FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84ABDF302712B48200DB71FD /* cell */,
 				84ABDF132711296700DB71FD /* ProductDetailViewController.swift */,
 			);
 			path = View;
@@ -487,6 +495,15 @@
 			children = (
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		84ABDF302712B48200DB71FD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				84ABDF2C2712ACB800DB71FD /* ImageCollectionViewCell.swift */,
+				84ABDF2D2712ACB800DB71FD /* ImageCollectionViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		9DA0C13CFA44A4B08282853F /* Pods */ = {
@@ -606,6 +623,7 @@
 				84A9E84E270BE3C800FD292F /* LaunchScreen.storyboard in Resources */,
 				843BD213270DFFBC00FA6C13 /* ProductTableViewCell.xib in Resources */,
 				84A9E84B270BE3C800FD292F /* Assets.xcassets in Resources */,
+				84ABDF2F2712ACB800DB71FD /* ImageCollectionViewCell.xib in Resources */,
 				843BD209270D678C00FA6C13 /* FavoriteTableViewCell.xib in Resources */,
 				84A9E846270BE3C700FD292F /* Main.storyboard in Resources */,
 				843BD1FF270D519000FA6C13 /* CategoryTableViewCell.xib in Resources */,
@@ -697,6 +715,7 @@
 				843BD219270E049200FA6C13 /* ProductDetail.swift in Sources */,
 				84ABDEFB270F846E00DB71FD /* ProductCategoryProtocol.swift in Sources */,
 				843BD212270DFFBC00FA6C13 /* ProductTableViewCell.swift in Sources */,
+				84ABDF2E2712ACB800DB71FD /* ImageCollectionViewCell.swift in Sources */,
 				84ABDF29271256B700DB71FD /* TextResources.swift in Sources */,
 				84A9E841270BE3C700FD292F /* SceneDelegate.swift in Sources */,
 				8433C557270E9E3C001AF8C8 /* APIConstants.swift in Sources */,
@@ -713,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A9E859270BE3C900FD292F /* MELIStoreTests.swift in Sources */,
+				84ABDF322712C18C00DB71FD /* APIClientMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
