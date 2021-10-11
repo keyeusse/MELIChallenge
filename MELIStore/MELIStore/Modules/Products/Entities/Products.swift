@@ -20,12 +20,15 @@ struct Products: Codable {
         case query = "query"
         case result = "results"
     }
+    
+    init() {
+        siteId = ""
+        query = ""
+        paging = Paging()
+        result = [Product]()
+    }
 }
 
-enum ProductServiceType {
-    case categoryProducts
-    case searchProducts
-}
 
 struct Paging: Codable {
     var total: Int
@@ -38,5 +41,13 @@ struct Paging: Codable {
         case offset
         case limit
         case primaryResults = "primary_results"
+    }
+    
+    init() {
+        total = 100
+        offset = 0
+        limit = 4
+        primaryResults = 0
+        
     }
 }

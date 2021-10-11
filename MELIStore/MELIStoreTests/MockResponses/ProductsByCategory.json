@@ -1,0 +1,890 @@
+{
+    "site_id": "MCO",
+    "country_default_time_zone": "GMT-05:00",
+    "paging": {
+        "total": 96296,
+        "primary_results": 1000,
+        "offset": 0,
+        "limit": 1
+    },
+    "results": [
+        {
+            "id": "MCO657478327",
+            "site_id": "MCO",
+            "title": "Hidrolavadora Black+decker Bw13 Con 1450psi De Presión Máxima 220v",
+            "seller": {
+                "id": 280874472,
+                "permalink": null,
+                "registration_date": null,
+                "car_dealer": false,
+                "real_estate_agency": false,
+                "tags": null
+            },
+            "price": 332900,
+            "prices": {
+                "id": "MCO657478327",
+                "prices": [
+                    {
+                        "id": "22",
+                        "type": "standard",
+                        "amount": 349900,
+                        "regular_amount": null,
+                        "currency_id": "COP",
+                        "last_updated": "2021-09-17T13:58:01Z",
+                        "conditions": {
+                            "context_restrictions": [],
+                            "start_time": null,
+                            "end_time": null,
+                            "eligible": true
+                        },
+                        "exchange_rate_context": "DEFAULT",
+                        "metadata": {}
+                    },
+                    {
+                        "id": "27",
+                        "type": "promotion",
+                        "amount": 332900,
+                        "regular_amount": 349900,
+                        "currency_id": "COP",
+                        "last_updated": "2021-10-11T06:10:10Z",
+                        "conditions": {
+                            "context_restrictions": [
+                                "channel_marketplace"
+                            ],
+                            "start_time": "2020-09-07T18:44:00Z",
+                            "end_time": "2022-01-01T04:59:00Z",
+                            "eligible": true
+                        },
+                        "exchange_rate_context": "DEFAULT",
+                        "metadata": {
+                            "campaign_id": "MCO1815",
+                            "promotion_id": "MCO1815",
+                            "promotion_type": "campaign"
+                        }
+                    }
+                ],
+                "presentation": {
+                    "display_currency": "COP"
+                },
+                "payment_method_prices": [],
+                "reference_prices": [],
+                "purchase_discounts": []
+            },
+            "sale_price": null,
+            "currency_id": "COP",
+            "available_quantity": 43,
+            "sold_quantity": 68,
+            "buying_mode": "buy_it_now",
+            "listing_type_id": "gold_special",
+            "stop_time": "2041-08-14T04:00:00.000Z",
+            "condition": "new",
+            "permalink": "https://www.mercadolibre.com.co/hidrolavadora-blackdecker-bw13-con-1450psi-de-presion-maxima-220v/p/MCO16003164",
+            "thumbnail": "http://http2.mlstatic.com/D_703188-MLA46238269894_062021-I.jpg",
+            "thumbnail_id": "703188-MLA46238269894_062021",
+            "accepts_mercadopago": true,
+            "installments": {
+                "quantity": 36,
+                "amount": 9247.22,
+                "rate": 0,
+                "currency_id": "COP"
+            },
+            "address": {
+                "state_id": "CO-DC",
+                "state_name": "Bogotá D.C.",
+                "city_id": "TUNPQ0JBUjEyNTcx",
+                "city_name": "Barrios Unidos"
+            },
+            "shipping": {
+                "free_shipping": true,
+                "mode": "me2",
+                "tags": [
+                    "fulfillment",
+                    "self_service_in",
+                    "mandatory_free_shipping"
+                ],
+                "logistic_type": "fulfillment",
+                "store_pick_up": false
+            },
+            "seller_address": {
+                "id": "",
+                "comment": "",
+                "address_line": "",
+                "zip_code": "",
+                "country": {
+                    "id": "CO",
+                    "name": "Colombia"
+                },
+                "state": {
+                    "id": "CO-DC",
+                    "name": "Bogotá D.C."
+                },
+                "city": {
+                    "id": "TUNPQ0JBUjEyNTcx",
+                    "name": "Barrios Unidos"
+                },
+                "latitude": "",
+                "longitude": ""
+            },
+            "attributes": [
+                {
+                    "attribute_group_name": "",
+                    "name": "Potencia",
+                    "value_id": "104202",
+                    "value_struct": {
+                        "unit": "W",
+                        "number": 1300
+                    },
+                    "attribute_group_id": "",
+                    "source": 4709228965570453,
+                    "id": "POWER",
+                    "value_name": "1300 W",
+                    "values": [
+                        {
+                            "id": "104202",
+                            "name": "1300 W",
+                            "struct": {
+                                "number": 1300,
+                                "unit": "W"
+                            },
+                            "source": 4709228965570453
+                        }
+                    ]
+                },
+                {
+                    "values": [
+                        {
+                            "source": 1,
+                            "id": "2149465",
+                            "name": "Black+Decker",
+                            "struct": null
+                        }
+                    ],
+                    "attribute_group_name": "Otros",
+                    "source": 1,
+                    "value_id": "2149465",
+                    "name": "Marca",
+                    "value_name": "Black+Decker",
+                    "value_struct": null,
+                    "attribute_group_id": "OTHERS",
+                    "id": "BRAND"
+                },
+                {
+                    "attribute_group_id": "OTHERS",
+                    "name": "Largo de la manguera",
+                    "value_id": "7484850",
+                    "values": [
+                        {
+                            "id": "7484850",
+                            "name": "3 m",
+                            "struct": {
+                                "number": 3,
+                                "unit": "m"
+                            },
+                            "source": 1
+                        }
+                    ],
+                    "attribute_group_name": "Otros",
+                    "source": 1,
+                    "id": "HOSE_LENGTH",
+                    "value_name": "3 m",
+                    "value_struct": {
+                        "number": 3,
+                        "unit": "m"
+                    }
+                },
+                {
+                    "attribute_group_name": "Otros",
+                    "id": "ITEM_CONDITION",
+                    "name": "Condición del ítem",
+                    "value_id": "2230284",
+                    "value_name": "Nuevo",
+                    "value_struct": null,
+                    "values": [
+                        {
+                            "struct": null,
+                            "source": 1,
+                            "id": "2230284",
+                            "name": "Nuevo"
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "source": 1
+                },
+                {
+                    "value_id": "2747588",
+                    "values": [
+                        {
+                            "name": "BW13",
+                            "struct": null,
+                            "source": 1,
+                            "id": "2747588"
+                        }
+                    ],
+                    "attribute_group_id": "OTHERS",
+                    "attribute_group_name": "Otros",
+                    "source": 1,
+                    "id": "MODEL",
+                    "name": "Modelo",
+                    "value_name": "BW13",
+                    "value_struct": null
+                },
+                {
+                    "name": "Largo de la hidrolavadora",
+                    "value_id": "7996863",
+                    "value_name": "26 cm",
+                    "value_struct": {
+                        "number": 26,
+                        "unit": "cm"
+                    },
+                    "values": [
+                        {
+                            "name": "26 cm",
+                            "struct": {
+                                "number": 26,
+                                "unit": "cm"
+                            },
+                            "source": 4709228965570453,
+                            "id": "7996863"
+                        }
+                    ],
+                    "attribute_group_name": "Otros",
+                    "id": "PRESSURE_WASHER_LENGTH",
+                    "source": 4709228965570453,
+                    "attribute_group_id": "OTHERS"
+                },
+                {
+                    "values": [
+                        {
+                            "source": 4709228965570453,
+                            "id": "7538508",
+                            "name": "6.4 kg",
+                            "struct": {
+                                "number": 6.4,
+                                "unit": "kg"
+                            }
+                        }
+                    ],
+                    "attribute_group_name": "Otros",
+                    "value_id": "7538508",
+                    "value_name": "6.4 kg",
+                    "value_struct": {
+                        "unit": "kg",
+                        "number": 6.4
+                    },
+                    "attribute_group_id": "OTHERS",
+                    "source": 4709228965570453,
+                    "id": "PRESSURE_WASHER_WEIGHT",
+                    "name": "Peso de la hidrolavadora"
+                }
+            ],
+            "original_price": 349900,
+            "category_id": "MCO166618",
+            "official_store_id": 306,
+            "domain_id": "MCO-ELECTRIC_PRESSURE_WASHERS",
+            "catalog_product_id": "MCO16003164",
+            "tags": [
+                "good_quality_picture",
+                "loyalty_discount_eligible",
+                "immediate_payment",
+                "cart_eligible",
+                "shipping_guaranteed",
+                "best_seller_candidate"
+            ],
+            "catalog_listing": true,
+            "use_thumbnail_id": true,
+            "offer_score": null,
+            "offer_share": null,
+            "match_score": null,
+            "winner_item_id": null,
+            "order_backend": 1
+        }
+    ],
+    "sort": {
+        "id": "relevance",
+        "name": "Más relevantes"
+    },
+    "available_sorts": [
+        {
+            "id": "price_asc",
+            "name": "Menor precio"
+        },
+        {
+            "id": "price_desc",
+            "name": "Mayor precio"
+        }
+    ],
+    "filters": [
+        {
+            "id": "category",
+            "name": "Categorías",
+            "type": "text",
+            "values": [
+                {
+                    "id": "MCO441917",
+                    "name": "Agro",
+                    "path_from_root": [
+                        {
+                            "id": "MCO441917",
+                            "name": "Agro"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "available_filters": [
+        {
+            "id": "category",
+            "name": "Categorías",
+            "type": "text",
+            "values": [
+                {
+                    "id": "MCO417282",
+                    "name": "Máquinas y Herramientas",
+                    "results": 60656
+                },
+                {
+                    "id": "MCO442344",
+                    "name": "Generadores de Energía",
+                    "results": 13767
+                },
+                {
+                    "id": "MCO454448",
+                    "name": "Infraestructura Rural",
+                    "results": 12162
+                },
+                {
+                    "id": "MCO442343",
+                    "name": "Insumos Agrícolas",
+                    "results": 4747
+                },
+                {
+                    "id": "MCO442346",
+                    "name": "Animales",
+                    "results": 2508
+                },
+                {
+                    "id": "MCO407816",
+                    "name": "Insumos Ganaderos",
+                    "results": 997
+                },
+                {
+                    "id": "MCO442351",
+                    "name": "Repuestos Maquinaria Agrícola",
+                    "results": 804
+                },
+                {
+                    "id": "MCO404085",
+                    "name": "Otros",
+                    "results": 655
+                }
+            ]
+        },
+        {
+            "id": "official_store",
+            "name": "Tiendas oficiales",
+            "type": "text",
+            "values": [
+                {
+                    "id": "all",
+                    "name": "Todas las tiendas oficiales",
+                    "results": 708
+                },
+                {
+                    "id": "450",
+                    "name": "Maquitodo",
+                    "results": 47
+                },
+                {
+                    "id": "1579",
+                    "name": "Equipmaster",
+                    "results": 66
+                },
+                {
+                    "id": "1188",
+                    "name": "Ferreco",
+                    "results": 19
+                },
+                {
+                    "id": "1653",
+                    "name": "Alluma Colombia",
+                    "results": 12
+                },
+                {
+                    "id": "515",
+                    "name": "Belltec",
+                    "results": 40
+                },
+                {
+                    "id": "306",
+                    "name": "Black And Decker Herramientas",
+                    "results": 3
+                },
+                {
+                    "id": "289",
+                    "name": "Ferreteria Samir",
+                    "results": 23
+                },
+                {
+                    "id": "663",
+                    "name": "Soelco",
+                    "results": 18
+                },
+                {
+                    "id": "271",
+                    "name": "Karcher",
+                    "results": 15
+                },
+                {
+                    "id": "1349",
+                    "name": "Sumatec",
+                    "results": 8
+                },
+                {
+                    "id": "938",
+                    "name": "Home Sentry",
+                    "results": 5
+                },
+                {
+                    "id": "1218",
+                    "name": "Klatter",
+                    "results": 2
+                },
+                {
+                    "id": "307",
+                    "name": "Dewalt",
+                    "results": 1
+                }
+            ]
+        },
+        {
+            "id": "discount",
+            "name": "Descuentos",
+            "type": "number",
+            "values": [
+                {
+                    "id": "5-100",
+                    "name": "Desde 5% OFF",
+                    "results": 543
+                },
+                {
+                    "id": "10-100",
+                    "name": "Desde 10% OFF",
+                    "results": 418
+                },
+                {
+                    "id": "15-100",
+                    "name": "Desde 15% OFF",
+                    "results": 211
+                },
+                {
+                    "id": "20-100",
+                    "name": "Desde 20% OFF",
+                    "results": 124
+                },
+                {
+                    "id": "25-100",
+                    "name": "Desde 25% OFF",
+                    "results": 79
+                },
+                {
+                    "id": "30-100",
+                    "name": "Desde 30% OFF",
+                    "results": 46
+                }
+            ]
+        },
+        {
+            "id": "state",
+            "name": "Ubicación",
+            "type": "text",
+            "values": [
+                {
+                    "id": "CO-DC",
+                    "name": "Bogotá D.C.",
+                    "results": 29947
+                },
+                {
+                    "id": "CO-CES",
+                    "name": "Cesar",
+                    "results": 9341
+                },
+                {
+                    "id": "CO-CUN",
+                    "name": "Cundinamarca",
+                    "results": 5608
+                },
+                {
+                    "id": "CO-ANT",
+                    "name": "Antioquia",
+                    "results": 3342
+                },
+                {
+                    "id": "CO-VAC",
+                    "name": "Valle Del Cauca",
+                    "results": 1842
+                },
+                {
+                    "id": "CO-SAN",
+                    "name": "Santander",
+                    "results": 1323
+                },
+                {
+                    "id": "CO-BOL",
+                    "name": "Bolivar",
+                    "results": 1313
+                },
+                {
+                    "id": "CO-MET",
+                    "name": "Meta",
+                    "results": 840
+                },
+                {
+                    "id": "CO-ATL",
+                    "name": "Atlantico",
+                    "results": 564
+                },
+                {
+                    "id": "CO-NSA",
+                    "name": "Norte De Santander",
+                    "results": 294
+                },
+                {
+                    "id": "CO-BOY",
+                    "name": "Boyaca",
+                    "results": 285
+                },
+                {
+                    "id": "CO-CAL",
+                    "name": "Caldas",
+                    "results": 245
+                },
+                {
+                    "id": "CO-TOL",
+                    "name": "Tolima",
+                    "results": 178
+                },
+                {
+                    "id": "CO-RIS",
+                    "name": "Risaralda",
+                    "results": 161
+                },
+                {
+                    "id": "CO-QUI",
+                    "name": "Quindio",
+                    "results": 130
+                },
+                {
+                    "id": "CO-NAR",
+                    "name": "Nariño",
+                    "results": 122
+                },
+                {
+                    "id": "CO-HUI",
+                    "name": "Huila",
+                    "results": 114
+                },
+                {
+                    "id": "CO-MAG",
+                    "name": "Magdalena",
+                    "results": 72
+                },
+                {
+                    "id": "CO-CAU",
+                    "name": "Cauca",
+                    "results": 67
+                },
+                {
+                    "id": "CO-SUC",
+                    "name": "Sucre",
+                    "results": 51
+                },
+                {
+                    "id": "CO-COR",
+                    "name": "Córdoba",
+                    "results": 31
+                },
+                {
+                    "id": "CO-LAG",
+                    "name": "Guajira",
+                    "results": 29
+                },
+                {
+                    "id": "CO-CAS",
+                    "name": "Casanare",
+                    "results": 22
+                },
+                {
+                    "id": "CO-PUT",
+                    "name": "Putumayo",
+                    "results": 18
+                },
+                {
+                    "id": "CO-ARA",
+                    "name": "Arauca",
+                    "results": 12
+                },
+                {
+                    "id": "CO-CAQ",
+                    "name": "Caqueta",
+                    "results": 11
+                },
+                {
+                    "id": "CO-GUV",
+                    "name": "Guaviare",
+                    "results": 1
+                },
+                {
+                    "id": "CO-VAU",
+                    "name": "Vaupes",
+                    "results": 1
+                },
+                {
+                    "id": "CO-VID",
+                    "name": "Vichada",
+                    "results": 1
+                }
+            ]
+        },
+        {
+            "id": "price",
+            "name": "Precio",
+            "type": "range",
+            "values": [
+                {
+                    "id": "*-100000.0",
+                    "name": "Hasta $100.000",
+                    "results": 21246
+                },
+                {
+                    "id": "100000.0-250000.0",
+                    "name": "$100.000 a $250.000",
+                    "results": 39027
+                },
+                {
+                    "id": "250000.0-*",
+                    "name": "Más de $250.000",
+                    "results": 36023
+                }
+            ]
+        },
+        {
+            "id": "accepts_mercadopago",
+            "name": "Filtro por MercadoPago",
+            "type": "boolean",
+            "values": [
+                {
+                    "id": "yes",
+                    "name": "Con MercadoPago",
+                    "results": 96296
+                }
+            ]
+        },
+        {
+            "id": "installments",
+            "name": "Pago",
+            "type": "text",
+            "values": [
+                {
+                    "id": "yes",
+                    "name": "En cuotas",
+                    "results": 96082
+                },
+                {
+                    "id": "no_interest",
+                    "name": "Cuotas sin interés",
+                    "results": 58950
+                }
+            ]
+        },
+        {
+            "id": "shipping",
+            "name": "Envío",
+            "type": "text",
+            "values": [
+                {
+                    "id": "mercadoenvios",
+                    "name": "Mercado Envíos",
+                    "results": 74570
+                },
+                {
+                    "id": "fulfillment",
+                    "name": "Full",
+                    "results": 95
+                }
+            ]
+        },
+        {
+            "id": "power_seller",
+            "name": "Filtro por calidad de vendedores",
+            "type": "boolean",
+            "values": [
+                {
+                    "id": "yes",
+                    "name": "Mejores vendedores",
+                    "results": 20471
+                }
+            ]
+        },
+        {
+            "id": "since",
+            "name": "Filtro por fecha de comienzo",
+            "type": "text",
+            "values": [
+                {
+                    "id": "today",
+                    "name": "Publicados hoy",
+                    "results": 341
+                }
+            ]
+        },
+        {
+            "id": "until",
+            "name": "Filtro por fecha de finalización",
+            "type": "text",
+            "values": [
+                {
+                    "id": "today",
+                    "name": "Finalizan hoy",
+                    "results": 9
+                }
+            ]
+        },
+        {
+            "id": "has_video",
+            "name": "Filtro por publicaciones con video",
+            "type": "boolean",
+            "values": [
+                {
+                    "id": "yes",
+                    "name": "Publicaciones con video",
+                    "results": 2477
+                }
+            ]
+        },
+        {
+            "id": "has_pictures",
+            "name": "Filtro por publicaciones con imágenes",
+            "type": "boolean",
+            "values": [
+                {
+                    "id": "yes",
+                    "name": "Con fotos",
+                    "results": 96295
+                }
+            ]
+        },
+        {
+            "id": "all_payment_methods_discount",
+            "name": "Descuentos para todos los medios de pago",
+            "type": "number",
+            "values": [
+                {
+                    "id": "5-100",
+                    "name": "Desde 5% OFF",
+                    "results": 19
+                },
+                {
+                    "id": "10-100",
+                    "name": "Desde 10% OFF",
+                    "results": 14
+                },
+                {
+                    "id": "15-100",
+                    "name": "Desde 15% OFF",
+                    "results": 12
+                },
+                {
+                    "id": "20-100",
+                    "name": "Desde 20% OFF",
+                    "results": 3
+                }
+            ]
+        },
+        {
+            "id": "price_campaign_id",
+            "name": "Campaña",
+            "type": "number",
+            "values": [
+                {
+                    "id": "P-MCO2072003",
+                    "name": "P-MCO2072003",
+                    "results": 9
+                },
+                {
+                    "id": "MCO1815",
+                    "name": "MCO1815",
+                    "results": 2
+                },
+                {
+                    "id": "MCO2298",
+                    "name": "MCO2298",
+                    "results": 1
+                }
+            ]
+        },
+        {
+            "id": "promotion_type",
+            "name": "Tipo de promoción",
+            "type": "text",
+            "values": [
+                {
+                    "id": "lightning",
+                    "name": "Oferta relámpago",
+                    "results": 2
+                }
+            ]
+        },
+        {
+            "id": "shipping_cost",
+            "name": "Costo de envío",
+            "type": "text",
+            "values": [
+                {
+                    "id": "free",
+                    "name": "Gratis",
+                    "results": 72007
+                }
+            ]
+        },
+        {
+            "id": "ITEM_CONDITION",
+            "name": "Condición",
+            "type": "STRING",
+            "values": [
+                {
+                    "id": "2230284",
+                    "name": "Nuevo",
+                    "results": 95704
+                },
+                {
+                    "id": "2230581",
+                    "name": "Usado",
+                    "results": 541
+                },
+                {
+                    "id": "2230582",
+                    "name": "Reacondicionado",
+                    "results": 46
+                }
+            ]
+        },
+        {
+            "id": "SHIPPING_ORIGIN",
+            "name": "Tipo de compra",
+            "type": "STRING",
+            "values": [
+                {
+                    "id": "10215068",
+                    "name": "Local",
+                    "results": 56249
+                },
+                {
+                    "id": "10215069",
+                    "name": "Internacional",
+                    "results": 40047
+                }
+            ]
+        }
+    ]
+}

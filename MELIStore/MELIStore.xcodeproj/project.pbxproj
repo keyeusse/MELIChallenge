@@ -52,6 +52,14 @@
 		84D4D255271391250061A844 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4D253271391250061A844 /* AnimationView.swift */; };
 		84D4D256271391250061A844 /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D254271391250061A844 /* AnimationView.xib */; };
 		84D4D2592713D6410061A844 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4D2582713D6410061A844 /* Error.swift */; };
+		84D4D2642714B98C0061A844 /* Paging.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D25D2714B98C0061A844 /* Paging.json */; };
+		84D4D2652714B98C0061A844 /* Product.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D25E2714B98C0061A844 /* Product.json */; };
+		84D4D2662714B98C0061A844 /* Category.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D25F2714B98C0061A844 /* Category.json */; };
+		84D4D2672714B98C0061A844 /* ProductDescription.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D2602714B98C0061A844 /* ProductDescription.json */; };
+		84D4D2682714B98C0061A844 /* ProductDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D2612714B98C0061A844 /* ProductDetail.json */; };
+		84D4D2692714B98C0061A844 /* ProductsByCategory.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D2622714B98C0061A844 /* ProductsByCategory.json */; };
+		84D4D26A2714B98C0061A844 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D2632714B98C0061A844 /* Categories.json */; };
+		84D4D26C2714E95D0061A844 /* ProductsByCategoryName.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D26B2714E95D0061A844 /* ProductsByCategoryName.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +131,14 @@
 		84D4D253271391250061A844 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		84D4D254271391250061A844 /* AnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 		84D4D2582713D6410061A844 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		84D4D25D2714B98C0061A844 /* Paging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Paging.json; sourceTree = "<group>"; };
+		84D4D25E2714B98C0061A844 /* Product.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Product.json; sourceTree = "<group>"; };
+		84D4D25F2714B98C0061A844 /* Category.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Category.json; sourceTree = "<group>"; };
+		84D4D2602714B98C0061A844 /* ProductDescription.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductDescription.json; sourceTree = "<group>"; };
+		84D4D2612714B98C0061A844 /* ProductDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductDetail.json; sourceTree = "<group>"; };
+		84D4D2622714B98C0061A844 /* ProductsByCategory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductsByCategory.json; sourceTree = "<group>"; };
+		84D4D2632714B98C0061A844 /* Categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
+		84D4D26B2714E95D0061A844 /* ProductsByCategoryName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProductsByCategoryName.json; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -327,6 +343,7 @@
 		84A9E857270BE3C900FD292F /* MELIStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				84D4D25C2714B8C70061A844 /* MockResponses */,
 				84A9E858270BE3C900FD292F /* MELIStoreTests.swift */,
 				84A9E85A270BE3C900FD292F /* Info.plist */,
 				84ABDF312712C18C00DB71FD /* APIClientMock.swift */,
@@ -523,6 +540,21 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		84D4D25C2714B8C70061A844 /* MockResponses */ = {
+			isa = PBXGroup;
+			children = (
+				84D4D26B2714E95D0061A844 /* ProductsByCategoryName.json */,
+				84D4D2632714B98C0061A844 /* Categories.json */,
+				84D4D25F2714B98C0061A844 /* Category.json */,
+				84D4D25D2714B98C0061A844 /* Paging.json */,
+				84D4D25E2714B98C0061A844 /* Product.json */,
+				84D4D2612714B98C0061A844 /* ProductDetail.json */,
+				84D4D2602714B98C0061A844 /* ProductDescription.json */,
+				84D4D2622714B98C0061A844 /* ProductsByCategory.json */,
+			);
+			path = MockResponses;
+			sourceTree = "<group>";
+		};
 		9DA0C13CFA44A4B08282853F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +684,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D4D2642714B98C0061A844 /* Paging.json in Resources */,
+				84D4D26C2714E95D0061A844 /* ProductsByCategoryName.json in Resources */,
+				84D4D2672714B98C0061A844 /* ProductDescription.json in Resources */,
+				84D4D2662714B98C0061A844 /* Category.json in Resources */,
+				84D4D2682714B98C0061A844 /* ProductDetail.json in Resources */,
+				84D4D2692714B98C0061A844 /* ProductsByCategory.json in Resources */,
+				84D4D2652714B98C0061A844 /* Product.json in Resources */,
+				84D4D26A2714B98C0061A844 /* Categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

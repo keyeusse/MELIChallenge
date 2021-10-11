@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var catTableView: UITableView!
     
     // MARK: - Vars to need
-    var categories = [String]()
     private let apiClient = APIClient()
     
     let searchController = UISearchController(searchResultsController: nil)
