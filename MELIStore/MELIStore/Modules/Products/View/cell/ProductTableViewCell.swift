@@ -42,7 +42,7 @@ class ProductTableViewCell: UITableViewCell {
         self.product = product
         setUpSkeleton(show : false)
         productNameLabel.text = product.title
-        priceLabel.text = setDoubleToString(number: product.price)
+        priceLabel.text = "$" + setPrice(number: product.price)
         currencyLabel.text = product.currency
         
         if((product.shipping?.freeShipping) != nil){
@@ -67,6 +67,11 @@ class ProductTableViewCell: UITableViewCell {
         totalView.layer.shadowOffset = CGSize(width: 2, height: 2)
         totalView.layer.shadowOpacity = 0.6
         totalView.layer.shadowRadius = 10
+    }
+    
+    func setPrice(number : Double) -> String {
+        let price = Int(number)
+        return NumberFormatter.localizedString(from: NSNumber(value: price), number: .currency)
     }
     
     func setDoubleToString(number : Double) -> String {

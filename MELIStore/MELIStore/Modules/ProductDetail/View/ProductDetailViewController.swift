@@ -66,18 +66,12 @@ class ProductDetailViewController: UIViewController {
     func setUpView() {
         nameLabel.text = product.title
         rattingLabel.text = blackStar + blackStar + blackStar + blackStar + whiteStar
-        priceLabel.text = "$" + String(product.price)
+        priceLabel.text = "$" + setPrice(number: product.price)
 //        feesLabel.text = "en" + String(product.installments?.quantity) + "X" + String(product.installments?.amount ?? 0 )
-//        availableLabel.text = String(product.availability)
-//        
-//        if let billTotal = String(product.installments?.quantity!) {
-//            // do something with billTotal
-//        } else {
-//            // handle the error
-//        }
-//        
+//        availableLabel.text = String(product?.availability) ?? "20 unidades"
+//
 //        let billTotal = String(product.installments?.quantity!) ?? "0.0"
-               
+        
         
         if((product.shipping?.freeShipping) != nil){
             shippingLabel.text = TextResources.freeShipping.rawValue
@@ -89,6 +83,11 @@ class ProductDetailViewController: UIViewController {
         buyButton.layer.cornerRadius = 10
         buyButton.layer.borderWidth = 1
         buyButton.layer.borderColor = Colors().LightGray.cgColor
+    }
+    
+    func setPrice(number : Double) -> String {
+        let price = Int(number)
+        return NumberFormatter.localizedString(from: NSNumber(value: price), number: .currency)
     }
     
     private func getDescription() -> ProductDetailDescription? {
