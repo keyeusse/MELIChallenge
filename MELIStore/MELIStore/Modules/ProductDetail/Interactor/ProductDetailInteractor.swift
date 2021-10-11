@@ -7,6 +7,7 @@
 
 import UIKit
 
+//VIPER INTERACTOR
 class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
     
     var presenter: ProductDetailInteractorOutputProtocol?
@@ -30,11 +31,16 @@ class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
 
 //API Calls for all products
 extension ProductDetailInteractor: APIProductDescriptionResponseProtocol {
+    
     func getproductDescription(data: ProductDetailDescription) {
         self.productDescriptionResult = data
         self.presenter?.updateDescriptionData()
     }
     
     func onFailure(_ error: Error) {
+    }
+    
+    func onIntenetFailure(_ error: String) {
+        
     }
 }

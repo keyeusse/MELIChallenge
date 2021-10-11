@@ -12,8 +12,9 @@ protocol ProductsViewProtocol: AnyObject {
   var presenter: ProductsPresenterProtocol? { get set}
   // PRESENTER -> VIEW
   func loadProductList()
-    func loadSearchedProductList()
+  func loadSearchedProductList()
   func showErrorMessage(_ message: String)
+  func showNoInternetErrorMessage(_ message: String)
 }
 
 protocol ProductsPresenterProtocol: AnyObject {
@@ -25,9 +26,9 @@ protocol ProductsPresenterProtocol: AnyObject {
   func getItemAtProducts() -> Products?
   func getNumberOfItemsAt(_ index: Int) -> Int
   func loadProdutsData(categoryId : String)
-    func loadSearchProductData(name: String)
-    func getProductSearchData()-> Products?
-    func getNumberSearchedOfItemsAt(_ index: Int) -> Int
+  func loadSearchProductData(name: String)
+  func getProductSearchData()-> Products?
+  func getNumberSearchedOfItemsAt(_ index: Int) -> Int
     
   // Show Product Detail Views
     func showProducDetailView(for product: Product, from view: UIViewController)
@@ -50,6 +51,7 @@ protocol ProductsInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
   func updateProductData()
   func receivedError(_ error: Error)
+  func noInternetErrorMessage(_ message: String)
 }
 
 protocol ProductsRouterProtocol: AnyObject {

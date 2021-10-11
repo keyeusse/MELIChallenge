@@ -24,7 +24,6 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     @IBAction func cartAction(_ sender: Any) {
-        
         SCLAlertView().showSuccess(TextResources.cartTitle.rawValue, subTitle: TextResources.cartDescription.rawValue, closeButtonTitle: TextResources.ok.rawValue)
     }
     //  VIPER
@@ -47,14 +46,15 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Viper calls
         ProductDetailRouter.createProductDetailModule(for: self)
         presenter?.loadDescriptionData(categoryId: product.id)
         
         setUpCollectionView()
-        
         setUpView()
     }
     
+    //MARK: -- View settings
     func setUpCollectionView() {
         pictureCollectionView.register(ImageCollectionViewCell.nib(), forCellWithReuseIdentifier: ImageCollectionViewCell.idCell)
         pictureCollectionView.dataSource = self
@@ -94,17 +94,24 @@ class ProductDetailViewController: UIViewController {
     }
 }
 
+//MARK: -- GET DATA FROM API SERVICE
 extension ProductDetailViewController: ProductDetailViewProtocol{
+    
     func loadProductDescription() {
         descriptionLabel.text = presenter?.getProductDescription()?.plainText
     }
     
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+    }
+    
+    func showNoInternetErrorMessage(_ message: String) {
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
 
 }
 
+//CollectionView image datasource and delegate
 extension ProductDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1

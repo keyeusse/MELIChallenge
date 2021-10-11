@@ -7,6 +7,7 @@
 
 import Foundation
 
+// VIPER ENTITY
 struct Favorite: Codable, Identifiable {
     var id: String
     var name: String

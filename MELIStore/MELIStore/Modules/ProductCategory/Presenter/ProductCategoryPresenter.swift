@@ -7,6 +7,7 @@
 
 import UIKit
 
+//VIPER Presenter is util for communication between all parts
 class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     
     // MARK: - VIPER
@@ -50,11 +51,14 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
         router?.showProductDetailView(for: product, from: view)
     }
     
-    
 }
 
 // MARK: - RECEIVED FROM INTERACTOR
 extension ProductCategoryPresenter: ProductCategoryInteractorOutputProtocol {
+    func noInternetError(_ message: String) {
+        view?.showNoInternetErrorMessage(message)
+    }
+    
     func updateCategoryData() {
         view?.loadCategory()
     }

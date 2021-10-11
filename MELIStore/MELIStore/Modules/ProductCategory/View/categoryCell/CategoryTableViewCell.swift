@@ -15,6 +15,7 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet  var categoryImageView: UIImageView!
     @IBOutlet weak var viewCell: UIView!
     
+    // MARK: - Var needed
     var category = CategoryDetail()
     var name = ""
     var id = ""
@@ -35,8 +36,8 @@ class CategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Setup for cell
     func setUpCell(id : String) {
-        
         self.id = id
         setUpSkeleton(show: true)
         
@@ -53,25 +54,7 @@ class CategoryTableViewCell: UITableViewCell {
         
     }
     
-//    Skeleton call to show and hide
-       private func setUpSkeleton(show : Bool){
-        
-        titleLabel.isSkeletonable = true
-        titleLabel.linesCornerRadius = 8
-        categoryImageView.isSkeletonable = true
-        categoryImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
-        categoryImageView.layer.cornerRadius = 10
-        
-            if(show){
-                titleLabel.showAnimatedGradientSkeleton()
-                categoryImageView.showAnimatedGradientSkeleton()
-            } else {
-                titleLabel.hideSkeleton()
-                categoryImageView.hideSkeleton()
-            }
-       }
-    
-    func loadImage(categoryId: String){
+    func loadImage(categoryId: String) {
         let URL2 = APIServiceUrls.categoryInfo.rawValue + id
        
            let request2 = AF.request(URL2)
@@ -91,4 +74,20 @@ class CategoryTableViewCell: UITableViewCell {
            }
     }
     
+    // MARK: - Load skeleton
+       private func setUpSkeleton(show : Bool) {
+            titleLabel.isSkeletonable = true
+            titleLabel.linesCornerRadius = 8
+            categoryImageView.isSkeletonable = true
+            categoryImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
+            categoryImageView.layer.cornerRadius = 10
+            
+                if(show){
+                    titleLabel.showAnimatedGradientSkeleton()
+                    categoryImageView.showAnimatedGradientSkeleton()
+                } else {
+                    titleLabel.hideSkeleton()
+                    categoryImageView.hideSkeleton()
+                }
+       }
 }

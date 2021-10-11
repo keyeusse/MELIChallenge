@@ -28,7 +28,6 @@ struct CategoryDetail: Codable {
         picture = ""
     }
     
-    //This is being used only for SwiftUI preview in order to keep the beneffits of this tool
     init() {
         id = ""
         name = ""

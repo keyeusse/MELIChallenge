@@ -20,7 +20,6 @@ class ProductTableViewCell: UITableViewCell {
     
     
     var product = Product()
-    
     static let idCell = "ProductTableViewCell"
     
     
@@ -37,12 +36,15 @@ class ProductTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Cell Settings
     func setUpCell(product : Product) {
+        
         self.product = product
         setUpSkeleton(show : false)
         productNameLabel.text = product.title
         priceLabel.text = setDoubleToString(number: product.price)
         currencyLabel.text = product.currency
+        
         if((product.shipping?.freeShipping) != nil){
             shippingLabel.text = TextResources.freeShipping.rawValue
         } else {
@@ -52,13 +54,12 @@ class ProductTableViewCell: UITableViewCell {
         // Create URL
         let url = URL(string: product.image ?? TextResources.noImage.rawValue)!
         
-           // Fetch Image Data
-           if let data = try? Data(contentsOf: url) {
-               // Create Image and Update Image View
-            productImage.image = UIImage(data: data)
-           }
+       // Fetch Image Data
+       if let data = try? Data(contentsOf: url) {
+           // Create Image and Update Image View
+        productImage.image = UIImage(data: data)
+       }
       
-
         totalView.layer.cornerRadius = 10
         totalView.layer.borderWidth = 1.0
         totalView.layer.borderColor = Colors().LightGray.cgColor
@@ -72,9 +73,8 @@ class ProductTableViewCell: UITableViewCell {
         return String(format: "$ %.1f", number)
     }
     
-
 //    Skeleton call to show and hide
-       private func setUpSkeleton(show : Bool){
+       private func setUpSkeleton(show : Bool) {
             
             productNameLabel.isSkeletonable = true
             productNameLabel.linesCornerRadius = 8

@@ -21,6 +21,7 @@ public enum TextResources: String {
     case buyTitle = "Compra exitosa"
     case buyDescription = "Tu compra se ejecutó con éxito"
     case ok = "Está bien"
+    case noInternet = "Parece que no estás conectado a internet. Revisa tu conexión"
     case perfect = "¡Perfecto!"
     case blackStar = "\u{2605}"
     case whiteStar = "\u{2606}"

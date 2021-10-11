@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+//General color for app
 struct Colors {
   let MainYellow = UIColor(red:254/255.0, green:220/255.0, blue:18/255.0, alpha:1.00)
   let MainGray = UIColor(red:140/255.0, green:140/255.0, blue:140/255.0, alpha:1.00)

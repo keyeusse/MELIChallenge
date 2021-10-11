@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - VIPER PRESENTER
 class ProductsPresenter: ProductsPresenterProtocol {
     
     var view: ProductsViewProtocol?
@@ -50,6 +51,11 @@ extension ProductsPresenter: ProductsInteractorOutputProtocol {
     }
     
     func receivedError(_ error: Error) {
+        view?.showErrorMessage(error.localizedDescription)
+    }
+    
+    func noInternetErrorMessage(_ message: String) {
+        view?.showNoInternetErrorMessage(message)
     }
 }
 

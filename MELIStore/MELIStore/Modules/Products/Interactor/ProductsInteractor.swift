@@ -7,9 +7,9 @@
 
 import UIKit
 
+// MARK: - VIPER INTERACTOR
 class ProductsInteractor: ProductsInteractorInputProtocol {
     
-
     weak var presenter: ProductsInteractorOutputProtocol?
     private let apiClient = APIClient()
     private var productsResult: Products?
@@ -48,15 +48,21 @@ class ProductsInteractor: ProductsInteractorInputProtocol {
 
 //API Calls for all products
 extension ProductsInteractor: APIProductsByCategoryResponseProtocol {
+    
     func getProductsByCategoryResult(data: Products) {
         self.productsResult = data
         self.presenter?.updateProductData()
     }
     
-  // Manage error response
-  func onFailure(_ error: Error) {
-    presenter?.receivedError(error)
-  }
+      // Manage error response
+    func onFailure(_ error: Error) {
+        presenter?.receivedError(error)
+    }
+    
+    func onIntenetFailure(_ error: String) {
+        presenter?.noInternetErrorMessage(error)
+    }
+    
 }
 
 //API Calls for searched products

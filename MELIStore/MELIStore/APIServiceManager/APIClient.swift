@@ -8,37 +8,49 @@
 import Foundation
 import Alamofire
 
-// MARK: - Protocols for call api to use response
+// MARK: - Protocols for call api to use categories response
 protocol APICategoriesResponseProtocol {
     func getCategoriesResult(data: [CategoryEntity])
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for call api to use category response
 protocol APICategoryResponseProtocol {
     func getCategoryResult(data: CategoryDetail)
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for call api to use product list response
 protocol APIProductsByCategoryResponseProtocol {
     func getProductsByCategoryResult(data: Products)
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for call api to use product response
 protocol APIProductResponseProtocol {
     func getProductResult(data: Product)
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for call api to use searched products response
 protocol APISearchProductsResponseProtocol {
     func getproductSearchResult(data: Products)
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for call api to use description product response
 protocol APIProductDescriptionResponseProtocol {
     func getproductDescription(data: ProductDetailDescription)
     func onFailure(_ error: Error)
+    func onIntenetFailure(_ error: String)
 }
 
+// MARK: - Protocols for response api calls
 protocol APIClientProtocol: AnyObject {
   func getAllCategoriesList(url: APIServiceUrls, siteId : APIProductSiteId)
     func getCategoryList(url: APIServiceUrls, idCategory : String)
@@ -47,7 +59,6 @@ protocol APIClientProtocol: AnyObject {
     func getProductsSearchList(url: APIServiceUrls, categoryName : String, siteId : APIProductSiteId)
     func getProductDetailDescription(url: APIServiceUrls, productId : String)
 }
-
 
 
 // MARK: - Call to api services from Mercado libre
@@ -61,9 +72,8 @@ class APIClient: APIClientProtocol {
     var productSearchDelegate: APISearchProductsResponseProtocol?
     var productDescriptionDelegate: APIProductDescriptionResponseProtocol?
     
-    
     init() {}
-    
+        
 //  Api call to all categories
     func getAllCategoriesList(url: APIServiceUrls, siteId: APIProductSiteId) {
         if(ConnectivityToIntenet.isConnectedToInternet){
@@ -79,7 +89,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.categoriesDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     
@@ -98,7 +108,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.categoryDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     
@@ -118,7 +128,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.productsByCategoryDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     
@@ -136,7 +146,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.productDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     
@@ -145,7 +155,7 @@ class APIClient: APIClientProtocol {
         if(ConnectivityToIntenet.isConnectedToInternet){
             let URL = url.rawValue
             let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId.rawValue)
-            let replaceBlankSpace = replaceSite.replacingOccurrences(of: " ", with: "%")
+            let replaceBlankSpace = replaceSite.replacingOccurrences(of: " ", with: "")
             let fullPathURL = replaceBlankSpace + categoryName
             
             AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
@@ -157,7 +167,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.productSearchDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     
@@ -176,7 +186,7 @@ class APIClient: APIClientProtocol {
                 }
             }
         } else {
-            return
+            self.productDescriptionDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
     

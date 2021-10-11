@@ -7,11 +7,8 @@
 
 import UIKit
 
+//VIPER PRESENTER
 class ProductDetailPresenter: ProductDetailPresenterProtocol {
-    func getNumberOfItemsAt(_ index: Int) -> Int {
-        return 0
-    }
-    
     
     var view: ProductDetailViewProtocol?
     var interactor: ProductDetailInteractorInputProtocol?
@@ -26,21 +23,25 @@ class ProductDetailPresenter: ProductDetailPresenterProtocol {
     }
     
     func showProductDescriptionView(for product: Product, from view: UIViewController) {
-        
     }
     
-    
-//    func showProducDetailView(for product: Product, from view: UIViewController) {
-//       router?.presentProductDetailView(for: product, from: view)
-//    }
+    func getNumberOfItemsAt(_ index: Int) -> Int {
+        return 0
+    }
 }
 
 // MARK: - RECEIVED FROM INTERACTOR
 extension ProductDetailPresenter: ProductDetailInteractorOutputProtocol {
+   
     func updateDescriptionData() {
         view?.loadProductDescription()
     }
     
     func receivedError(_ error: Error) {
+        view?.showErrorMessage(error.localizedDescription)
+    }
+    
+    func noInternetErrorMessage(_ message: String) {
+        view?.showNoInternetErrorMessage(message)
     }
 }

@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="-426" y="-631"/>
         </scene>
-        <!--View Controller-->
+        <!--Inicio-->
         <scene sceneID="mK9-tf-99I">
             <objects>
                 <viewController id="HiP-q8-oP4" customClass="ViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,15 +99,11 @@
                             <constraint firstItem="f8R-LA-Zwu" firstAttribute="leading" secondItem="707-me-jah" secondAttribute="leading" id="xrX-Tv-qqY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kCY-m4-OAT">
+                    <navigationItem key="navigationItem" title="Inicio" id="kCY-m4-OAT">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="Item" image="filter" id="S70-w7-jwG"/>
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="v3B-gf-iLd">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="catTableView" destination="f8R-LA-Zwu" id="6rM-5a-Qw4"/>
-                        <outlet property="searchButton" destination="v3B-gf-iLd" id="y83-PE-RKo"/>
                         <segue destination="8dc-uF-Hvq" kind="push" id="O7K-jh-Ni8"/>
                     </connections>
                 </viewController>
@@ -380,9 +376,6 @@
                                 <action selector="ActionBack:" destination="8dc-uF-Hvq" id="lu5-Fq-8oG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="GzB-2n-n2Y">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backButton" destination="eAR-Ap-kGg" id="dAd-CT-r2F"/>
@@ -440,7 +433,6 @@
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

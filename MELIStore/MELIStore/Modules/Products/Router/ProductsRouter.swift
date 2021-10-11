@@ -7,9 +7,10 @@
 
 import UIKit
 
-//Class to navegatio between VC
+//// MARK: - VIPER ROUTER : to navegatio between VC
 class ProductsRouter: ProductsRouterProtocol {
     
+//    Go to product detail
     func presentProductDetailView(for product: Product, from view: UIViewController) {
         guard let detailProductListView = view.storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController else { return }
         detailProductListView.product = product

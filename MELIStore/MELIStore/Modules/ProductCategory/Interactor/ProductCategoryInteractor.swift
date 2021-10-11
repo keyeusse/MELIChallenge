@@ -7,9 +7,8 @@
 
 import UIKit
 
+//VIPER Interactor is util for business logic
 class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
-    
-    
     
     weak var presenter: ProductCategoryInteractorOutputProtocol?
     private let apiClient = APIClient()
@@ -51,6 +50,10 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
 
 //API Calls for all categories
 extension ProductCategoryInteractor: APICategoriesResponseProtocol {
+    func onIntenetFailure(_ error: String) {
+        presenter?.noInternetError(error)
+    }
+    
     func getCategoriesResult(data: [CategoryEntity]) {
         self.categoriesResults = data
         self.presenter?.updateData()

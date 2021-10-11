@@ -10,10 +10,12 @@ import UIKit
 // MARK: - VIPER Protocols
 protocol ProductCategoryViewProtocol: AnyObject {
   var presenter: ProductCategoryPresenterProtocol? { get set}
+    
   // PRESENTER -> VIEW
   func loadCategories()
   func loadCategory()
   func showErrorMessage(_ message: String)
+  func showNoInternetErrorMessage(_ message: String)
 }
 
 protocol ProductCategoryPresenterProtocol: AnyObject {
@@ -54,6 +56,7 @@ protocol ProductCategoryInteractorOutputProtocol: AnyObject {
    func updateData()
    func updateCategoryData()
    func receivedError(_ error: Error)
+   func noInternetError(_ message: String)
 }
 
 protocol ProductCategoryRouterProtocol: AnyObject {
@@ -61,23 +64,3 @@ protocol ProductCategoryRouterProtocol: AnyObject {
    func presentProductsView(for categoryId: String, from view: UIViewController)
    func showProductDetailView(for product: Product, from view: UIViewController)
 }
-
-/*
-// MARK: - UITABLEVIEWCELL Protocols
-protocol categoriesTableViewCellDelegate: AnyObject {
-  func showProducts(of products: Products)
-}
-
-// MARK: - CELL PROTOCOL Definition
-protocol UITableViewCellReusableView {
-  static func nib() -> UINib
-  static func reuseIdentifier() -> String
-}
-extension UITableViewCellReusableView where Self: UITableViewCell {
-  static func nib() -> UINib {
-    return UINib(nibName: String(describing: self), bundle: nil)
-  }
-  static func reuseIdentifier() -> String {
-    return String(describing: self)
-  }
-}*/

@@ -69,7 +69,6 @@ class AnimationView: UIView {
         squareView?.showAnimatedGradientSkeleton()
         squareView?.layer.cornerRadius = 10
         
-        
         view.frame = CGRect.init(x: 0, y: 0, width: 200, height: 200)
         view.backgroundColor = UIColor.white     //give color to the view
         view.center = self.view.center

@@ -7,11 +7,11 @@
 
 import Foundation
 import UIKit
-//Class to navegatio between VC
+
+//VIPER ROUTER: to navegatio between VC
 class ProductDetailRouter: ProductDetailRouterProtocol {
     
     func presentProductDescriptionView(for product: ProductDetailDescription, from view: UIViewController) {
-        
     }
     
   typealias ProductDetailPresenterProtocols = ProductDetailPresenterProtocol & ProductDetailInteractorOutputProtocol
@@ -24,5 +24,4 @@ class ProductDetailRouter: ProductDetailRouterProtocol {
         view.presenter?.interactor = ProductDetailInteractor()
         view.presenter?.interactor?.presenter = presenter
     }
-    
 }

@@ -9,21 +9,18 @@ import UIKit
 
 class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet weak var favoriteTableView: UITableView!
-    
+
     var favorites = [Favorite]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
+        setupTableView()
         setFavorites()
-        // Do any additional setup after loading the view.
     }
-    
-//setUp table properties
-    private func setupCollectionView() {
-        
+     
+    //MARK: - TABLE VIEW SETTINGS
+    private func setupTableView() {
         self.favoriteTableView.register(FavoriteTableViewCell.nib(), forCellReuseIdentifier: FavoriteTableViewCell.idCell)
         self.favoriteTableView.dataSource = self
         self.favoriteTableView.rowHeight = UITableView.automaticDimension
@@ -31,7 +28,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
-    //MARK: - TABLE VIEW SETTINGS
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(NumberResources.favoriteProductSize.rawValue)
     }
@@ -46,9 +42,9 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         favorites.count
     }
     
-    
+//    SetUp data (static) to load tableView
     func setFavorites() {
-        
+    
         var highhills = Favorite()
         highhills.name = "Tacones rojo súper altos"
         highhills.fees = "36 cuotas"
@@ -71,5 +67,4 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         favorites.append(nails)
         favorites.append(bagage)
     }
-
 }

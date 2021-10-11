@@ -13,6 +13,7 @@ protocol ProductDetailViewProtocol: AnyObject {
   // PRESENTER -> VIEW
   func loadProductDescription()
   func showErrorMessage(_ message: String)
+  func showNoInternetErrorMessage(_ message: String)
 }
 
 protocol ProductDetailPresenterProtocol: AnyObject {
@@ -43,6 +44,7 @@ protocol ProductDetailInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
   func updateDescriptionData()
   func receivedError(_ error: Error)
+  func noInternetErrorMessage(_ message: String)
 }
 
 protocol ProductDetailRouterProtocol: AnyObject {

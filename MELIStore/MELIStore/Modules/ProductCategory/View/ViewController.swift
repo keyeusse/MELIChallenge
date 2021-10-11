@@ -12,9 +12,9 @@ import SkeletonView
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
-    @IBOutlet weak var searchButton: UIBarButtonItem!
     @IBOutlet weak var catTableView: UITableView!
     
+    // MARK: - Vars to need
     var categories = [String]()
     private let apiClient = APIClient()
     
@@ -29,15 +29,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
     }
     
-    // MARK: - VIPER
+    // MARK: - VIPER implementation
     var presenter: ProductCategoryPresenterProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ProductCategoryRouter.createModule(view: self)
         presenter?.loadCategoriesData()
-        
         setupTableView()
         setSearchBar()
     }
@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       super.viewDidAppear(animated)
     }
     
+    // MARK: - Setting searchBar
     func setSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -56,12 +57,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchController.searchBar.backgroundColor = Colors().White
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+           searchBar.resignFirstResponder()
+        presenter?.loadCategoryData(name: searchBar.text ?? "carros")
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-               searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
         setUpSkeleton(show: false)
         catTableView.reloadData()
-        }
+    }
 
+    // MARK: - Load skeleton
+    private func setUpSkeleton(show : Bool){
+        catTableView.isSkeletonable = true
+        if(show){
+            catTableView.showAnimatedGradientSkeleton()
+        } else{
+            catTableView.hideSkeleton()
+        }
+    }
+    
+    // MARK: - TableView setting
     private func setupTableView() {
         if isSearchBarEmpty {
             self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
@@ -112,7 +129,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private func getProductsItemAt(_ indexPath: IndexPath) -> Products? {
         setUpSkeleton(show : false)
-      return presenter?.getProductData()
+        return presenter?.getProductData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -128,7 +145,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
+// MARK: - VIPER Protocols to listen interactor
 extension ViewController: ProductCategoryViewProtocol {
+    
+    func loadCategories() {
+        self.catTableView.reloadData()
+        setUpSkeleton(show: true)
+    }
+    
     func loadCategory() {
         setupTableView()
         catTableView.reloadData()
@@ -139,27 +163,13 @@ extension ViewController: ProductCategoryViewProtocol {
         SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
     
-    func loadCategories() {
-        self.catTableView.reloadData()
-        setUpSkeleton(show: true)
+    func showNoInternetErrorMessage(_ message: String) {
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-           searchBar.resignFirstResponder()
-        presenter?.loadCategoryData(name: searchBar.text ?? "carros")
-    }
-    
-//    Skeleton call
-    private func setUpSkeleton(show : Bool){
-        catTableView.isSkeletonable = true
-        if(show){
-            catTableView.showAnimatedGradientSkeleton()
-        } else{
-            catTableView.hideSkeleton()
-        }
-    }
 }
 
+// MARK: - Delegate for searbard
 extension ViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
   }

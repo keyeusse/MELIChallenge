@@ -12,26 +12,22 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var productsTableView: UITableView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func ActionBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
-    //    VIPER
+    
+    // MARK: - VIPER IMPLEMENTATION
     var presenter: ProductsPresenterProtocol?
-    
     var animationSubView: AnimationView!
-    
     var categoryId: String?
     var shouldAnimateCell : Bool = true
     
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    
-    
+//    Var searchBar
     let searchController = UISearchController(searchResultsController: nil)
-    
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
-    
     var isFiltering: Bool {
       let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
       return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
@@ -47,9 +43,9 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         setupTableView()
         setSearchBar()
         spinner.startAnimating()
-
     }
     
+    // MARK: - SearchBar implementation
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
            searchBar.resignFirstResponder()
         presenter?.loadSearchProductData(name: searchBar.text ?? "carros")
@@ -65,15 +61,16 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.searchBar.backgroundColor = Colors().White
     }
     
+    // MARK: - SearchBar implementation
     private func setupTableView() {
         self.productsTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
         self.productsTableView.dataSource = self
         self.productsTableView.rowHeight = UITableView.automaticDimension
         self.productsTableView.delegate = self
         self.productsTableView.reloadData()
-//        setUpSkeleton(show: true)
     }
     
+    // MARK: - TableView settings
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isFiltering {
             return presenter?.getNumberOfItemsAt(section) ?? 3
@@ -95,7 +92,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        setUpSkeleton(show: false)
         guard let product = getItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
         spinner.stopAnimating()
@@ -108,32 +104,29 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         presenter?.showProducDetailView(for: product, from: self)
       self.productsTableView.deselectRow(at: indexPath, animated: true)
     }
-    
-//    Skeleton call
-     private func setUpSkeleton(show : Bool){
-         productsTableView.isSkeletonable = true
-         if(show){
-            productsTableView.showAnimatedGradientSkeleton()
-         } else{
-            productsTableView.hideSkeleton()
-         }
-     }
 }
 
+// MARK: - Delegate for apiCalls
 extension ProductViewController: ProductsViewProtocol {
+    
+    func loadProductList() {
+        self.productsTableView.reloadData()
+    }
+    
     func loadSearchedProductList() {
         self.productsTableView.reloadData()
     }
     
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
     
-    func loadProductList() {
-        self.productsTableView.reloadData()
+    func showNoInternetErrorMessage(_ message: String) {
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
 }
 
+// MARK: - Delegate for searchBar
 extension ProductViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
   }

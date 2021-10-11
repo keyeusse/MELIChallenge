@@ -6,6 +6,7 @@
 //
 import Foundation
 
+//VIPER ENTITY
 struct Product: Codable, Identifiable {
     var id: String
     var siteId: String
@@ -31,7 +32,6 @@ struct Product: Codable, Identifiable {
         case shipping
     }
     
-    //This is being used only for SwiftUI preview in order to keep the beneffits of this tool
     init() {
         id = ""
         siteId = ""

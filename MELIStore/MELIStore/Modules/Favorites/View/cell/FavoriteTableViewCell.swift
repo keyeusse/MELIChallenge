@@ -37,6 +37,7 @@ class FavoriteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+//    Cell settings
     func setUpFavoriteCell(with favorite : Favorite) {
         self.favorite = favorite
         productNameLabel.text = favorite.name

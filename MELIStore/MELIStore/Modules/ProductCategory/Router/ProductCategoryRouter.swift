@@ -7,7 +7,7 @@
 
 import UIKit
 
-//Class to navegatio between VC
+// VIPER Router Class to navegation between VC
 class ProductCategoryRouter: ProductCategoryRouterProtocol {
     
 //    Go to product list (no filter products)

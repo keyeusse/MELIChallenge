@@ -7,6 +7,7 @@
 
 import Foundation
 
+//VIPER Entity: models for api response
 struct Products: Codable {
     var siteId: String
     var paging: Paging
