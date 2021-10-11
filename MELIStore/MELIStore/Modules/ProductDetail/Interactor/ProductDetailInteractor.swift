@@ -38,9 +38,10 @@ extension ProductDetailInteractor: APIProductDescriptionResponseProtocol {
     }
     
     func onFailure(_ error: Error) {
+        presenter?.receivedError(error)
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        presenter?.noInternetErrorMessage(error)
     }
 }

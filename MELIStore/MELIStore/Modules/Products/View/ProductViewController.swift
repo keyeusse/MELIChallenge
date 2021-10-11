@@ -37,6 +37,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = TextResources.products.rawValue
+        
         ProductsRouter.createProductsModule(for: self, and: "")
         presenter?.loadProdutsData(categoryId: categoryId ?? "")
         
@@ -122,7 +124,7 @@ extension ProductViewController: ProductsViewProtocol {
     }
     
     func showNoInternetErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+        SCLAlertView().showInfo(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
 }
 

@@ -164,7 +164,7 @@ extension ViewController: ProductCategoryViewProtocol {
     }
     
     func showNoInternetErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue)
+        SCLAlertView().showInfo(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue)
     }
     
 }

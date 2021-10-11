@@ -46,6 +46,8 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = TextResources.detail.rawValue
+        
 //        Viper calls
         ProductDetailRouter.createProductDetailModule(for: self)
         presenter?.loadDescriptionData(categoryId: product.id)
@@ -106,7 +108,7 @@ extension ProductDetailViewController: ProductDetailViewProtocol{
     }
     
     func showNoInternetErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+        SCLAlertView().showInfo(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
 
 }
