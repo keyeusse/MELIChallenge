@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private let apiClient = APIClient()
     
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredCategories: [CategoryDetail] = []
     
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -41,14 +40,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         setupTableView()
         setSearchBar()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
     }
     
-    func setSearchBar(){
+    func setSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = TextResources.searchProducts.rawValue
@@ -57,10 +55,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchController.searchBar.delegate = self
         searchController.searchBar.backgroundColor = Colors().White
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+               searchBar.resignFirstResponder()
+        setUpSkeleton(show: false)
+        catTableView.reloadData()
+        }
 
     private func setupTableView() {
         if isSearchBarEmpty {
-        self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
+            self.catTableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.idCell)
         } else {
             self.catTableView.register(ProductTableViewCell.nib(), forCellReuseIdentifier: ProductTableViewCell.idCell)
         }
@@ -71,12 +75,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.getNumberOfItemsAt(section) ?? 0
+        if !isFiltering {
+            return presenter?.getNumberOfItemsAt(section) ?? 0
+        } else {
+            return presenter?.getNumberSearchedOfItemsAt(section) ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if isSearchBarEmpty {
+        if !isFiltering {
         guard let category = getCategoriesItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.idCell) as? CategoryTableViewCell else { return UITableViewCell()}
         cell.setUpCell(id: category.id)
@@ -128,7 +136,7 @@ extension ViewController: ProductCategoryViewProtocol {
     }
     
     func showErrorMessage(_ message: String) {
-        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: TextResources.errorDetail.rawValue, closeButtonTitle: TextResources.closeButton.rawValue) // Error
+        SCLAlertView().showError(TextResources.errorTitle.rawValue, subTitle: message, closeButtonTitle: TextResources.closeButton.rawValue) // Error
     }
     
     func loadCategories() {

@@ -49,6 +49,8 @@
 		84ABDF2E2712ACB800DB71FD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF2C2712ACB800DB71FD /* ImageCollectionViewCell.swift */; };
 		84ABDF2F2712ACB800DB71FD /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ABDF2D2712ACB800DB71FD /* ImageCollectionViewCell.xib */; };
 		84ABDF322712C18C00DB71FD /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABDF312712C18C00DB71FD /* APIClientMock.swift */; };
+		84D4D255271391250061A844 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4D253271391250061A844 /* AnimationView.swift */; };
+		84D4D256271391250061A844 /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D4D254271391250061A844 /* AnimationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		84ABDF2C2712ACB800DB71FD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		84ABDF2D2712ACB800DB71FD /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		84ABDF312712C18C00DB71FD /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
+		84D4D253271391250061A844 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		84D4D254271391250061A844 /* AnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 		C46B889DEB78E4821056AD15 /* Pods-MELIStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELIStore.release.xcconfig"; path = "Target Support Files/Pods-MELIStore/Pods-MELIStore.release.xcconfig"; sourceTree = "<group>"; };
 		DC39F013B464BC1C387E88D7 /* Pods_MELIStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MELIStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -493,6 +497,8 @@
 		84ABDF212711DCB000DB71FD /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				84D4D253271391250061A844 /* AnimationView.swift */,
+				84D4D254271391250061A844 /* AnimationView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -625,6 +631,7 @@
 				84A9E84B270BE3C800FD292F /* Assets.xcassets in Resources */,
 				84ABDF2F2712ACB800DB71FD /* ImageCollectionViewCell.xib in Resources */,
 				843BD209270D678C00FA6C13 /* FavoriteTableViewCell.xib in Resources */,
+				84D4D256271391250061A844 /* AnimationView.xib in Resources */,
 				84A9E846270BE3C700FD292F /* Main.storyboard in Resources */,
 				843BD1FF270D519000FA6C13 /* CategoryTableViewCell.xib in Resources */,
 			);
@@ -702,6 +709,7 @@
 				84ABDF1727112D9B00DB71FD /* ProductDetailProtocols.swift in Sources */,
 				84ABDF142711296700DB71FD /* ProductDetailViewController.swift in Sources */,
 				84ABDF04270FF6C100DB71FD /* ProductCategoryRouter.swift in Sources */,
+				84D4D255271391250061A844 /* AnimationView.swift in Sources */,
 				84ABDEFE270F855A00DB71FD /* ProductCategoryPresenter.swift in Sources */,
 				84ABDF2027113C3100DB71FD /* ProductDetailRouter.swift in Sources */,
 				84ABDF1D271130D600DB71FD /* ProductDetailInteractor.swift in Sources */,

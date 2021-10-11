@@ -28,10 +28,11 @@ protocol ProductCategoryPresenterProtocol: AnyObject {
   func loadCategoriesData()
   func loadCategoryData(name: String)
   func getProductData()-> Products?
+  func getNumberSearchedOfItemsAt(_ index: Int) -> Int
     
   // Show Products List Views
-    func showProductListView(for categoryId: String, from view: UIViewController)
-    func showProductDetailView(for product: Product, from view: UIViewController)
+  func showProductListView(for categoryId: String, from view: UIViewController)
+  func showProductDetailView(for product: Product, from view: UIViewController)
 }
 
 protocol ProductCategoryInteractorInputProtocol: AnyObject {
@@ -44,20 +45,21 @@ protocol ProductCategoryInteractorInputProtocol: AnyObject {
   func getItemAt(_ indexPath: IndexPath) -> CategoryEntity?
   func getItemCategoryAt() -> CategoryDetail?
   func getItemProductsAt() -> Products?
+  func getNumberOfSearchedItemsAt(_ index: Int) -> Int
     
 }
 
 protocol ProductCategoryInteractorOutputProtocol: AnyObject {
   // INTERACTOR -> PRESENTER
-  func updateData()
-  func updateCategoryData()
-  func receivedError(_ error: Error)
+   func updateData()
+   func updateCategoryData()
+   func receivedError(_ error: Error)
 }
 
 protocol ProductCategoryRouterProtocol: AnyObject {
   // PRESENTER -> ROUTER
-  func presentProductsView(for categoryId: String, from view: UIViewController)
-  func showProductDetailView(for product: Product, from view: UIViewController)
+   func presentProductsView(for categoryId: String, from view: UIViewController)
+   func showProductDetailView(for product: Product, from view: UIViewController)
 }
 
 /*

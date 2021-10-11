@@ -9,6 +9,8 @@ import UIKit
 
 class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     
+    
+    
     weak var presenter: ProductCategoryInteractorOutputProtocol?
     private let apiClient = APIClient()
     private var categoriesResults: [CategoryEntity]?
@@ -41,6 +43,10 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     func getItemProductsAt() -> Products? {
         return productsResult
     }
+    
+    func getNumberOfSearchedItemsAt(_ index: Int) -> Int {
+        return productsResult?.result.count ?? 0
+    }
 }
 
 //API Calls for all categories
@@ -57,7 +63,7 @@ extension ProductCategoryInteractor: APICategoriesResponseProtocol {
   }
 }
 
-//API Calls for all categories
+//API Calls for searched products
 extension ProductCategoryInteractor: APISearchProductsResponseProtocol {
     func getproductSearchResult(data: Products) {
         self.productsResult = data

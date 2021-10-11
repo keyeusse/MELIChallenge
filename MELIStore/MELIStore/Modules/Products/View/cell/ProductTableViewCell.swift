@@ -59,16 +59,13 @@ class ProductTableViewCell: UITableViewCell {
            }
       
 
-        totalView.layer.masksToBounds = true
-        totalView.layer.borderColor = Colors().MainGray.cgColor
+        totalView.layer.cornerRadius = 10
         totalView.layer.borderWidth = 1.0
-        self.totalView.layer.cornerRadius = 13
-        totalView.layer.shadowColor = Colors().LightGray.cgColor
-        totalView.layer.shadowOpacity = 0.2
-        totalView.layer.shadowOffset = CGSize(width: 2, height: 4)
-        totalView.layer.shadowRadius = 13.0
-        totalView.layer.masksToBounds = false
-        favoriteButton.layer.cornerRadius = 0.5 * favoriteButton.bounds.size.width
+        totalView.layer.borderColor = Colors().LightGray.cgColor
+        totalView.layer.shadowColor = Colors().MainGray.cgColor
+        totalView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        totalView.layer.shadowOpacity = 0.6
+        totalView.layer.shadowRadius = 10
     }
     
     func setDoubleToString(number : Double) -> String {

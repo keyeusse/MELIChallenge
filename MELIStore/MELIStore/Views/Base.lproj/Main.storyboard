@@ -81,11 +81,11 @@
         <scene sceneID="mK9-tf-99I">
             <objects>
                 <viewController id="HiP-q8-oP4" customClass="ViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5DP-Nk-Lcp">
+                    <view key="view" contentMode="scaleAspectFill" id="5DP-Nk-Lcp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-LA-Zwu">
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f8R-LA-Zwu">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="catTableView" destination="f8R-LA-Zwu" id="6rM-5a-Qw4"/>
                         <outlet property="searchButton" destination="v3B-gf-iLd" id="y83-PE-RKo"/>
+                        <segue destination="8dc-uF-Hvq" kind="push" id="O7K-jh-Ni8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcM-ne-wbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -119,14 +120,14 @@
             <objects>
                 <viewController storyboardIdentifier="ProductDetailViewController" id="OLK-hR-bUP" customClass="ProductDetailViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WpG-f9-4Qn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7p2-BV-75a">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zn-zr-i5i">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdU-j9-k0D">
                                                 <rect key="frame" x="24" y="24" width="366" height="22"/>
@@ -324,7 +325,7 @@
             </objects>
             <point key="canvasLocation" x="547.82608695652175" y="719.86607142857144"/>
         </scene>
-        <!--Productos-->
+        <!--Product View Controller-->
         <scene sceneID="kkR-2I-W39">
             <objects>
                 <viewController storyboardIdentifier="ProductViewController" id="8dc-uF-Hvq" customClass="ProductViewController" customModule="MELIStore" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,9 +333,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eCf-Mj-W4L">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                            <view contentMode="scaleToFill" id="uEP-8j-x8e">
+                                <rect key="frame" x="0.0" y="99" width="414" height="152"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eCf-Mj-W4L">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHiddenWhenSkeletonIsActive" value="YES"/>
@@ -344,8 +351,8 @@
                                     <outlet property="delegate" destination="AxH-VU-jSz" id="4np-pT-7UC"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="NEs-Ft-llM">
-                                <rect key="frame" x="141" y="387" width="132" height="132"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="NEs-Ft-llM">
+                                <rect key="frame" x="141" y="384.5" width="132" height="132"/>
                                 <color key="tintColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" id="ZfW-XB-6c7"/>
@@ -355,19 +362,30 @@
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dRF-Lk-pk5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="width" secondItem="AxH-VU-jSz" secondAttribute="width" id="DTF-mG-Sap"/>
-                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="height" secondItem="AxH-VU-jSz" secondAttribute="height" id="DuO-BZ-xIL"/>
-                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="centerX" secondItem="dRF-Lk-pk5" secondAttribute="centerX" id="X4z-K8-MbL"/>
-                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="centerY" secondItem="dRF-Lk-pk5" secondAttribute="centerY" id="gJB-t4-Kgj"/>
+                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="trailing" secondItem="dRF-Lk-pk5" secondAttribute="trailing" id="KBb-Os-RQV"/>
+                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="bottom" secondItem="dRF-Lk-pk5" secondAttribute="bottom" id="NM8-ge-Fkr"/>
+                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="top" secondItem="dRF-Lk-pk5" secondAttribute="top" id="ZQH-Ao-W3U"/>
+                            <constraint firstItem="eCf-Mj-W4L" firstAttribute="leading" secondItem="dRF-Lk-pk5" secondAttribute="leading" id="chr-Dq-URI"/>
                             <constraint firstItem="NEs-Ft-llM" firstAttribute="centerX" secondItem="dRF-Lk-pk5" secondAttribute="centerX" id="jGA-S5-YOi"/>
                             <constraint firstItem="NEs-Ft-llM" firstAttribute="centerY" secondItem="dRF-Lk-pk5" secondAttribute="centerY" id="y7Q-Sl-IKq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Productos" id="aG1-LA-aMs"/>
+                    <navigationItem key="navigationItem" id="28r-87-ss8">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="eAR-Ap-kGg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="ActionBack:" destination="8dc-uF-Hvq" id="lu5-Fq-8oG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="GzB-2n-n2Y">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="eAR-Ap-kGg" id="dAd-CT-r2F"/>
                         <outlet property="productsTableView" destination="eCf-Mj-W4L" id="MFV-bp-1Oh"/>
                         <outlet property="spinner" destination="NEs-Ft-llM" id="wIP-Ld-OXe"/>
                         <segue destination="OLK-hR-bUP" kind="push" id="gDy-6v-1O7"/>
@@ -414,6 +432,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="filter" width="40" height="40"/>

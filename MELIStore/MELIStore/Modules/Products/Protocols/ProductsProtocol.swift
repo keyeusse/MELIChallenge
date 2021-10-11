@@ -12,6 +12,7 @@ protocol ProductsViewProtocol: AnyObject {
   var presenter: ProductsPresenterProtocol? { get set}
   // PRESENTER -> VIEW
   func loadProductList()
+    func loadSearchedProductList()
   func showErrorMessage(_ message: String)
 }
 
@@ -23,19 +24,25 @@ protocol ProductsPresenterProtocol: AnyObject {
   // VIEW -> PRESENTER
   func getItemAtProducts() -> Products?
   func getNumberOfItemsAt(_ index: Int) -> Int
-    func loadProdutsData(categoryId : String)
+  func loadProdutsData(categoryId : String)
+    func loadSearchProductData(name: String)
+    func getProductSearchData()-> Products?
+    func getNumberSearchedOfItemsAt(_ index: Int) -> Int
     
   // Show Product Detail Views
     func showProducDetailView(for product: Product, from view: UIViewController)
 }
 
 protocol ProductsInteractorInputProtocol: AnyObject {
-  var presenter: ProductsInteractorOutputProtocol? { get set}
+    var presenter: ProductsInteractorOutputProtocol? { get set}
 
   // PRESENTER -> INTERACTOR
     func loadProductsData(categoryId : String)
-  func getNumberOfItemsAt(_ index: Int) -> Int
-  func getProductItemAt() -> Products?
+    func loadSearchedProductsData(name : String)
+    func getNumberOfItemsAt(_ index: Int) -> Int
+    func getProductItemAt() -> Products?
+    func getProductsSearchItemAt() -> Products?
+    func getNumberOfSearchedItemsAt(_ index: Int) -> Int
     
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductsPresenter: ProductsPresenterProtocol {
+    
     var view: ProductsViewProtocol?
     var interactor: ProductsInteractorInputProtocol?
     var router: ProductsRouterProtocol?
@@ -17,7 +18,7 @@ class ProductsPresenter: ProductsPresenterProtocol {
     }
     
     func getNumberOfItemsAt(_ index: Int) -> Int {
-        interactor?.getNumberOfItemsAt(index) ?? 5
+        interactor?.getNumberOfItemsAt(index) ?? 0
     }
     
     func loadProdutsData(categoryId : String) {
@@ -26,6 +27,18 @@ class ProductsPresenter: ProductsPresenterProtocol {
     
     func showProducDetailView(for product: Product, from view: UIViewController) {
        router?.presentProductDetailView(for: product, from: view)
+    }
+    
+    func getProductSearchData() -> Products? {
+        interactor?.getProductsSearchItemAt()
+    }
+    
+    func loadSearchProductData(name: String) {
+        interactor?.loadSearchedProductsData(name: name)
+    }
+    
+    func getNumberSearchedOfItemsAt(_ index: Int) -> Int {
+        interactor?.getNumberOfSearchedItemsAt(index) ?? 0
     }
 }
 

@@ -38,19 +38,18 @@ class CategoryTableViewCell: UITableViewCell {
     func setUpCell(id : String) {
         
         self.id = id
+        setUpSkeleton(show: true)
         
 //        load images
         loadImage(categoryId: id)
 
-        viewCell.layer.masksToBounds = true
-        viewCell.layer.borderColor = Colors().MainGray.cgColor
+        viewCell.layer.cornerRadius = 10
         viewCell.layer.borderWidth = 1.0
-        self.viewCell.layer.cornerRadius = 13
-        viewCell.layer.shadowColor = Colors().LightGray.cgColor
-        viewCell.layer.shadowOpacity = 0.2
-        viewCell.layer.shadowOffset = CGSize(width: 4, height: 4)
-        viewCell.layer.shadowRadius = 13.0
-        viewCell.layer.masksToBounds = false
+        viewCell.layer.borderColor = Colors().LightGray.cgColor
+        viewCell.layer.shadowColor = Colors().MainGray.cgColor
+        viewCell.layer.shadowOffset = CGSize(width: 2, height: 2)
+        viewCell.layer.shadowOpacity = 0.6
+        viewCell.layer.shadowRadius = 10
         
     }
     

@@ -9,7 +9,6 @@ import UIKit
 
 class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     
-
     // MARK: - VIPER
     weak var view: ProductCategoryViewProtocol?
     var interactor: ProductCategoryInteractorInputProtocol?
@@ -20,7 +19,7 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     }
     
     func getNumberOfItemsAt(_ index: Int) -> Int {
-        interactor?.getNumberOfItemsAt(index) ?? 5
+        interactor?.getNumberOfItemsAt(index) ?? 0
     }
     
     func getItemAtCategory() -> CategoryDetail? {
@@ -37,6 +36,10 @@ class ProductCategoryPresenter: ProductCategoryPresenterProtocol {
     
     func getProductData() -> Products? {
         interactor?.getItemProductsAt()
+    }
+    
+    func getNumberSearchedOfItemsAt(_ index: Int) -> Int {
+        interactor?.getNumberOfSearchedItemsAt(index) ?? 5
     }
     
     func showProductListView(for categoryId: String, from view: UIViewController) {

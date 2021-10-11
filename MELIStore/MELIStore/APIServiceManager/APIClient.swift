@@ -151,7 +151,6 @@ class APIClient: APIClientProtocol {
             AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
                 switch response.result {
                 case .success(let results):
-                    print(results)
                     self.productSearchDelegate?.getproductSearchResult(data: results)
                 case .failure(let error):
                   self.productSearchDelegate?.onFailure(error)
