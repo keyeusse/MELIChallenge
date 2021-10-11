@@ -360,7 +360,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DD150809-A921-431F-9291-35440FCAB8A2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MELIStore/Modules/ProductCategory/View/ViewController.swift"
@@ -440,7 +440,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B124E691-09A8-4194-ADA5-270506E348D3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MELIStore/APIServiceManager/APIClient.swift"
@@ -464,7 +464,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "1221">
+                  offsetFromSymbolStart = "1239">
                </Location>
                <Location
                   uuid = "B124E691-09A8-4194-ADA5-270506E348D3 - 18a2ff9d9469d200"

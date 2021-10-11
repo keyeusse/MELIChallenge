@@ -155,8 +155,8 @@ class APIClient: APIClientProtocol {
         if(ConnectivityToIntenet.isConnectedToInternet){
             let URL = url.rawValue
             let replaceSite = URL.replacingOccurrences(of: "{siteId}", with: siteId.rawValue)
-            let replaceBlankSpace = replaceSite.replacingOccurrences(of: " ", with: "")
-            let fullPathURL = replaceBlankSpace + categoryName
+            let replaceBlankSpace = categoryName.replacingOccurrences(of: " ", with: "")
+            let fullPathURL = replaceSite + replaceBlankSpace
             
             AF.request(fullPathURL).validate().responseDecodable(of: Products.self) { (response) in
                 switch response.result {
