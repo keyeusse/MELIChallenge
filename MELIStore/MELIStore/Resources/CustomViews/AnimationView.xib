@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18122"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimationView" customModule="MELIStore" customModuleProvider="target">
+            <connections>
+                <outlet property="squareView" destination="gXf-uS-ock" id="xSZ-q5-UTL"/>
+                <outlet property="totalView" destination="Ot5-gP-YPX" id="cZV-6H-UsI"/>
+                <outlet property="view1" destination="Ozd-iZ-kdz" id="49c-yk-WCC"/>
+                <outlet property="view2" destination="CTC-6z-wER" id="dOa-Rc-7hR"/>
+                <outlet property="view3" destination="qt7-Kn-zdU" id="BwX-dU-Fff"/>
+                <outlet property="view4" destination="std-1H-wYH" id="ih0-TD-ejN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot5-gP-YPX">
+                    <rect key="frame" x="10.5" y="5" width="393" height="193"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXf-uS-ock">
+                            <rect key="frame" x="8" y="16" width="118" height="103.5"/>
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozd-iZ-kdz">
+                            <rect key="frame" x="134" y="16" width="240" height="13"/>
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="cvX-hm-dOi"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTC-6z-wER">
+                            <rect key="frame" x="134" y="59" width="207" height="13"/>
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="zSr-kc-D3Y"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qt7-Kn-zdU">
+                            <rect key="frame" x="134" y="88" width="186" height="13"/>
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="S9P-6f-wpR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="std-1H-wYH">
+                            <rect key="frame" x="134" y="117" width="166" height="13"/>
+                            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="75B-aR-C5a"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="std-1H-wYH" firstAttribute="leading" secondItem="gXf-uS-ock" secondAttribute="trailing" constant="8" id="6Yc-0w-m1k"/>
+                        <constraint firstItem="qt7-Kn-zdU" firstAttribute="width" secondItem="Ot5-gP-YPX" secondAttribute="width" multiplier="0.473282" id="EBb-UJ-yYr"/>
+                        <constraint firstItem="gXf-uS-ock" firstAttribute="leading" secondItem="Ot5-gP-YPX" secondAttribute="leading" constant="8" id="Gob-MW-ZWm"/>
+                        <constraint firstItem="CTC-6z-wER" firstAttribute="leading" secondItem="gXf-uS-ock" secondAttribute="trailing" constant="8" id="S8v-N9-3Q0"/>
+                        <constraint firstItem="Ozd-iZ-kdz" firstAttribute="leading" secondItem="gXf-uS-ock" secondAttribute="trailing" constant="8" id="TEA-IW-eq5"/>
+                        <constraint firstItem="qt7-Kn-zdU" firstAttribute="leading" secondItem="gXf-uS-ock" secondAttribute="trailing" constant="8" id="YFS-ud-sG2"/>
+                        <constraint firstItem="std-1H-wYH" firstAttribute="top" secondItem="qt7-Kn-zdU" secondAttribute="bottom" constant="16" id="ce9-L8-AUA"/>
+                        <constraint firstItem="gXf-uS-ock" firstAttribute="height" secondItem="Ot5-gP-YPX" secondAttribute="height" multiplier="0.537037" id="d9m-ek-TYU"/>
+                        <constraint firstItem="Ozd-iZ-kdz" firstAttribute="width" secondItem="Ot5-gP-YPX" secondAttribute="width" multiplier="0.610687" id="frm-o4-8cl"/>
+                        <constraint firstItem="CTC-6z-wER" firstAttribute="width" secondItem="Ot5-gP-YPX" secondAttribute="width" multiplier="0.526718" id="fy5-r1-hxQ"/>
+                        <constraint firstItem="Ozd-iZ-kdz" firstAttribute="top" secondItem="gXf-uS-ock" secondAttribute="top" id="nYb-7U-Lev"/>
+                        <constraint firstItem="gXf-uS-ock" firstAttribute="top" secondItem="Ot5-gP-YPX" secondAttribute="top" constant="16" id="oRF-0l-4C2"/>
+                        <constraint firstItem="qt7-Kn-zdU" firstAttribute="top" secondItem="CTC-6z-wER" secondAttribute="bottom" constant="16" id="pxA-nn-q9i"/>
+                        <constraint firstItem="gXf-uS-ock" firstAttribute="width" secondItem="Ot5-gP-YPX" secondAttribute="width" multiplier="0.300254" id="wFS-bS-slX"/>
+                        <constraint firstItem="std-1H-wYH" firstAttribute="width" secondItem="Ot5-gP-YPX" secondAttribute="width" multiplier="0.422392" id="ygY-3x-ClN"/>
+                        <constraint firstItem="CTC-6z-wER" firstAttribute="top" secondItem="Ozd-iZ-kdz" secondAttribute="bottom" constant="30" id="ztL-VK-ppM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ot5-gP-YPX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.95" id="5fn-cz-aPr"/>
+                <constraint firstItem="Ot5-gP-YPX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="80m-4z-7p0"/>
+                <constraint firstItem="Ot5-gP-YPX" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fjJ-PP-cAU"/>
+                <constraint firstItem="Ot5-gP-YPX" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.95" id="qV5-Ru-Ocf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-248.10267857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
