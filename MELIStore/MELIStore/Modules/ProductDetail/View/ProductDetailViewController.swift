@@ -64,14 +64,16 @@ class ProductDetailViewController: UIViewController {
     }
     
     func setUpView() {
+        
+        let fee = product.installments?.quantity ?? 0
+        let available = product.availability ?? 20
+        
         nameLabel.text = product.title
         rattingLabel.text = blackStar + blackStar + blackStar + blackStar + whiteStar
-        priceLabel.text = "$" + setPrice(number: product.price)
-//        feesLabel.text = "en" + String(product.installments?.quantity) + "X" + String(product.installments?.amount ?? 0 )
-//        availableLabel.text = String(product?.availability) ?? "20 unidades"
-//
-//        let billTotal = String(product.installments?.quantity!) ?? "0.0"
-        
+        priceLabel.text = setPrice(number: product.price)
+        feesLabel.text = "en " + String(fee) + "X " + "$"+String(product.installments?.amount ?? 0 )
+        availableLabel.text = String(available) + " unidades disponibles"
+
         
         if((product.shipping?.freeShipping) != nil){
             shippingLabel.text = TextResources.freeShipping.rawValue

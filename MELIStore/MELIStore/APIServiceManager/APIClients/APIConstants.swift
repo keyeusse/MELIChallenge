@@ -22,6 +22,7 @@ public enum APIServiceUrls: String {
   case product = "https://api.mercadolibre.com/items/{idProduct}"
   case productNameSearch = "https://api.mercadolibre.com/sites/{siteId}/search?q="
   case productDescription = "https://api.mercadolibre.com/items/{idProduct}/description"
+  case badURL = "https://api.mercadolibr.com/items/{idProduct}/description"
 }
 
 //Sites or countries identifiers

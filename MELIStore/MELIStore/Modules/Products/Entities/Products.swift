@@ -12,20 +12,23 @@ struct Products: Codable {
     var siteId: String
     var paging: Paging
     let query: String?
-    var result: [Product]
+    var results: [Product]
     
     enum CodingKeys: String, CodingKey {
         case siteId = "site_id"
         case paging
         case query = "query"
-        case result = "results"
+        case results = "results"
+    }
+    
+    init() {
+        siteId = ""
+        query = ""
+        paging = Paging()
+        results = [Product]()
     }
 }
 
-enum ProductServiceType {
-    case categoryProducts
-    case searchProducts
-}
 
 struct Paging: Codable {
     var total: Int
@@ -38,5 +41,13 @@ struct Paging: Codable {
         case offset
         case limit
         case primaryResults = "primary_results"
+    }
+    
+    init() {
+        total = 100
+        offset = 0
+        limit = 4
+        primaryResults = 0
+        
     }
 }

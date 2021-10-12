@@ -97,12 +97,12 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let product = getItemAt(indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
         spinner.stopAnimating()
-        cell.setUpCell(product: product.result[indexPath.row])
+        cell.setUpCell(product: product.results[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let product = getItemAt(indexPath)?.result[indexPath.row] else { return }
+        guard let product = getItemAt(indexPath)?.results[indexPath.row] else { return }
         presenter?.showProducDetailView(for: product, from: self)
       self.productsTableView.deselectRow(at: indexPath, animated: true)
     }

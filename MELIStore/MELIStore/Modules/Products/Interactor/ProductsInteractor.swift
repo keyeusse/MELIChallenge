@@ -11,12 +11,13 @@ import UIKit
 class ProductsInteractor: ProductsInteractorInputProtocol {
     
     weak var presenter: ProductsInteractorOutputProtocol?
-    private let apiClient = APIClient()
+    private let apiClient = APIClientCategoryProducts()
+    private let apiClientSearch = APIClientSearchProducts()
     private var productsResult: Products?
     private var productsSearchResult: Products?
     
     func getNumberOfItemsAt(_ index: Int) -> Int {
-        return productsResult?.result.count ?? 0
+        return productsResult?.results.count ?? 0
     }
     
     func loadProductsData(categoryId : String) {
@@ -37,12 +38,12 @@ class ProductsInteractor: ProductsInteractorInputProtocol {
     }
     
     func getNumberOfSearchedItemsAt(_ index: Int) -> Int {
-        return productsResult?.result.count ?? 0
+        return productsResult?.results.count ?? 0
     }
     
     func loadSearchedProductsData(name: String) {
-        apiClient.productSearchDelegate = self
-        apiClient.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
+        apiClientSearch.productSearchDelegate = self
+        apiClientSearch.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
     }
 }
 

@@ -74,4 +74,9 @@ struct ProductDetailDescription: Codable {
         case text
         case plainText = "plain_text"
     }
+    
+    init() {
+        text = ""
+        plainText = ""
+    }
 }
