@@ -24,17 +24,19 @@ class ProductDescriptionTests: XCTestCase {
     }
     
 
-    func testGetProductDescription() {
+    func testGetProductDescriptionSuccessfully() {
         apiClient?.getProductDetailDescription(url: .productDescription, productId: TextResourcesTest.productId.rawValue)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoInternetConnection() {
         self.apiClient?.getErrorNoInternet()
     }
     
 }
 
 extension ProductDescriptionTests: APIProductDescriptionResponseProtocol {
+    
+//    Delegate for responses
     func getproductDescription(data: ProductDetailDescription) {
         XCTAssertNotNil(data.plainText, TextResourcesTest.textPlain.rawValue)
     }

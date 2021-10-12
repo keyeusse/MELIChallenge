@@ -25,11 +25,11 @@ class CategoryTests: XCTestCase {
     }
     
     
-    func testGetCategory() {
+    func testGetCategorySucessfully() {
         self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: TextResourcesTest.idCategory.rawValue)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoInternetConnection() {
         self.apiClient?.getErrorNoInternet()
     }
     
@@ -38,6 +38,7 @@ class CategoryTests: XCTestCase {
 
 extension CategoryTests: APICategoryResponseProtocol {
     
+//    Delegate for responses
     func onFailure(_ error: Error) {
     }
     

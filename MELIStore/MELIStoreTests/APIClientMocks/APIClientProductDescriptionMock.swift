@@ -29,6 +29,7 @@ extension APIClientProductDescriptionMock: APIClientProductDescriptionProtocol {
             return nil
     }
 
+    //    Mock for getting description product from api
     func getProductDetailDescription(url: APIServiceUrls, productId: String) {
         let productDetail = ProductDetailDescription()
         
@@ -49,6 +50,7 @@ extension APIClientProductDescriptionMock: APIClientProductDescriptionProtocol {
         self.delegateDescription?.getproductDescription(data: getProductDescriptionForTest(fromJSONFile: "ProductDescription") ?? productDetail)
     }
     
+//    Mock for no internet getting description product from api
     func getErrorNoInternet() {
         self.delegateDescription?.onIntenetFailure(TextResources.noInternet.rawValue)
     }

@@ -25,18 +25,19 @@ class CategoryProductsTests: XCTestCase {
       self.apiClient = nil
     }
     
-    func testGetProductCategoryList() {
+    func testGetProductCategoryListSuccessfully() {
         self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: TextResourcesTest.idCategory.rawValue,
                                                   siteId: .mexico)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoInternet() {
         self.apiClient?.getErrorNoInternet()
     }
 }
 
 extension CategoryProductsTests: APIProductsByCategoryResponseProtocol {
     
+//    Delegates for responses
     func getProductsByCategoryResult(data: Products) {
         XCTAssertEqual(data.results[0].title, expectedProductName)
     }

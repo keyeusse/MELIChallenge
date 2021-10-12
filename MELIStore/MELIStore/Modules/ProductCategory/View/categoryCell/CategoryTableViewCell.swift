@@ -44,6 +44,12 @@ class CategoryTableViewCell: UITableViewCell {
 //        load images
         loadImage(categoryId: id)
 
+        setUpUIElements()
+        
+    }
+    
+//    Style for view
+    func setUpUIElements(){
         viewCell.layer.cornerRadius = 10
         viewCell.layer.borderWidth = 1.0
         viewCell.layer.borderColor = Colors().LightGray.cgColor
@@ -51,9 +57,9 @@ class CategoryTableViewCell: UITableViewCell {
         viewCell.layer.shadowOffset = CGSize(width: 2, height: 2)
         viewCell.layer.shadowOpacity = 0.6
         viewCell.layer.shadowRadius = 10
-        
     }
     
+//    Load images
     func loadImage(categoryId: String) {
         let URL2 = APIServiceUrls.categoryInfo.rawValue + id
        
@@ -75,19 +81,19 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     // MARK: - Load skeleton
-       private func setUpSkeleton(show : Bool) {
-            titleLabel.isSkeletonable = true
-            titleLabel.linesCornerRadius = 8
-            categoryImageView.isSkeletonable = true
-            categoryImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
-            categoryImageView.layer.cornerRadius = 10
-            
-                if(show){
-                    titleLabel.showAnimatedGradientSkeleton()
-                    categoryImageView.showAnimatedGradientSkeleton()
-                } else {
-                    titleLabel.hideSkeleton()
-                    categoryImageView.hideSkeleton()
-                }
-       }
+    private func setUpSkeleton(show : Bool) {
+        titleLabel.isSkeletonable = true
+        titleLabel.linesCornerRadius = 8
+        categoryImageView.isSkeletonable = true
+        categoryImageView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
+        categoryImageView.layer.cornerRadius = 10
+        
+            if(show){
+                titleLabel.showAnimatedGradientSkeleton()
+                categoryImageView.showAnimatedGradientSkeleton()
+            } else {
+                titleLabel.hideSkeleton()
+                categoryImageView.hideSkeleton()
+            }
+    }
 }

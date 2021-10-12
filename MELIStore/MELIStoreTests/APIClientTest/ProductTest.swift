@@ -25,16 +25,17 @@ class ProductTests: XCTestCase {
       self.apiClient = nil
     }
     
-    func testGetProduct() {
+    func testGetProductSuccessfully() {
         apiClient?.getProductDetail(url: .product, idProduct: TextResourcesTest.idProduct.rawValue)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoInternet() {
         self.apiClient?.getErrorNoInternet()
     }
 }
 
 extension ProductTests: APIProductResponseProtocol {
+//    Delegates for responses
     func getProductResult(data: Product) {
         XCTAssertEqual(data.title, expectedProductName)
     }
