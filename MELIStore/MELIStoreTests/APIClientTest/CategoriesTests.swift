@@ -25,16 +25,18 @@ class CategoriesTests: XCTestCase {
       self.apiClient = nil
     }
     
-    func testGetCategoriesList() {
+    func testGetCategoriesListSuccessfuly() {
         self.apiClient?.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoIntenetConecction() {
         self.apiClient?.getErrorNoInternet()
     }
 }
 
 extension CategoriesTests: APICategoriesResponseProtocol {
+    
+//    Delegates for responses
     func getCategoriesResult(data: [CategoryEntity]) {
         XCTAssertEqual(data[1].name, expectedName)
     }

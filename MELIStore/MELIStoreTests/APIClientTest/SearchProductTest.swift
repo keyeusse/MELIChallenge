@@ -25,17 +25,18 @@ class SearchProductsTests: XCTestCase {
       self.apiClient = nil
     }
     
-    func testGetProductSearchList() {
+    func testGetProductSearchListSuccessfully() {
         apiClient?.getProductsSearchList(url: .productNameSearch, categoryName: TextResourcesTest.expectedSearchedCategoryName.rawValue, siteId: .mexico)
     }
     
-    func testGetErrorURL() {
+    func testGetErrorWhenNoInternet() {
         self.apiClient?.getErrorNoInternet()
     }
     
 }
 
 extension SearchProductsTests: APISearchProductsResponseProtocol {
+//    Delegates for response
     func getproductSearchResult(data: Products) {
         XCTAssertEqual(data.query, expectedCategoryName)
     }

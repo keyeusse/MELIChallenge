@@ -59,14 +59,8 @@ class ProductTableViewCell: UITableViewCell {
            // Create Image and Update Image View
         productImage.image = UIImage(data: data)
        }
-      
-        totalView.layer.cornerRadius = 10
-        totalView.layer.borderWidth = 1.0
-        totalView.layer.borderColor = Colors().LightGray.cgColor
-        totalView.layer.shadowColor = Colors().MainGray.cgColor
-        totalView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        totalView.layer.shadowOpacity = 0.6
-        totalView.layer.shadowRadius = 10
+        
+        setUpElement()
     }
     
     func setPrice(number : Double) -> String {
@@ -78,31 +72,42 @@ class ProductTableViewCell: UITableViewCell {
         return String(format: "$ %.1f", number)
     }
     
+//    setUpUIElements for view
+    func setUpElement() {
+        totalView.layer.cornerRadius = 10
+        totalView.layer.borderWidth = 1.0
+        totalView.layer.borderColor = Colors().LightGray.cgColor
+        totalView.layer.shadowColor = Colors().MainGray.cgColor
+        totalView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        totalView.layer.shadowOpacity = 0.6
+        totalView.layer.shadowRadius = 10
+    }
+    
+    
 //    Skeleton call to show and hide
-       private func setUpSkeleton(show : Bool) {
-            
-            productNameLabel.isSkeletonable = true
-            productNameLabel.linesCornerRadius = 8
-            priceLabel.isSkeletonable = true
-            priceLabel.linesCornerRadius = 8
-            currencyLabel.isSkeletonable = true
-            currencyLabel.linesCornerRadius = 8
-            productImage.isSkeletonable = true
-            productImage.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
-            productImage.layer.cornerRadius = 10
-            
-                if(show){
-                    productNameLabel.showAnimatedGradientSkeleton()
-                    priceLabel.showAnimatedGradientSkeleton()
-                    currencyLabel.showAnimatedGradientSkeleton()
-                    productImage.showAnimatedGradientSkeleton()
-                } else {
-                    productNameLabel.hideSkeleton()
-                    priceLabel.hideSkeleton()
-                    currencyLabel.hideSkeleton()
-                    productImage.hideSkeleton()
-                }
-       }
+   private func setUpSkeleton(show : Bool) {
+        productNameLabel.isSkeletonable = true
+        productNameLabel.linesCornerRadius = 8
+        priceLabel.isSkeletonable = true
+        priceLabel.linesCornerRadius = 8
+        currencyLabel.isSkeletonable = true
+        currencyLabel.linesCornerRadius = 8
+        productImage.isSkeletonable = true
+        productImage.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .systemGray6), animation: nil, transition: .crossDissolve(0.5))
+        productImage.layer.cornerRadius = 10
+        
+            if(show){
+                productNameLabel.showAnimatedGradientSkeleton()
+                priceLabel.showAnimatedGradientSkeleton()
+                currencyLabel.showAnimatedGradientSkeleton()
+                productImage.showAnimatedGradientSkeleton()
+            } else {
+                productNameLabel.hideSkeleton()
+                priceLabel.hideSkeleton()
+                currencyLabel.hideSkeleton()
+                productImage.hideSkeleton()
+            }
+   }
     
     @IBAction func favoriteBtnAction(_ sender: Any) {
         favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)

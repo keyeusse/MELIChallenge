@@ -29,7 +29,7 @@ extension APIClientMock: APIClientProtocol {
             return nil
     }
     
-    
+//    Mock for getting all categories from api
     func getAllCategoriesList(url: APIServiceUrls, siteId: APIProductSiteId) {
         let categories = [CategoryEntity]()
         
@@ -50,6 +50,7 @@ extension APIClientMock: APIClientProtocol {
         self.delegateCategories?.getCategoriesResult(data: getCategoriesForTest(fromJSONFile: "Categories") ?? categories)
     }
     
+    //    Mock for no internet getting all categories from api
     func getErrorNoInternet() {
         self.delegateCategories?.onIntenetFailure(TextResources.noInternet.rawValue)
     }

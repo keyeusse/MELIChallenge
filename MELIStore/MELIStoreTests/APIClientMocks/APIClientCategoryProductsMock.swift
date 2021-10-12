@@ -29,7 +29,7 @@ extension APIClientCategoryProductsMock: APIClientCategoryProductsProtocol {
             return nil
     }
     
-    
+    //    Mock for getting products by category id from api
     func getProductsByCategoryList(url: APIServiceUrls, idCategory: String, siteId: APIProductSiteId) {
         let products = Products()
         
@@ -49,6 +49,7 @@ extension APIClientCategoryProductsMock: APIClientCategoryProductsProtocol {
         self.delegateProductsByCategory?.getProductsByCategoryResult(data: getProducstForTest(fromJSONFile: "ProductsByCategory") ?? products)
     }
     
+    //    Mock for no getting all products from api
     func getErrorNoInternet() {
         self.delegateProductsByCategory?.onIntenetFailure(TextResources.noInternet.rawValue)
     }

@@ -75,3 +75,7 @@ For VIPER ARCHITECTURE, every module has six folder, this way:
 # Unit Test
  MELIStore has unit test, to probe every API call. Those can find them in project MELIStoreTest.
  Just play RUN.
+ 
+ The structrure of that:
+  * APIClientTest: It contains unit test over API rest calls to Mercado Libre Services.
+  * APIClientMocks: It contains methods to mock responses for  API rest calls to Mercado Libre Services.
