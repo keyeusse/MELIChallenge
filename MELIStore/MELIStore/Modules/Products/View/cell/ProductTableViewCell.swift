@@ -42,7 +42,7 @@ class ProductTableViewCell: UITableViewCell {
         self.product = product
         setUpSkeleton(show : false)
         productNameLabel.text = product.title
-        priceLabel.text = "$" + setPrice(number: product.price)
+        priceLabel.text = setPrice(number: product.price)
         currencyLabel.text = product.currency
         
         if((product.shipping?.freeShipping) != nil){
