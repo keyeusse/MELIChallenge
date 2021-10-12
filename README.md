@@ -5,7 +5,7 @@
 
 ## Video
 You can find the app video in this link:
-https://youtu.be/KDU7fmx-SG0
+https://youtu.be/xkOIrYbuTyI
 
 
 ## Run project
@@ -18,6 +18,10 @@ Go to `/MELIStore`. Open a terminal in that route:
 Continue executing line: 
 > open MELIStore.xcworkspace
 
+Or, both commands together:
+
+> pod install & open MELIStore.xcworkspace
+
 Finally,  **Build and Run** project MELIStore
 
 
@@ -26,14 +30,14 @@ Finally,  **Build and Run** project MELIStore
  For developing this project it was neccessary to use some framework:
 
 * Alamofire: To call Api rest services
-* SCLAlertView: To show several alertView to manage errors
+* SCLAlertView: To show several alertView to manage errors and some information
 * SkeletonView: Needed to show animation until data loades
-* Codable : To serialize/deserialize api call responses
+* Codable : To serialize/deserialize API call responses
 
 
-# MELIStore can do
+# MELIStore can do:
 
-    * Watch product categories from Mercado libre
+    * Search category products from Mercado libre API developers
     * Search products by category
     * See information about product (name, price, available)
     * Add to favorite product list
@@ -43,7 +47,7 @@ Finally,  **Build and Run** project MELIStore
 
 # Architecture
 
-App has a VIPER ARCHITECTURE, for that reason, this is the structrute inside it:
+App has a VIPER ARCHITECTURE (clean architecture), for that reason, this is the structrute inside it:
 
 - APIServiceManager: HTTP calls to API to get movie information.
 
@@ -69,4 +73,5 @@ For VIPER ARCHITECTURE, every module has six folder, this way:
 
 
 # Unit Test
-//// Be continue.....
+ MELIStore has unit test, to probe every API call. Those can find them in project MELIStoreTest.
+ Just play RUN.
