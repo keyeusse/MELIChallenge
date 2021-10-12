@@ -12,6 +12,7 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     
     weak var presenter: ProductCategoryInteractorOutputProtocol?
     private let apiClient = APIClient()
+    private let apiClientCategory = APIClientSearchProducts()
     private var categoriesResults: [CategoryEntity]?
     private var categoryResults: CategoryDetail?
     private var productsResult: Products?
@@ -27,8 +28,8 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     }
     
     func loadCategoryData(name: String) {
-        apiClient.productSearchDelegate = self
-        apiClient.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
+        apiClientCategory.productSearchDelegate = self
+        apiClientCategory.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
     }
     
     func getNumberOfItemsAt(_ index: Int) -> Int {

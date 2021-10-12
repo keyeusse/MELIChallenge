@@ -11,7 +11,8 @@ import UIKit
 class ProductsInteractor: ProductsInteractorInputProtocol {
     
     weak var presenter: ProductsInteractorOutputProtocol?
-    private let apiClient = APIClient()
+    private let apiClient = APIClientCategoryProducts()
+    private let apiClientSearch = APIClientSearchProducts()
     private var productsResult: Products?
     private var productsSearchResult: Products?
     
@@ -41,8 +42,8 @@ class ProductsInteractor: ProductsInteractorInputProtocol {
     }
     
     func loadSearchedProductsData(name: String) {
-        apiClient.productSearchDelegate = self
-        apiClient.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
+        apiClientSearch.productSearchDelegate = self
+        apiClientSearch.getProductsSearchList(url: .productNameSearch, categoryName: name, siteId: .mexico)
     }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 class ProductDetailInteractor: ProductDetailInteractorInputProtocol {
     
     var presenter: ProductDetailInteractorOutputProtocol?
-    private let apiClient = APIClient()
+    private let apiClient = APIClientProductDescription()
     private var productDescriptionResult: ProductDetailDescription?
     
     func loadDescriptionData(categoryId: String) {
