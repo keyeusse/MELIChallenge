@@ -12,7 +12,8 @@ import XCTest
 class ProductTests: XCTestCase {
     private var apiClient: APIClientProductMock?
     
-    let expectedProductName = "Hidrolavadora Black+decker Bw13 Con 1450psi De Presión Máxima 220v"
+    let expectedProductName = TextResourcesTest.expectedProductName.rawValue
+    let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
       self.apiClient = APIClientProductMock()
@@ -25,7 +26,11 @@ class ProductTests: XCTestCase {
     }
     
     func testGetProduct() {
-        apiClient?.getProductDetail(url: .product, idProduct: "MCO657478327")
+        apiClient?.getProductDetail(url: .product, idProduct: TextResourcesTest.idProduct.rawValue)
+    }
+    
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
     }
 }
 
@@ -34,13 +39,11 @@ extension ProductTests: APIProductResponseProtocol {
         XCTAssertEqual(data.title, expectedProductName)
     }
     
-    
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
     
   }

@@ -12,7 +12,7 @@ import XCTest
 class CategoryProductsTests: XCTestCase {
     private var apiClient: APIClientCategoryProductsMock?
     
-    let expectedProductName = "Hidrolavadora Black+decker Bw13 Con 1450psi De Presión Máxima 220v"
+    let expectedProductName = TextResourcesTest.expectedProductName.rawValue
     let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
@@ -26,7 +26,8 @@ class CategoryProductsTests: XCTestCase {
     }
     
     func testGetProductCategoryList() {
-        self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: "MCO441917", siteId: .mexico)
+        self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: TextResourcesTest.idCategory.rawValue,
+                                                  siteId: .mexico)
     }
     
     func testGetErrorURL() {
@@ -40,9 +41,7 @@ extension CategoryProductsTests: APIProductsByCategoryResponseProtocol {
         XCTAssertEqual(data.results[0].title, expectedProductName)
     }
     
-    
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {

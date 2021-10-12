@@ -48,6 +48,10 @@ extension APIClientProductMock: APIClientProductProtocol {
         }
         self.delegateProduct?.getProductResult(data: getProductForTest(fromJSONFile: "Product") ?? product)
     }
+    
+    func getErrorNoInternet() {
+        self.delegateProduct?.onIntenetFailure(TextResources.noInternet.rawValue)
+    }
 
 }
 

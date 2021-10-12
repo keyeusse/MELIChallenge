@@ -12,7 +12,7 @@ import XCTest
 class SearchProductsTests: XCTestCase {
     private var apiClient: APIClientSearchProductsMock?
     
-    let expectedCategoryName = "Acc. para Motos y Cuatrimotos"
+    let expectedCategoryName = TextResourcesTest.expectedSearchedCategoryName.rawValue
     let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
@@ -26,7 +26,7 @@ class SearchProductsTests: XCTestCase {
     }
     
     func testGetProductSearchList() {
-        apiClient?.getProductsSearchList(url: .productNameSearch, categoryName: "Acc. para Motos y Cuatrimotos", siteId: .mexico)
+        apiClient?.getProductsSearchList(url: .productNameSearch, categoryName: TextResourcesTest.expectedSearchedCategoryName.rawValue, siteId: .mexico)
     }
     
     func testGetErrorURL() {
@@ -41,7 +41,6 @@ extension SearchProductsTests: APISearchProductsResponseProtocol {
     }
     
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {

@@ -12,7 +12,7 @@ import XCTest
 class CategoriesTests: XCTestCase {
     private var apiClient: APIClientMock?
     
-    let expectedName = "Agro"
+    let expectedName = TextResourcesTest.expectedCategoryName.rawValue
     let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
@@ -40,7 +40,6 @@ extension CategoriesTests: APICategoriesResponseProtocol {
     }
     
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {

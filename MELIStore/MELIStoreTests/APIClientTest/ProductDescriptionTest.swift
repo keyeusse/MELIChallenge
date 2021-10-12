@@ -11,6 +11,7 @@ import XCTest
 
 class ProductDescriptionTests: XCTestCase {
     private var apiClient: APIClientProductDescriptionMock?
+    let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
       self.apiClient = APIClientProductDescriptionMock()
@@ -24,22 +25,25 @@ class ProductDescriptionTests: XCTestCase {
     
 
     func testGetProductDescription() {
-        apiClient?.getProductDetailDescription(url: .productDescription, productId: "MCO558134948")
+        apiClient?.getProductDetailDescription(url: .productDescription, productId: TextResourcesTest.productId.rawValue)
+    }
+    
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
     }
     
 }
 
 extension ProductDescriptionTests: APIProductDescriptionResponseProtocol {
     func getproductDescription(data: ProductDetailDescription) {
-        XCTAssertNotNil(data.plainText, "Tiene algo")
+        XCTAssertNotNil(data.plainText, TextResourcesTest.textPlain.rawValue)
     }
     
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
     
   }

@@ -49,6 +49,10 @@ extension APIClientCategoryMock: APIClientCategoryProtocol {
         }
         self.delegateCategory?.getCategoryResult(data: getCategoryForTest(fromJSONFile: "Category") ?? category)
     }
+    
+    func getErrorNoInternet() {
+        self.delegateCategory?.onIntenetFailure(TextResources.noInternet.rawValue)
+    }
 
 }
 

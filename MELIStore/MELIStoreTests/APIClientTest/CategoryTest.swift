@@ -11,7 +11,8 @@ import XCTest
 
 class CategoryTests: XCTestCase {
     private var apiClient: APIClientCategoryMock?
-    let expectedName = "Agro"
+    let expectedName = TextResourcesTest.expectedCategoryName.rawValue
+    let noInternet = TextResources.noInternet.rawValue
     
     override func setUp() {
       self.apiClient = APIClientCategoryMock()
@@ -25,7 +26,11 @@ class CategoryTests: XCTestCase {
     
     
     func testGetCategory() {
-        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: "MCO441917")
+        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: TextResourcesTest.idCategory.rawValue)
+    }
+    
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
     }
     
 }
@@ -34,11 +39,10 @@ class CategoryTests: XCTestCase {
 extension CategoryTests: APICategoryResponseProtocol {
     
     func onFailure(_ error: Error) {
-        
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
     
     func getCategoryResult(data: CategoryDetail) {
