@@ -12,6 +12,9 @@ import XCTest
 class SearchProductsTests: XCTestCase {
     private var apiClient: APIClientSearchProductsMock?
     
+    let expectedCategoryName = "Acc. para Motos y Cuatrimotos"
+    let noInternet = TextResources.noInternet.rawValue
+    
     override func setUp() {
       self.apiClient = APIClientSearchProductsMock()
         self.apiClient?.delegateSearchProduct = self
@@ -22,34 +25,19 @@ class SearchProductsTests: XCTestCase {
       self.apiClient = nil
     }
     
-//    func testGetCategoriesList() {
-//        self.apiClient?.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
-//    }
-    
-//    func testGetCategory() {
-//        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: "MCO441917")
-//    }
-//
-//    func testGetProductCategoryList() {
-//        self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: "MCO441917", siteId: .mexico)
-//    }
-//
-//    func testGetProduct() {
-//    }
-//
     func testGetProductSearchList() {
-        apip
-        
+        apiClient?.getProductsSearchList(url: .productNameSearch, categoryName: "Acc. para Motos y Cuatrimotos", siteId: .mexico)
     }
-//
-//    func testGetProductDescription() {
-//    }
+    
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
+    }
     
 }
 
 extension SearchProductsTests: APISearchProductsResponseProtocol {
     func getproductSearchResult(data: Products) {
-        
+        XCTAssertEqual(data.query, expectedCategoryName)
     }
     
     func onFailure(_ error: Error) {
@@ -57,7 +45,7 @@ extension SearchProductsTests: APISearchProductsResponseProtocol {
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
     
   }

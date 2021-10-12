@@ -47,5 +47,9 @@ extension APIClientSearchProductsMock: APIClientSearchProductsProtocol {
         }
         self.delegateSearchProduct?.getproductSearchResult(data: getProducstForTest(fromJSONFile: "ProductsByCategoryName") ?? products)
     }
+    
+    func getErrorNoInternet() {
+        self.delegateSearchProduct?.onIntenetFailure(TextResources.noInternet.rawValue)
+    }
 
 }

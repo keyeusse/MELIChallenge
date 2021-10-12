@@ -51,7 +51,6 @@ class APIClientCategory: APIClientCategoryProtocol {
     }
     
 
-    
     // check connection to internet
     class ConnectivityToIntenet {
       class var isConnectedToInternet: Bool {

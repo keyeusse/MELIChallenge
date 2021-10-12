@@ -30,9 +30,9 @@ class APIClientProduct: APIClientProductProtocol {
     init() {}
         
 
-////  Api call to load product detail by id
+//  Api call to load product detail by id
     func getProductDetail(url: APIServiceUrls, idProduct: String) {
-        if(ConnectivityToIntenet.isConnectedToInternet){
+        if(ConnectivityToIntenet2.isConnectedToInternet){
             let fullPathURL = url.rawValue + idProduct
 
             AF.request(fullPathURL).validate().responseDecodable(of: Product.self) { (response) in
@@ -49,7 +49,7 @@ class APIClientProduct: APIClientProductProtocol {
     }
     
     // check connection to internet
-    class ConnectivityToIntenet {
+    class ConnectivityToIntenet2 {
       class var isConnectedToInternet: Bool {
         return NetworkReachabilityManager()?.isReachable ?? false
       }

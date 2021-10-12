@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-//// MARK: - Protocols for call api to use product list response
+// MARK: - Protocols for call api to use product list response
 protocol APIProductsByCategoryResponseProtocol {
     func getProductsByCategoryResult(data: Products)
     func onFailure(_ error: Error)
@@ -22,18 +22,16 @@ protocol APIClientCategoryProductsProtocol: AnyObject {
 
 }
 
-
 // MARK: - Call to api services from Mercado libre
 class APIClientCategoryProducts: APIClientCategoryProductsProtocol {
 
 // MARK: - Protocols to responses
-
     var productsByCategoryDelegate: APIProductsByCategoryResponseProtocol?
 
     
     init() {}
         
-////    Api call to load product list by category
+//    Api call to load product list by category
     func getProductsByCategoryList(url: APIServiceUrls, idCategory: String, siteId: APIProductSiteId) {
         if(ConnectivityToIntenet.isConnectedToInternet){
             let URL = url.rawValue
@@ -52,9 +50,7 @@ class APIClientCategoryProducts: APIClientCategoryProductsProtocol {
             self.productsByCategoryDelegate?.onIntenetFailure(TextResources.noInternet.rawValue)
         }
     }
-//
 
-    
     // check connection to internet
     class ConnectivityToIntenet {
       class var isConnectedToInternet: Bool {

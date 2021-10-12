@@ -12,6 +12,9 @@ import XCTest
 class CategoryProductsTests: XCTestCase {
     private var apiClient: APIClientCategoryProductsMock?
     
+    let expectedProductName = "Hidrolavadora Black+decker Bw13 Con 1450psi De Presión Máxima 220v"
+    let noInternet = TextResources.noInternet.rawValue
+    
     override func setUp() {
       self.apiClient = APIClientCategoryProductsMock()
         self.apiClient?.delegateProductsByCategory = self
@@ -22,33 +25,19 @@ class CategoryProductsTests: XCTestCase {
       self.apiClient = nil
     }
     
-//    func testGetCategoriesList() {
-//        self.apiClient?.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
-//    }
-    
-//    func testGetCategory() {
-//        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: "MCO441917")
-//    }
-//
     func testGetProductCategoryList() {
         self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: "MCO441917", siteId: .mexico)
     }
-//
-//    func testGetProduct() {
-//    }
-//
-//    func testGetProductSearchList() {
-//    }
-//
-//    func testGetProductDescription() {
-//    }
     
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
+    }
 }
 
 extension CategoryProductsTests: APIProductsByCategoryResponseProtocol {
     
     func getProductsByCategoryResult(data: Products) {
-//        Funciona bien
+        XCTAssertEqual(data.results[0].title, expectedProductName)
     }
     
     
@@ -57,7 +46,7 @@ extension CategoryProductsTests: APIProductsByCategoryResponseProtocol {
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
   }
 

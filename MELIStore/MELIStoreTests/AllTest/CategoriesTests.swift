@@ -12,6 +12,9 @@ import XCTest
 class CategoriesTests: XCTestCase {
     private var apiClient: APIClientMock?
     
+    let expectedName = "Agro"
+    let noInternet = TextResources.noInternet.rawValue
+    
     override func setUp() {
       self.apiClient = APIClientMock()
         self.apiClient?.delegateCategories = self
@@ -26,28 +29,14 @@ class CategoriesTests: XCTestCase {
         self.apiClient?.getAllCategoriesList(url: .categoriesAll, siteId: .mexico)
     }
     
-//    func testGetCategory() {
-//        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: "MCO441917")
-//    }
-//
-//    func testGetProductCategoryList() {
-//        self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: "MCO441917", siteId: .mexico)
-//    }
-//
-//    func testGetProduct() {
-//    }
-//
-//    func testGetProductSearchList() {
-//    }
-//
-//    func testGetProductDescription() {
-//    }
-    
+    func testGetErrorURL() {
+        self.apiClient?.getErrorNoInternet()
+    }
 }
 
 extension CategoriesTests: APICategoriesResponseProtocol {
     func getCategoriesResult(data: [CategoryEntity]) {
-//        funciona bien
+        XCTAssertEqual(data[1].name, expectedName)
     }
     
     func onFailure(_ error: Error) {
@@ -55,7 +44,7 @@ extension CategoriesTests: APICategoriesResponseProtocol {
     }
     
     func onIntenetFailure(_ error: String) {
-        
+        XCTAssertEqual(error, noInternet)
     }
     
   }

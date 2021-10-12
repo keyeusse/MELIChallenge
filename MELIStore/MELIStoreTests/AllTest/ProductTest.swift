@@ -12,6 +12,8 @@ import XCTest
 class ProductTests: XCTestCase {
     private var apiClient: APIClientProductMock?
     
+    let expectedProductName = "Hidrolavadora Black+decker Bw13 Con 1450psi De Presión Máxima 220v"
+    
     override func setUp() {
       self.apiClient = APIClientProductMock()
         self.apiClient?.delegateProduct = self
@@ -22,30 +24,14 @@ class ProductTests: XCTestCase {
       self.apiClient = nil
     }
     
-    
-//    func testGetCategory() {
-//        self.apiClient?.getCategoryList(url: .categoryInfo, idCategory: "MCO441917")
-//    }
-//
-//    func testGetProductCategoryList() {
-//        self.apiClient?.getProductsByCategoryList(url: .categoryProducts, idCategory: "MCO441917", siteId: .mexico)
-//    }
-//
     func testGetProduct() {
         apiClient?.getProductDetail(url: .product, idProduct: "MCO657478327")
     }
-//
-//    func testGetProductSearchList() {
-//    }
-//
-//    func testGetProductDescription() {
-//    }
-    
 }
 
 extension ProductTests: APIProductResponseProtocol {
     func getProductResult(data: Product) {
-//        funciona bien
+        XCTAssertEqual(data.title, expectedProductName)
     }
     
     

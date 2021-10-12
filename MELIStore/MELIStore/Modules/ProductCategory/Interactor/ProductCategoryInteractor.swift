@@ -45,7 +45,7 @@ class ProductCategoryInteractor: ProductCategoryInteractorInputProtocol {
     }
     
     func getNumberOfSearchedItemsAt(_ index: Int) -> Int {
-        return productsResult?.result.count ?? 0
+        return productsResult?.results.count ?? 0
     }
 }
 

@@ -48,6 +48,10 @@ extension APIClientCategoryProductsMock: APIClientCategoryProductsProtocol {
         }
         self.delegateProductsByCategory?.getProductsByCategoryResult(data: getProducstForTest(fromJSONFile: "ProductsByCategory") ?? products)
     }
+    
+    func getErrorNoInternet() {
+        self.delegateProductsByCategory?.onIntenetFailure(TextResources.noInternet.rawValue)
+    }
 
 }
 

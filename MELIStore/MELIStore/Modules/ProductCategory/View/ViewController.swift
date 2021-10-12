@@ -108,7 +108,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             guard let product = getProductsItemAt(indexPath),
                   let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.idCell) as? ProductTableViewCell else { return UITableViewCell()}
-            cell.setUpCell(product: product.result[indexPath.row])
+            cell.setUpCell(product: product.results[indexPath.row])
             return cell
         }
     }
@@ -136,7 +136,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let category = getCategoriesItemAt(indexPath) else { return }
               presenter?.showProductListView(for: category.id, from: self)
         } else {
-            guard let product = getProductsItemAt(indexPath)?.result[indexPath.row] else { return }
+            guard let product = getProductsItemAt(indexPath)?.results[indexPath.row] else { return }
             presenter?.showProductDetailView(for: product, from: self)
         }
      

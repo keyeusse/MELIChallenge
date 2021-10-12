@@ -11,6 +11,7 @@ import XCTest
 
 class CategoryTests: XCTestCase {
     private var apiClient: APIClientCategoryMock?
+    let expectedName = "Agro"
     
     override func setUp() {
       self.apiClient = APIClientCategoryMock()
@@ -41,7 +42,7 @@ extension CategoryTests: APICategoryResponseProtocol {
     }
     
     func getCategoryResult(data: CategoryDetail) {
-        print(data)
+        XCTAssertEqual(data.name, expectedName)
     }
   }
 

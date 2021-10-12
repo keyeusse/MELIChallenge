@@ -8,8 +8,7 @@
 import Foundation
 
 // VIPER ENTITY
-struct Errors {
-    let code: String
-    let message: String
-    let title: String
-}
+enum MyError: Error {
+        case someExpectedError
+        case someUnexpectedError
+    }
